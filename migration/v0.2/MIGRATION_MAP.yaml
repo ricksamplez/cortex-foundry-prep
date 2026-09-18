@@ -51,7 +51,7 @@ sections:
   - {source: 45, title: "External Reference Systems", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems"], status: moved}
   - {source: 46, title: "Final Architecture Freedom", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#architecture-and-naming-freedom"], status: strengthened}
   - {source: 47, title: "Perfect Codex Setup — Separate Final Research Phase", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#purpose-and-scope"], status: run_isolated}
-  - {source: 48, title: "Codex Baseline", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#harness-baseline-and-alternatives"], status: run_isolated}
+  - {source: 48, title: "Codex Baseline", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#harness-baseline-and-alternatives", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-host-profile"], status: superseded_stronger, notes: "Codex v0.153.4 remains leading baseline, but owner later changed the host from CachyOS/Arch to a dedicated Ubuntu 26.04.1 LTS laptop and allowed evidence-based harness replacement."}
   - {source: 49, title: "Codex Experimental Features", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#experimental-features"], status: run_isolated}
   - {source: 50, title: "Codex Tooling Freedom", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom"], status: run_isolated}
   - {source: 51, title: "Third-Party Software Policy for Codex", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#third-party-software-policy"], status: run_isolated}
@@ -61,7 +61,7 @@ sections:
   - {source: 55, title: "Astra Implementation Handoff", destination: ["40_RESEARCH_COMPLETION_AND_HANDOFF.md#curated-implementation-handoff"], status: moved}
   - {source: 56, title: "GPT-6 Pro as Architecture Reviewer", destination: ["runbooks/ARCHITECTURE_REVIEW.md#review-role-and-scope"], status: run_isolated}
   - {source: 57, title: "GitHub Issue Workflow for Reviews", destination: ["runbooks/ARCHITECTURE_REVIEW.md#issue-workflow"], status: strengthened}
-  - {source: 58, title: "Research Program Stages", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#research-program-stages"], status: moved}
+  - {source: 58, title: "Research Program Stages", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#research-program-stages", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#purpose-and-scope", "runbooks/ARCHITECTURE_REVIEW.md#review-role-and-scope"], status: split, notes: "Research stages retained, while implementation-harness setup and independent review are isolated into their own runs instead of universal research context."}
   - {source: 59, title: "Initial Research Domains", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#initial-research-domains"], status: moved}
   - {source: 60, title: "Completion Criteria", destination: ["40_RESEARCH_COMPLETION_AND_HANDOFF.md#research-completion-criteria"], status: strengthened}
   - {source: 61, title: "Success Standard", destination: ["40_RESEARCH_COMPLETION_AND_HANDOFF.md#success-standard"], status: moved}
