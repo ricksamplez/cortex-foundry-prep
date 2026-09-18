@@ -33,10 +33,10 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 30 |
-| unique decision IDs | 30 |
+| persisted decision IDs | 40 |
+| unique decision IDs | 40 |
 | decisions still pending integration | 0 |
-| mapped decision destination references | 35 |
+| mapped decision destination references | 57 |
 | broken decision destination references | 0 |
 
 ## Scope-isolation checks
@@ -73,7 +73,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 
 - **§6 Smallest Adequate Intelligence:** retained while allowing effective end-to-end cost/reliability to matter rather than treating nominal model size as the only optimization.
 - **§11 Routing/Allocation/Scheduling:** strengthened with module/capability-level workflow routing while retaining global observability.
-- **§18 Reference Workloads:** expanded from five workload families to seven and requires three production-meaningful tiers per family.
+- **§18 Reference Workloads:** expanded from five workload families to a seven-workload target framework with three production-meaningful tiers per family. Six workload families are currently fixed; the seventh remains deliberately open. The AI VTuber / AI Performer is now Social Companion Tier C rather than a standalone workload.
 - **§23 Ontology:** strengthened with canonicalization/collision semantics and new module-extension entity relationships.
 - **§31 Research Autonomy:** strengthened with durable non-blocking open-question handling.
 - **§36 CI Permission:** strengthened to container-first execution for WebUI runs, GitHub Actions only when justified, and heavy accelerator work deferred.
@@ -83,6 +83,10 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **§57 Review Issues:** strengthened to permit zero-to-many deduplicated/actionable issues per milestone review campaign.
 - **§58 Research Stages:** implementation-harness setup and independent architecture review were moved into separate run-specific contracts instead of universal research context.
 - **§60 Completion Criteria:** strengthened and reordered so research completes and prepares a handoff before the separate implementation-harness setup finalizes the execution environment.
+- **Avatar interoperability / multi-source perception:** added explicit VRM + VRChat package support targets, PMX/MMD interoperability target, real owner-provided fixtures, and independently routable named vision streams.
+- **Unavailable hardware:** added simulation/emulation requirements so important hardware-dependent coverage is not silently skipped; real surrounding software should be retained when practical.
+- **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
+- **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
 
 ## Important retained owner deltas
 
@@ -101,7 +105,7 @@ The modular draft explicitly retains, among other additions:
 - approved external/local test-provider boundaries;
 - guaranteed-capacity-only Provider Capacity Snapshots;
 - feature/modality-aware Model Suitability Knowledge Base;
-- seven reference workload families and 21+ tier systems;
+- seven-workload target framework and 21+ eventual tier systems, with six families currently fixed and the seventh intentionally pending;
 - Bedside Companion Tier-A concept including Huawei P30/Android candidate;
 - Desktop Agent Tier-C learning-by-demonstration capability cluster;
 - extensible instruction/context artifacts beyond `AGENTS.md`;
