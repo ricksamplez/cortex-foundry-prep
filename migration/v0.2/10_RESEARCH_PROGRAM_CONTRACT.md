@@ -175,6 +175,8 @@ Evaluate candidates for:
 
 The implementation-harness setup run may separately search skill registries with the narrower goal of optimizing the implementation harness.
 
+If research identifies a public skill as promising for the **future system itself**, record it as a candidate with source/provenance and rationale. Research selection is not shipping approval: implementation must later evaluate the candidate against the actual system and may modify, replace, or reject it.
+
 ---
 
 ## Scope Expansion
@@ -361,6 +363,19 @@ Experiments should preserve enough information to understand:
 - revisit conditions.
 
 Negative results are valuable project knowledge.
+
+### Unavailable physical hardware
+
+Important hardware-dependent behavior must not be omitted merely because the physical hardware is unavailable during implementation/evaluation.
+
+Research should specify a suitable simulation/emulation strategy when necessary and distinguish:
+
+- what can be validated faithfully in simulation/emulation;
+- what should use the real surrounding software stack with simulated devices;
+- what still requires later physical-hardware validation;
+- what fidelity gaps may affect conclusions.
+
+Prefer exercising real protocols/interfaces/software around a simulated missing device when practical rather than replacing the whole integration with a mock.
 
 ---
 
