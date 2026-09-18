@@ -1,0 +1,75 @@
+source:
+  title: "Cortex Foundry — Requirements Charter & Research Program Definition v0.1"
+  sha256: "8b2731602fd968c046045c49b1fd194c432f594dc171cb1482137b987c7335c4"
+migration_version: "v0.2-draft"
+
+sections:
+  - {source: 1, title: "Mission", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#mission"], status: moved}
+  - {source: 2, title: "Research Philosophy", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#research-philosophy"], status: moved}
+  - {source: 3, title: "Decision Classes", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#epistemic-and-decision-classes"], status: moved}
+  - {source: 4, title: "Core Architectural Invariants", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#core-architectural-invariants"], status: moved}
+  - {source: 5, title: "Heterogeneous Intelligence", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#heterogeneous-capability-providers"], status: moved}
+  - {source: 6, title: "Smallest Adequate Intelligence", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#smallest-adequate-intelligence"], status: strengthened, notes: "Expanded by effective-cost and model-suitability guidance elsewhere without weakening the principle."}
+  - {source: 7, title: "Polyglot Requirement", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#polyglot-and-language-neutral-contracts"], status: moved}
+  - {source: 8, title: "Deployment and Compute Invariants", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#deployment-and-compute-scaling"], status: moved}
+  - {source: 9, title: "Hardware Neutrality", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#hardware-neutrality"], status: moved}
+  - {source: 10, title: "Execution Fabric", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#execution-and-resource-abstraction"], status: moved}
+  - {source: 11, title: "Routing, Allocation, and Scheduling", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#routing-allocation-and-scheduling"], status: strengthened}
+  - {source: 12, title: "Router Latency", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#routing-latency"], status: moved}
+  - {source: 13, title: "Adaptive Resource Allocation", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#adaptive-resource-allocation"], status: moved}
+  - {source: 14, title: "Time Scales and Cognitive Lanes", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#time-scales-and-cognitive-lanes"], status: moved}
+  - {source: 15, title: "Interruption and Intercept", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#interruption-and-proactive-intercept", "20_REFERENCE_WORKLOADS.md#cross-workload-capability-stressors"], status: split}
+  - {source: 16, title: "Event, State, and Idempotency Requirements", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#event-state-idempotency-and-replay"], status: moved}
+  - {source: 17, title: "Long-Lived Operation", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#long-lived-operation"], status: moved}
+  - {source: 18, title: "Reference Workloads", destination: ["20_REFERENCE_WORKLOADS.md#reference-workload-families"], status: strengthened, notes: "Expanded from five to at least seven workload families and three production-meaningful tiers each."}
+  - {source: 19, title: "Profiles as Composition", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#profiles-composition-and-extension", "20_REFERENCE_WORKLOADS.md#composition-principle"], status: split}
+  - {source: 20, title: "Provider Compatibility", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#provider-and-protocol-compatibility"], status: moved}
+  - {source: 21, title: "Module Standard", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#module-system-requirements", "30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#module-documentation-standard"], status: split}
+  - {source: 22, title: "Module Lifecycle", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#module-lifecycle"], status: moved}
+  - {source: 23, title: "Extensible Canonical Ontology", destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#canonical-extensible-ontology"], status: strengthened}
+  - {source: 24, title: "Research Workspace", destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#research-workspace"], status: moved}
+  - {source: 25, title: "No Monster Files", destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#bounded-file-growth"], status: moved}
+  - {source: 26, title: "Research Artifacts vs Implementation", destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#research-artifacts-vs-implementation"], status: moved}
+  - {source: 27, title: "Evidence and Provenance", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#evidence-and-provenance"], status: moved}
+  - {source: 28, title: "External Repository Research", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-repositories-and-prior-art"], status: moved}
+  - {source: 29, title: "Public Skill Registries", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#public-skill-registries", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#skills-plugins-and-mcps"], status: split}
+  - {source: 30, title: "Scope Expansion", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#scope-expansion"], status: moved}
+  - {source: 31, title: "Research Autonomy", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#autonomy-and-assumption-policy"], status: strengthened}
+  - {source: 32, title: "Maximize Useful Work Per Turn", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#maximize-useful-work-per-turn"], status: moved}
+  - {source: 33, title: "Continuation Protocol", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#continuation-protocol"], status: moved}
+  - {source: 34, title: "Persistent Checkpoints", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#persistent-checkpoints", "30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#canonical-state-and-checkpoints"], status: split}
+  - {source: 35, title: "Research Helper Tools", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#research-helper-tools"], status: moved}
+  - {source: 36, title: "CI Permission", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#code-execution-and-ci-policy"], status: strengthened, notes: "Container-first policy added; heavy accelerator evaluation deferred."}
+  - {source: 37, title: "Experiments", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#experiments"], status: moved}
+  - {source: 38, title: "Evaluation Framework", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#evaluation-framework"], status: moved}
+  - {source: 39, title: "Optimization and Self-Improvement", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#controlled-optimization-and-improvement"], status: moved}
+  - {source: 40, title: "Security and Trust", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#security-trust-and-governance"], status: moved}
+  - {source: 41, title: "Versioning and Compatibility", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#versioning-compatibility-and-evolution"], status: moved}
+  - {source: 42, title: "Documentation as a Product Requirement", destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#documentation-as-a-product-requirement"], status: moved}
+  - {source: 43, title: "Research Repository Role", destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#repository-authority"], status: moved}
+  - {source: 44, title: "Prior Internal Blueprint", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#prior-internal-designs"], status: moved}
+  - {source: 45, title: "External Reference Systems", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems"], status: moved}
+  - {source: 46, title: "Final Architecture Freedom", destination: ["00_CORE_REQUIREMENTS_CHARTER.md#architecture-and-naming-freedom"], status: strengthened}
+  - {source: 47, title: "Perfect Codex Setup — Separate Final Research Phase", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#purpose-and-scope"], status: run_isolated}
+  - {source: 48, title: "Codex Baseline", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#harness-baseline-and-alternatives"], status: run_isolated}
+  - {source: 49, title: "Codex Experimental Features", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#experimental-features"], status: run_isolated}
+  - {source: 50, title: "Codex Tooling Freedom", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom"], status: run_isolated}
+  - {source: 51, title: "Third-Party Software Policy for Codex", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#third-party-software-policy"], status: run_isolated}
+  - {source: 52, title: "Codex Custom Tool Development", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#custom-tooling"], status: run_isolated}
+  - {source: 53, title: "Codex Subagents", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#subagents"], status: strengthened}
+  - {source: 54, title: "Codex Setup Evaluation", destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#setup-evaluation"], status: run_isolated}
+  - {source: 55, title: "Astra Implementation Handoff", destination: ["40_RESEARCH_COMPLETION_AND_HANDOFF.md#curated-implementation-handoff"], status: moved}
+  - {source: 56, title: "GPT-6 Pro as Architecture Reviewer", destination: ["runbooks/ARCHITECTURE_REVIEW.md#review-role-and-scope"], status: run_isolated}
+  - {source: 57, title: "GitHub Issue Workflow for Reviews", destination: ["runbooks/ARCHITECTURE_REVIEW.md#issue-workflow"], status: strengthened}
+  - {source: 58, title: "Research Program Stages", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#research-program-stages"], status: moved}
+  - {source: 59, title: "Initial Research Domains", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#initial-research-domains"], status: moved}
+  - {source: 60, title: "Completion Criteria", destination: ["40_RESEARCH_COMPLETION_AND_HANDOFF.md#research-completion-criteria"], status: strengthened}
+  - {source: 61, title: "Success Standard", destination: ["40_RESEARCH_COMPLETION_AND_HANDOFF.md#success-standard"], status: moved}
+  - {source: 62, title: "Final Research Directive", destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#final-research-directive"], status: moved}
+
+audit:
+  source_section_count: 62
+  mapped_section_count: 62
+  unmapped_sections: []
+  dropped_sections: []
+  semantic_audit_complete: false
