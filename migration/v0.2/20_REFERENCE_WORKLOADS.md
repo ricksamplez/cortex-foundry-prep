@@ -210,9 +210,11 @@ This workload is intentionally limited to bedside/near-device use; it does not n
 
 ##### Candidate physical platform
 
-An older Android phone-class device is available for full repurposing and experimentation, making Android a particularly interesting candidate platform.
+A Huawei P30 (`ELE-L29`) is available for full repurposing and experimentation, making Android a particularly interesting concrete candidate platform.
 
-Research must not assume that all inference fits locally.
+The device may be freely modified/reconfigured for this use case.
+
+Research must not assume that all inference fits locally. In particular, components such as TTS may reasonably be offloaded when local compute/quality would produce an unacceptable voice experience.
 
 A practical architecture may combine:
 
@@ -220,6 +222,8 @@ A practical architecture may combine:
 - local avatar/device-control logic;
 - cloud or LAN-hosted conversational intelligence;
 - offloaded TTS or other components when local quality/compute is inadequate.
+
+A ready VRM avatar asset may be supplied to the implementation workspace; avatar-authoring itself should not become an accidental prerequisite for validating the Bedside Companion runtime.
 
 The exact split remains a research decision.
 
