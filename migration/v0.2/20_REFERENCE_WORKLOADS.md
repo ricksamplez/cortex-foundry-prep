@@ -182,7 +182,8 @@ Stresses:
 - memory;
 - multimodal presence;
 - routines;
-- interruption/turn-taking.
+- interruption/turn-taking;
+- progressively richer embodiment.
 
 #### Tier A fixed concept: Bedside Companion
 
@@ -192,7 +193,7 @@ This concept is intentionally more constrained than other tier definitions becau
 
 Required/likely capabilities for research to refine:
 
-- 3D avatar using VRM-compatible assets;
+- 3D avatar;
 - ASR;
 - TTS;
 - vision;
@@ -204,13 +205,13 @@ Required/likely capabilities for research to refine:
 - companion-like morning/night routines;
 - personal waking behavior that can assess whether the user is actually awake rather than merely firing an alarm.
 
-**Home automation is not a Tier-A Bedside Companion requirement.**
-
 This workload is intentionally limited to bedside/near-device use; it does not need room-scale or house-scale complexity.
 
 ##### Candidate physical platform
 
 A Huawei P30 (`ELE-L29`) is available for full repurposing and experimentation, making Android a particularly interesting concrete candidate platform.
+
+During implementation, this device is expected to remain physically connected to the implementation laptop with ADB enabled so installation, debugging, logging, control, and repeatable device-level testing can be automated.
 
 The device may be freely modified/reconfigured for this use case.
 
@@ -223,25 +224,25 @@ A practical architecture may combine:
 - cloud or LAN-hosted conversational intelligence;
 - offloaded TTS or other components when local quality/compute is inadequate.
 
-A ready VRM avatar asset may be supplied to the implementation workspace; avatar-authoring itself should not become an accidental prerequisite for validating the Bedside Companion runtime.
+A ready avatar asset may be supplied to the implementation workspace; avatar-authoring itself should not become an accidental prerequisite for validating the Bedside Companion runtime.
 
 The exact split remains a research decision.
 
-#### Tier B and Tier C
+#### Tier B
 
-Design progressively broader and more ambitious social companion systems while preserving modularity and avoiding unnecessary coupling to the Bedside Companion implementation.
+Design a broader serious social companion that expands continuity, initiative, multimodal interaction, memory, tools, and richer embodied/social behavior without yet requiring the full live-performer integration burden of Tier C.
 
----
+Research should define the exact boundary from Tier A using architecture/value rather than arbitrary feature count.
 
-### Embodied AI VTuber / AI Performer
+#### Tier C fixed direction: Embodied AI VTuber / AI Performer
 
-Acts as a high-complexity integration workload.
+Tier C should use an ambitious persistent **Embodied AI VTuber / AI Performer** as the Social Companion hard-mode reference system.
 
 Potential stressors include:
 
 - persistent runtime;
 - streaming ASR;
-- voice;
+- expressive TTS/voice;
 - multimodal perception;
 - multiple speakers;
 - speaker attribution;
@@ -265,12 +266,46 @@ Potential stressors include:
 - world/game state;
 - realtime controllers;
 - degraded operation;
-- 2D/3D/VRM-related embodiment adapters;
-- external application/protocol control.
+- external application/protocol control;
+- long-running live-operation reliability.
 
-The workload should generate reusable modules rather than forcing AI-VTuber-specific assumptions into the core.
+##### Independent vision streams
 
-#### Embodiment/control architecture stress
+Tier C must support multiple independent named vision streams rather than one undifferentiated visual feed.
+
+Initial examples include:
+
+- desktop/screen view;
+- webcam view of the human/operator;
+- mirror/self-view so the agent can perceive its own rendered appearance;
+- additional future streams when useful.
+
+Each stream must be individually enableable/disableable.
+
+The architecture should preserve source identity/provenance and allow source-specific:
+
+- sampling/rate;
+- preprocessing;
+- privacy policy;
+- latency budget;
+- model/provider routing;
+- retention;
+- fusion with other streams.
+
+Not every stream must be sent to the same model or processed at the same rate.
+
+The system should support optional cross-stream fusion without losing the ability to reason about streams independently.
+
+##### Avatar interoperability and control stress
+
+3D avatar support must be designed so the system can work cleanly with at least:
+
+- VRM avatars;
+- VRChat-ready Unity avatar packages (`.unitypackage`).
+
+PMX/MMD avatar support is also an explicit interoperability target and should be supported where technically practical.
+
+Implementation testing will have access to one owner-provided avatar available in all three representations, together with its textures, so compatibility should be validated with real fixture assets rather than only synthetic placeholders.
 
 Reference designs should exercise the distinction between:
 
@@ -286,6 +321,8 @@ A controller must only expose/effect actions supported by the connected target.
 Research should consider interoperable control layers such as VMC-compatible adapters where appropriate, while keeping protocol specifics outside the core.
 
 VLA-style control should be conceptualized broadly enough to share abstractions with non-avatar embodied agents when appropriate.
+
+The Tier-C AI Performer should generate reusable modules rather than forcing performer-specific assumptions into the core.
 
 ---
 
@@ -315,7 +352,17 @@ It stresses wider environment understanding/control, potentially including:
 - safety constraints;
 - auditability.
 
-Tier A should still be a real useful home/environment system rather than a demo.
+#### Tier A fixed direction: Greenhouse Agent
+
+Tier A should be a focused, genuinely useful **Greenhouse Agent**.
+
+It should exercise real environment sensing/control, schedules, automation coexistence, fault handling, and physical-world consequences without requiring whole-home scope.
+
+Where Home Assistant semantics are part of the test, prefer a real Home Assistant OS instance with simulated/emulated devices rather than replacing Home Assistant itself with a fake. On the Ubuntu implementation host, a virtualized HAOS instance is the appropriate class of setup; Home Assistant Container is a distinct installation type and should not be treated as equivalent when HAOS-specific behavior matters.
+
+#### Tier B and Tier C
+
+Research should expand from the greenhouse-scale environment into progressively broader ambient/home automation systems.
 
 Tier C may approach an ambitious "JARVIS-style" ambient agent, but research must translate that cultural shorthand into explicit technical requirements rather than importing fictional capabilities.
 
@@ -339,11 +386,13 @@ Stresses:
 - potentially background/parallel work;
 - multi-agent orchestration.
 
-#### Tier A
+#### Tier A fixed direction: Application-Attached CoWork Agent
 
-A focused, genuinely productive computer agent with a carefully prioritized capability set.
+Tier A should be a focused, genuinely productive agent attached to **one specific application** and optimized for collaborative work inside that application's domain.
 
-It should be simple enough to expose whether the platform can support a lean desktop agent without immediately becoming an overgrown office suite.
+The intended pattern is one dedicated co-work agent per application rather than a general desktop controller pretending to understand everything.
+
+It should be able to combine the application's available API/tool surface with visual/UI interaction where useful, maintain task context for that application, verify work, recover from ordinary UI drift, and remain intentionally lean enough to expose whether the platform supports high-quality application-specific agents without overbuilding a universal office suite.
 
 #### Tier B
 
@@ -369,9 +418,40 @@ An ambitious desktop-work environment that may include:
 - recovery;
 - long-lived work context.
 
-**Learning from demonstration is a Tier-C capability cluster, not a separate workload that must itself be artificially split into three tiers.**
 
 Research should investigate relevant approaches such as Programming/Learning from Demonstration and modern agentic workflow induction.
+
+---
+
+### Embodied Robotics / Physical Agent
+
+This workload covers agents/controllers acting through physical or physically simulated embodiments rather than only software/UI surfaces.
+
+It stresses:
+
+- VLA and other perception-action policies;
+- sensor fusion;
+- continuous/low-latency control;
+- action-space negotiation;
+- embodied state/proprioception;
+- motion/planning/control separation;
+- safety constraints;
+- hard stop/preemption behavior;
+- simulation/emulation;
+- sim-to-real concerns;
+- asynchronous high-level cognition plus fast low-level controllers;
+- partial hardware failure;
+- actuator/sensor availability;
+- deterministic safety boundaries;
+- observability/replay of embodied actions.
+
+The exact three tier systems should be derived during research.
+
+Tier A must still be genuinely useful and may use a serious simulated embodiment when suitable physical hardware is unavailable.
+
+Higher tiers should progressively stress richer sensing, control, autonomy, and multi-component physical interaction.
+
+A general controller/action-surface abstraction should make it possible for some controller families — including appropriate VLA controllers — to operate avatars, robots, simulated agents, or other embodiments through target-specific adapters rather than requiring unrelated controller architectures for every target.
 
 ---
 
@@ -400,7 +480,8 @@ Important cross-cutting stressors include:
 - module-level routing;
 - human-in-the-loop approval;
 - proactive behavior;
-- learning/adaptation.
+- learning/adaptation;
+- hardware simulation/emulation and explicit simulation-to-real gaps.
 
 A capability reused by several workload families is a strong candidate for generic platform support, but reuse must be proven rather than forced by naming similarity.
 
