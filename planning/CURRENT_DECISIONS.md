@@ -569,3 +569,140 @@ Before launching the first real research run:
 8. design the Research Start Contract / first-run prompt;
 9. define leak checks so preparation-only information cannot enter later run material;
 10. only then initialize/populate the actual research workspace for the run.
+
+
+---
+
+## 23. Avatar interoperability and owner-provided implementation fixtures
+
+3D avatar interoperability must support at minimum:
+
+- VRM;
+- VRChat-ready Unity avatar packages (`.unitypackage`).
+
+PMX/MMD is an additional explicit interoperability target and should work cleanly where technically practical.
+
+The owner has one matching avatar available in all three formats plus associated textures/assets.
+
+During implementation, these files will be placed into a dedicated owner-provided Inbox/fixture directory in the implementation workspace.
+
+Original Inbox assets should be treated as reproducible fixtures and should not be destructively modified in place unless explicitly authorized.
+
+---
+
+## 24. Hardware simulation/emulation instead of skipped coverage
+
+If important physical hardware is unavailable, implementation/evaluation should use suitable simulation/emulation rather than simply omit the test.
+
+Examples include:
+
+- robots/embodied agents simulated in Unity, Unreal Engine, or another suitable environment;
+- simulated sensors/actuators;
+- simulated smart-home devices;
+- emulated devices where useful.
+
+Prefer the real surrounding software stack plus simulated missing hardware when feasible.
+
+If Home Assistant OS semantics matter, use a real HAOS instance and simulate the unavailable devices around it. On the Ubuntu implementation host, virtualization is the appropriate class of deployment; Home Assistant Container is a distinct installation type and should not be treated as equivalent for HAOS-specific validation.
+
+Simulation limitations and remaining physical-validation gaps must be documented.
+
+---
+
+## 25. Research-selected public skills require implementation reevaluation
+
+Public skills identified during Research for possible use by the future system are candidates, not approved dependencies.
+
+Implementation must evaluate them against the actual architecture, security model, maintenance state, license, current requirements, and overlap with native project capabilities.
+
+Implementation may adopt, modify, replace, or reject/retire them.
+
+The resulting decision and rationale should become durable project knowledge.
+
+---
+
+## 26. Bedside device implementation connection
+
+During the implementation run, the Huawei P30 (`ELE-L29`) is expected to remain physically connected to the implementation laptop with ADB enabled.
+
+This permits automated installation, debugging, logs, control, and repeatable device-level testing.
+
+---
+
+## 27. Reference workload restructuring
+
+The AI VTuber / AI Performer is no longer a separate reference-workload family.
+
+It becomes the fixed **Tier C direction of the Social Companion** workload.
+
+Social Companion structure:
+
+- Tier A: Bedside Companion;
+- Tier B: broader serious Social Companion, detailed design open to research;
+- Tier C: Embodied AI VTuber / AI Performer.
+
+Tier C must support multiple independent named vision streams, including initially:
+
+- desktop/screen;
+- webcam view of the human/operator;
+- mirror/self-view of the agent/avatar;
+- future additional streams where useful.
+
+Streams must be independently enableable/disableable and preserve source identity/provenance. They may use different sampling, preprocessing, privacy, routing, retention, and latency policies.
+
+---
+
+## 28. Reference workload Tier-A anchors
+
+### Ambient Environment / Home-Automation Agent
+
+Tier A fixed direction: **Greenhouse Agent**.
+
+Where HAOS semantics are relevant, use a real HAOS software instance with simulated/emulated devices rather than faking the entire HAOS layer.
+
+### Interactive Desktop / Computer Agent
+
+Tier A fixed direction: **Application-Attached CoWork Agent**.
+
+The intended pattern is a dedicated agent attached to one specific application/domain, combining native API/tool surfaces and visual/UI interaction where useful.
+
+Tier B remains a broader cross-application serious work system.
+
+Tier C remains an ambitious desktop-work system including multi-agent orchestration, background/parallel work, skill creation, interactive teaching, and learning/programming from demonstration.
+
+---
+
+## 29. Seventh reference workload remains intentionally open
+
+The program still targets seven workload families and three production-meaningful tiers per family.
+
+Only six workload families are currently fixed after moving the AI VTuber into Social Companion Tier C.
+
+Do not fill the seventh slot merely to preserve the count.
+
+A candidate should add a genuinely orthogonal architecture stress dimension.
+
+Embodied Robotics / Physical Agent is currently a strong candidate because it would stress VLA/control, sensor fusion, continuous control, physical safety, simulation/emulation, and sim-to-real behavior, but it is **not yet an accepted requirement**.
+
+---
+
+## 30. Project Docs mirror semantics
+
+Project Docs are stable always-on mirrors/snapshots for ChatGPT Project context.
+
+Once Research is active, the matching repository files are the canonical evolving versions.
+
+Project Docs should be deliberately refreshed when a material stable update needs to remain always-on context.
+
+Do not allow Project Docs and repository files to evolve as two independent competing authorities.
+
+---
+
+## 31. Provider Capacity Snapshot wording refinement
+
+Future-facing Provider Capacity Snapshot requirements should describe relevant plan/account limit dimensions without discussing saved/banked/bonus reset mechanisms.
+
+The architecture/planning representation should simply model the provider capacity that is actually treated as available under the relevant plan/account snapshot.
+
+Preparation history may retain the rationale, but final Research documents should avoid unnecessary discussion of non-modeled bonus mechanisms.
+
