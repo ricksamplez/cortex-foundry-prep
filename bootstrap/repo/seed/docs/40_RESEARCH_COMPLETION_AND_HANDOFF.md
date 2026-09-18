@@ -1,6 +1,6 @@
 # Research Completion & Implementation Handoff Requirements
 
-**Status:** initial canonical research document — modular charter set v0.2 candidate
+**Status:** initial canonical research document — modular charter set v0.2 candidate  
 **Scope:** defines when architecture research is sufficiently complete and what must be handed to the later implementation-harness setup and implementation phases.
 
 ---
@@ -102,6 +102,9 @@ The handoff should contain, at minimum:
 - Model Suitability guidance relevant to the implementation;
 - open implementation questions;
 - known deferred experiments;
+- unavailable-hardware simulation/emulation plans and remaining physical-validation gaps;
+- candidate public skills or reusable external components that implementation must evaluate before adoption;
+- owner-provided implementation fixtures/assets expected at implementation time;
 - assumptions that implementation must validate;
 - pointers into deeper research where needed.
 
@@ -204,6 +207,8 @@ Deferred items should include, where useful:
 - revisit trigger.
 
 A deferred experiment must not masquerade as completed evidence.
+
+If physical hardware is unavailable but suitable simulation/emulation exists, the relevant test should ordinarily be prepared or executed through that simulation rather than simply marked "hardware unavailable" and skipped. Remaining physical-only validation must be explicit.
 
 ---
 
