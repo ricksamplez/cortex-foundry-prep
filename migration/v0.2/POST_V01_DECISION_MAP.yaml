@@ -96,7 +96,7 @@ decisions:
     status: integrated
   - id: D024
     topic: "Avatar Engine exposes supported action surface; controllers consume intersection; VMC/app adapters; VLA pattern may control other embodiments"
-    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#controller-and-target-action-surfaces", "20_REFERENCE_WORKLOADS.md#embodied-ai-vtuber-ai-performer"]
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#controller-and-target-action-surfaces", "20_REFERENCE_WORKLOADS.md#tier-c-fixed-direction-embodied-ai-vtuber-ai-performer"]
     status: integrated
   - id: D025
     topic: "Per-module/capability routing supports serial, parallel, fan-in/out, conditional, cascade, fallback, speculative, feedback; global observability retained"
