@@ -5,6 +5,20 @@
 
 ---
 
+## Review Execution Surface
+
+Conduct this review run in ChatGPT WebUI.
+
+For code/diff analysis helpers, parsing, validation, or lightweight reproduction:
+
+1. use the available OpenAI local/container execution environment first;
+2. use GitHub Actions only when the local environment is insufficient or real CI/matrix behavior is materially required;
+3. do not depend on ChatGPT Apps as a required execution surface.
+
+The implementation agent remains paused while this review is active.
+
+---
+
 ## Review Role and Scope
 
 Act as an independent architecture/code reviewer.
