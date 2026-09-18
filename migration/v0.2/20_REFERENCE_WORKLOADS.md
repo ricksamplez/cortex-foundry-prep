@@ -487,7 +487,7 @@ The core must not become a collection of hardcoded special cases for the seven r
 
 ## Evaluation Use
 
-The 21+ reference systems should be used throughout architecture research to ask:
+The completed tiered reference-system set — targeting 21+ systems once the seventh workload is selected — should be used throughout architecture research to ask:
 
 - Can this requirement be expressed cleanly?
 - Which core abstractions are shared?
