@@ -71,7 +71,7 @@ decisions:
     destination: ["20_REFERENCE_WORKLOADS.md#tier-model"]
     status: integrated
   - id: D018
-    topic: "Seven workload families and at least 21 reference systems"
+    topic: "Seven-workload target framework; six families fixed, seventh pending; 21+ reference systems once selected"
     destination: ["20_REFERENCE_WORKLOADS.md#reference-workload-families"]
     status: integrated
   - id: D019
