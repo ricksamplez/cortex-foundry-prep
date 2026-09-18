@@ -1,6 +1,6 @@
 # Research Workspace & Knowledge Governance
 
-**Status:** initial canonical research document — modular charter set v0.2 candidate
+**Status:** initial canonical research document — modular charter set v0.2 candidate  
 **Purpose:** define how research knowledge is structured, validated, persisted, and reused.
 
 ---
@@ -43,7 +43,17 @@ The research repository is the canonical source for:
 
 Chat transcripts are not authoritative project state.
 
-Project Docs may provide stable bootstrap context, but canonical evolving knowledge belongs in the repository.
+### Project Docs vs repository copies
+
+Project Docs are intentionally small, stable always-on **mirrors/snapshots** used to bootstrap and orient a Research chat.
+
+Once the Research run is active, the corresponding repository files are the canonical evolving versions.
+
+If a stable project document changes materially and the change should remain always-on context for future chats, update the Project Doc mirror deliberately after the repository version is accepted.
+
+Do not allow the Project Doc and repository copy to evolve independently into competing authorities.
+
+When a mismatch is discovered, the repository copy wins unless the owner explicitly approves a different authoritative update.
 
 ---
 
@@ -181,7 +191,7 @@ Other documents should link/reference canonical information instead of copying i
 
 ## Module Documentation Standard
 
-Every implemented reusable module must have both:
+Every reusable module selected for implementation/shipping must have both:
 
 1. a structured machine-readable **Module Card**;
 2. a human- and agent-readable `README.md`.
@@ -311,7 +321,7 @@ Provider limits change over time and should not be hardcoded into permanent arch
 
 Maintain time-stamped provider-capacity snapshots when provider availability/capacity materially affects evaluation or implementation planning.
 
-Capture relevant **guaranteed or normal plan/account limits** such as:
+Capture relevant plan/account constraints such as:
 
 - requests per minute;
 - tokens per minute;
@@ -328,14 +338,6 @@ Capture relevant **guaranteed or normal plan/account limits** such as:
 - context/input/output limits where relevant;
 - source;
 - checked-at timestamp.
-
-### Guaranteed-capacity rule
-
-Do **not** count saved/banked resets, opportunistic bonus resets, temporary promotional capacity, or similar non-guaranteed mechanisms as dependable provider capacity.
-
-Plan capacity is plan capacity.
-
-Bonus capacity may be observed elsewhere if operationally useful, but it must not inflate the resource assumptions used by architecture/planning.
 
 ---
 
