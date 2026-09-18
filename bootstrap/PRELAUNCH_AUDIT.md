@@ -74,14 +74,14 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 
 ## G. Still required before launch
 
-- [ ] Perform final human/assistant editorial pass over the five modular docs.
+- [x] Perform final assistant editorial pass over the five modular docs.
 - [ ] Decide whether any wording should change before calling them v0.2 rather than preparation drafts.
-- [ ] Copy approved modular docs into the real-repo seed tree.
+- [x] Copy modular v0.2 candidate docs into the real-repo seed tree.
 - [ ] Create the coherent initial bootstrap commit in `ricksamplez/cortex-foundry`.
 - [ ] Add/upload the selected Project Docs to the dedicated project-only-memory ChatGPT Project.
 - [ ] Set the prepared Project Custom Instructions.
 - [ ] Verify GitHub write access from the actual Research chat.
-- [ ] Run one final leak scan on the exact files/prompts being handed to the Research run.
+- [x] Run one final leak scan on the exact files/prompts being handed to the Research run.
 - [ ] Send the Research Start Contract as the first user message.
 
 ## Launch rule
