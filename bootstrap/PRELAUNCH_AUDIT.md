@@ -74,7 +74,7 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 
 ## G. Still required before launch
 
-- [x] Perform final assistant editorial pass over the five modular docs.
+- [ ] Perform final human/assistant editorial pass over the five modular docs after the latest approved changes.
 - [ ] Decide whether any wording should change before calling them v0.2 rather than preparation drafts.
 - [x] Copy modular v0.2 candidate docs into the real-repo seed tree.
 - [ ] Create the coherent initial bootstrap commit in `ricksamplez/cortex-foundry`.
