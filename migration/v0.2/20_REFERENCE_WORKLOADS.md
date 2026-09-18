@@ -18,9 +18,11 @@ They exist to:
 - force realistic failure/degraded-mode design;
 - evaluate reuse across materially different applications.
 
-The architecture must support at least the seven workload families below.
+The program targets **seven** materially different workload families.
 
-Each family must eventually be developed into **three complete, production-meaningful reference systems**, yielding at least 21 reference systems.
+Six families are currently fixed below. The seventh remains intentionally open until a genuinely orthogonal, useful workload is selected; do not fill the slot merely to preserve a count.
+
+Once the seventh family is selected, every family must be developed into **three complete, production-meaningful reference systems**, yielding at least 21 reference systems.
 
 Research may add additional orthogonal workloads when strong evidence shows they expose an important architectural dimension not covered here.
 
@@ -115,13 +117,11 @@ Stresses:
 - error recovery;
 - potentially subagent/delegation patterns.
 
-Tier A should demonstrate that a deliberately minimal coding harness can still be fully productive rather than a toy.
+No concrete Coding-Agent tier implementation is fixed yet.
 
-Tier B should represent a broader serious coding workflow.
+Research must design all three tiers according to the global tier semantics. Tier A should remain deliberately lean yet fully productive; Tier B should represent a broader serious coding workflow; Tier C should stress ambitious engineering orchestration without adding complexity merely for spectacle.
 
-Tier C should stress ambitious engineering orchestration without requiring every possible feature to exist merely for complexity.
-
-Research should derive the concrete tier systems from evidence rather than cloning one existing coding product.
+Existing systems may be studied as references, but the tier systems must be derived from requirements rather than cloned.
 
 ---
 
@@ -142,7 +142,9 @@ Stresses:
 - contradiction handling;
 - experiments/analysis where relevant.
 
-The three tiers should progress from a focused but genuinely useful research workflow through a broad research system to an ambitious long-running research environment.
+No concrete Research-Assistant tier implementation is fixed yet.
+
+Research must design all three tiers according to the global tier semantics, progressing from a focused but genuinely useful research workflow through a broad serious research system to an ambitious long-running research environment.
 
 ---
 
@@ -164,6 +166,8 @@ Stresses:
 - permission boundaries.
 
 Keep this workload distinct from the Social Companion: practical assistance may overlap with social behavior, but neither should automatically collapse into the other.
+
+No concrete Personal-Assistant tier implementation is fixed yet. Research must design all three tiers according to the global tier semantics.
 
 ---
 
@@ -228,11 +232,13 @@ A ready avatar asset may be supplied to the implementation workspace; avatar-aut
 
 The exact split remains a research decision.
 
-#### Tier B
+#### Tier B — Open design space
 
-Design a broader serious social companion that expands continuity, initiative, multimodal interaction, memory, tools, and richer embodied/social behavior without yet requiring the full live-performer integration burden of Tier C.
+Tier B is intentionally not fixed yet.
 
-Research should define the exact boundary from Tier A using architecture/value rather than arbitrary feature count.
+Research should design a broader serious social companion that expands continuity, initiative, multimodal interaction, memory, tools, and richer embodied/social behavior without yet requiring the full live-performer integration burden of Tier C.
+
+Define the exact boundary from Tier A using architecture/value rather than arbitrary feature count.
 
 #### Tier C fixed direction: Embodied AI VTuber / AI Performer
 
@@ -360,7 +366,7 @@ It should exercise real environment sensing/control, schedules, automation coexi
 
 Where Home Assistant semantics are part of the test, prefer a real Home Assistant OS instance with simulated/emulated devices rather than replacing Home Assistant itself with a fake. On the Ubuntu implementation host, a virtualized HAOS instance is the appropriate class of setup; Home Assistant Container is a distinct installation type and should not be treated as equivalent when HAOS-specific behavior matters.
 
-#### Tier B and Tier C
+#### Tier B and Tier C — Open design space
 
 Research should expand from the greenhouse-scale environment into progressively broader ambient/home automation systems.
 
@@ -394,13 +400,13 @@ The intended pattern is one dedicated co-work agent per application rather than 
 
 It should be able to combine the application's available API/tool surface with visual/UI interaction where useful, maintain task context for that application, verify work, recover from ordinary UI drift, and remain intentionally lean enough to expose whether the platform supports high-quality application-specific agents without overbuilding a universal office suite.
 
-#### Tier B
+#### Tier B — Fixed direction, open detailed design
 
 A broader cross-application work system capable of serious multi-step productivity workflows, artifact creation/manipulation, browser/files/app interaction, and robust task continuation.
 
 Research may study contemporary computer-work products as evidence/prior art but should derive the tier from requirements rather than clone a product.
 
-#### Tier C
+#### Tier C — Fixed direction, open detailed design
 
 An ambitious desktop-work environment that may include:
 
@@ -423,35 +429,15 @@ Research should investigate relevant approaches such as Programming/Learning fro
 
 ---
 
-### Embodied Robotics / Physical Agent
+### Seventh Reference Workload — Pending Selection
 
-This workload covers agents/controllers acting through physical or physically simulated embodiments rather than only software/UI surfaces.
+The seventh workload family is intentionally **not yet fixed**.
 
-It stresses:
+Select it only when a candidate adds a materially different architecture stress dimension that is not already covered by the other six families.
 
-- VLA and other perception-action policies;
-- sensor fusion;
-- continuous/low-latency control;
-- action-space negotiation;
-- embodied state/proprioception;
-- motion/planning/control separation;
-- safety constraints;
-- hard stop/preemption behavior;
-- simulation/emulation;
-- sim-to-real concerns;
-- asynchronous high-level cognition plus fast low-level controllers;
-- partial hardware failure;
-- actuator/sensor availability;
-- deterministic safety boundaries;
-- observability/replay of embodied actions.
+A strong candidate may involve physical/robotic embodiment, simulation-to-real control, or another orthogonal domain, but this is not yet a requirement.
 
-The exact three tier systems should be derived during research.
-
-Tier A must still be genuinely useful and may use a serious simulated embodiment when suitable physical hardware is unavailable.
-
-Higher tiers should progressively stress richer sensing, control, autonomy, and multi-component physical interaction.
-
-A general controller/action-surface abstraction should make it possible for some controller families — including appropriate VLA controllers — to operate avatars, robots, simulated agents, or other embodiments through target-specific adapters rather than requiring unrelated controller architectures for every target.
+Research may propose the final seventh workload when enough evidence exists, or the owner may fix it before the Research run.
 
 ---
 
@@ -481,7 +467,7 @@ Important cross-cutting stressors include:
 - human-in-the-loop approval;
 - proactive behavior;
 - learning/adaptation;
-- hardware simulation/emulation and explicit simulation-to-real gaps.
+- hardware simulation/emulation and explicit physical-validation gaps where hardware-dependent workloads require them.
 
 A capability reused by several workload families is a strong candidate for generic platform support, but reuse must be proven rather than forced by naming similarity.
 
