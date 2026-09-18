@@ -5,119 +5,119 @@ decisions:
   - id: D001
     topic: "Run scope isolation"
     destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#run-scope-boundaries", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md", "runbooks/ARCHITECTURE_REVIEW.md"]
-    status: pending
+    status: integrated
   - id: D002
     topic: "Project-only memory; repository/Project Docs authoritative"
     destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#repository-authority", "10_RESEARCH_PROGRAM_CONTRACT.md#run-scope-boundaries"]
-    status: pending
+    status: integrated
   - id: D003
     topic: "Do not tell research/review model its elite model/version identity"
     destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#model-name-hygiene", "runbooks/ARCHITECTURE_REVIEW.md#review-model-name-hygiene"]
-    status: pending
+    status: integrated
   - id: D004
     topic: "External repos and public skill registries permitted as evidence/prior art"
     destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-repositories-and-prior-art", "10_RESEARCH_PROGRAM_CONTRACT.md#public-skill-registries"]
-    status: pending
+    status: integrated
   - id: D005
     topic: "First-party shipped skills sparse and curated"
     destination: ["00_CORE_REQUIREMENTS_CHARTER.md#first-party-skills"]
-    status: pending
+    status: integrated
   - id: D006
     topic: "No monster files; semantic decomposition and deterministic sharding/rotation"
     destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#bounded-file-growth"]
-    status: pending
+    status: integrated
   - id: D007
     topic: "WebUI code execution container-first; GitHub Actions only when justified; heavy accelerator eval deferred"
     destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#code-execution-and-ci-policy"]
-    status: pending
+    status: integrated
   - id: D008
     topic: "Dedicated Ubuntu 26.04.1 implementation host and installed baseline tooling"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-host-profile"]
-    status: pending
+    status: integrated
   - id: D009
     topic: "Codex v0.153.4 leading baseline but harness replaceable with strong evidence and supported ChatGPT OAuth"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#harness-baseline-and-alternatives"]
-    status: pending
+    status: integrated
   - id: D010
     topic: "Astra Xhigh/Max main-agent candidates are hypothesis, not guaranteed usage rule"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#main-agent-configuration"]
-    status: pending
+    status: integrated
   - id: D011
     topic: "Subagent selection uses effective total cost, public evidence, targeted validation"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#subagents"]
-    status: pending
+    status: integrated
   - id: D012
     topic: "Implementation harness may not use local/external project providers as its own subagents"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-subagent-boundary"]
-    status: pending
+    status: integrated
   - id: D013
     topic: "ChatGPT OAuth project-under-test provider limited to GPT-5.6 Luna up to Max; never Astra"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries"]
-    status: pending
+    status: integrated
   - id: D014
     topic: "Approved project-test providers: Ollama Cloud, Groq, explicit OpenRouter free models, NVIDIA NIM, Luna OAuth"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries"]
-    status: pending
+    status: integrated
   - id: D015
     topic: "Provider Capacity Snapshot captures guaranteed plan/resource limits only; excludes saved/banked/bonus resets"
     destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#provider-capacity-snapshots"]
-    status: pending
+    status: integrated
   - id: D016
     topic: "Model Suitability KB includes size/class, cost, tool use, structured output, modalities, streaming, context, per-feature requirements"
     destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#model-suitability-knowledge-base"]
-    status: pending
+    status: integrated
   - id: D017
     topic: "Three production-meaningful workload tiers; Tier A is lean/focused production, not diagnostic/toy"
     destination: ["20_REFERENCE_WORKLOADS.md#tier-model"]
-    status: pending
+    status: integrated
   - id: D018
     topic: "Seven workload families and at least 21 reference systems"
     destination: ["20_REFERENCE_WORKLOADS.md#reference-workload-families"]
-    status: pending
+    status: integrated
   - id: D019
     topic: "Desktop/Computer Agent Tier C includes apprenticeship/learning-by-demonstration; do not tier the single feature"
-    destination: ["20_REFERENCE_WORKLOADS.md#interactive-desktop--computer-agent"]
-    status: pending
+    destination: ["20_REFERENCE_WORKLOADS.md#interactive-desktop-computer-agent"]
+    status: integrated
   - id: D020
     topic: "Social Companion Tier A fixed as focused Bedside Companion; Android/Huawei P30 candidate; device control only, no HA requirement"
     destination: ["20_REFERENCE_WORKLOADS.md#social-companion"]
-    status: pending
+    status: integrated
   - id: D021
     topic: "Bedside Companion personal morning/go-to-bed routines and wakefulness-aware waking"
     destination: ["20_REFERENCE_WORKLOADS.md#social-companion"]
-    status: pending
+    status: integrated
   - id: D022
     topic: "Instruction/context artifacts extend beyond AGENTS.md (SOUL.md, USER.md, DESIGN.md, etc.)"
     destination: ["00_CORE_REQUIREMENTS_CHARTER.md#context-and-instruction-artifact-extensibility"]
-    status: pending
+    status: integrated
   - id: D023
     topic: "Modules can extend/contribute to other modules through explicit versioned extension surfaces; requires/provides/extends remain distinct"
     destination: ["00_CORE_REQUIREMENTS_CHARTER.md#module-extension-and-contribution-model"]
-    status: pending
+    status: integrated
   - id: D024
     topic: "Avatar Engine exposes supported action surface; controllers consume intersection; VMC/app adapters; VLA pattern may control other embodiments"
-    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#controller-and-target-action-surfaces", "20_REFERENCE_WORKLOADS.md#embodied-ai-vtuber--ai-performer"]
-    status: pending
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#controller-and-target-action-surfaces", "20_REFERENCE_WORKLOADS.md#embodied-ai-vtuber-ai-performer"]
+    status: integrated
   - id: D025
     topic: "Per-module/capability routing supports serial, parallel, fan-in/out, conditional, cascade, fallback, speculative, feedback; global observability retained"
     destination: ["00_CORE_REQUIREMENTS_CHARTER.md#module-level-routing-and-workflow-composition"]
-    status: pending
+    status: integrated
   - id: D026
     topic: "Ship a small curated set of production-quality demo/template modules"
     destination: ["00_CORE_REQUIREMENTS_CHARTER.md#reference-and-template-modules"]
-    status: pending
+    status: integrated
   - id: D027
     topic: "Architecture review only at meaningful milestones; implementation paused; stable checkpoint"
     destination: ["runbooks/ARCHITECTURE_REVIEW.md#review-trigger-and-checkpoint"]
-    status: pending
+    status: integrated
   - id: D028
     topic: "One review campaign creates zero-to-many deduplicated/actionable issues; spec-conflict path allowed"
     destination: ["runbooks/ARCHITECTURE_REVIEW.md#issue-workflow"]
-    status: pending
+    status: integrated
   - id: D029
     topic: "Research program name is not the final system/runtime/framework name; research may choose deliberate non-sloppy canonical system name"
     destination: ["00_CORE_REQUIREMENTS_CHARTER.md#architecture-and-naming-freedom"]
-    status: pending
+    status: integrated
   - id: D030
     topic: "No-loss migration itself is preparation governance, not future-system requirement"
     destination: ["MIGRATION_MAP.yaml", "MIGRATION_AUDIT.md"]
@@ -125,5 +125,5 @@ decisions:
 
 audit:
   decision_count: 30
-  integrated_count: 1
-  pending_count: 29
+  integrated_count: 30
+  pending_count: 0
