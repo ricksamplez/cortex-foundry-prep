@@ -97,7 +97,7 @@ Avoid vague tier descriptions that cannot act as architecture tests.
 
 ## Reference Workload Families
 
-### 1. Coding Agent
+### Coding Agent
 
 Stresses:
 
@@ -125,7 +125,7 @@ Research should derive the concrete tier systems from evidence rather than cloni
 
 ---
 
-### 2. Research Assistant
+### Research Assistant
 
 Stresses:
 
@@ -146,7 +146,7 @@ The three tiers should progress from a focused but genuinely useful research wor
 
 ---
 
-### 3. Persistent Personal Assistant
+### Persistent Personal Assistant
 
 Stresses:
 
@@ -167,7 +167,7 @@ Keep this workload distinct from the Social Companion: practical assistance may 
 
 ---
 
-### 4. Social Companion
+### Social Companion
 
 Stresses:
 
@@ -229,7 +229,7 @@ Design progressively broader and more ambitious social companion systems while p
 
 ---
 
-### 5. Embodied AI VTuber / AI Performer
+### Embodied AI VTuber / AI Performer
 
 Acts as a high-complexity integration workload.
 
@@ -285,7 +285,7 @@ VLA-style control should be conceptualized broadly enough to share abstractions 
 
 ---
 
-### 6. Ambient Environment / Home-Automation Agent
+### Ambient Environment / Home-Automation Agent
 
 This workload is distinct from the Bedside Companion.
 
@@ -317,7 +317,7 @@ Tier C may approach an ambitious "JARVIS-style" ambient agent, but research must
 
 ---
 
-### 7. Interactive Desktop / Computer Agent
+### Interactive Desktop / Computer Agent
 
 Stresses:
 
