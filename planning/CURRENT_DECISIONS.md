@@ -352,31 +352,40 @@ The final tier names may be improved by research.
 
 ---
 
-## 14. Seven reference workloads
+## 14. Reference workload framework
 
-The program now targets at least seven workload families:
+The program targets seven workload families with three production-meaningful tiers each.
+
+Six families are currently fixed:
 
 1. Coding Agent
 2. Research Assistant
 3. Persistent Personal Assistant
 4. Social Companion
-5. Embodied AI VTuber / AI Performer
-6. Ambient Environment / Home-Automation Agent
-7. Interactive Desktop / Computer Agent
+5. Ambient Environment / Home-Automation Agent
+6. Interactive Desktop / Computer Agent
 
-With three systems each, this yields at least 21 reference systems.
+The seventh family remains intentionally open until a genuinely orthogonal, useful workload is selected.
+
+Once selected, the framework yields at least 21 reference systems.
+
+### Social Companion
+
+Current fixed anchors:
+
+- Tier A: Bedside Companion;
+- Tier B: broader serious Social Companion, detailed design open;
+- Tier C: Embodied AI VTuber / AI Performer.
 
 ### Desktop / Computer Agent
 
-The earlier standalone Interactive Apprenticeship / Learning-by-Demonstration idea is now primarily a major Tier-C capability cluster of the Desktop/Computer Agent rather than its own workload.
+The earlier standalone Interactive Apprenticeship / Learning-by-Demonstration idea is primarily a major Tier-C capability cluster of the Desktop/Computer Agent rather than its own workload.
 
-Likely progression for research to formalize:
+Current progression:
 
-- Tier A: focused, genuinely productive computer agent;
-- Tier B: broader cross-app work in the spirit of systems such as ChatGPT Work / Claude Co-Work;
+- Tier A: Application-Attached CoWork Agent;
+- Tier B: broader serious cross-application work system;
 - Tier C: ambitious multi-agent desktop work, background/parallel workflows, skill creation, learning from demonstration, interactive teaching, cross-application task induction, verification/recovery, etc.
-
-Do not artificially create three tiers of the single teach-by-demonstration feature itself.
 
 ---
 
