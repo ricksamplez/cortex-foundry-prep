@@ -103,7 +103,11 @@ Known Codex CUDA-capable security/approval baseline that has already worked:
 
 This is an allowed known-good baseline, not automatically the final recommendation.
 
-Ordinary implementation/test work should run locally on this host rather than consume GitHub Actions merely for compute.
+The implementation run must execute its own code/tests/evaluations on the dedicated host or approved project providers.
+
+**Do not use GitHub Actions as an execution resource for the implementation run.** GitHub Actions capacity is reserved for the separate WebUI research/setup-design/review runs unless the owner explicitly changes this constraint.
+
+The implementation run may author CI/workflow files for the project when the architecture calls for them, but should not trigger/consume GitHub Actions minutes as part of its own implementation workflow under the current constraint.
 
 ---
 
@@ -360,12 +364,14 @@ They must not augment the implementation agent's own reasoning workforce.
 
 Existing owner-approved resources for **project-under-test** work may include:
 
-- Ollama Cloud Free;
-- Groq Free;
-- OpenRouter Free;
+- Ollama Cloud Free — already configured on the implementation host;
+- Groq Free — account/key exists but integration may still need setup;
+- OpenRouter Free — account/key exists but integration may still need setup;
 - NVIDIA NIM free endpoints;
 - local models/runtimes;
 - ChatGPT-subscription OAuth under the Luna-only rule below.
+
+The Groq/OpenRouter accounts intentionally have no payment information configured; do not assume paid fallback capacity.
 
 For OpenRouter:
 
@@ -385,7 +391,7 @@ If the project-under-test exercises a ChatGPT subscription/OAuth provider during
 
 This prevents project testing from consuming the same scarce Astra capacity required to implement/fix the system.
 
-If substantially stronger intelligence is genuinely required for a project evaluation, use an approved external test provider instead, subject to current availability/limits.
+If substantially stronger intelligence is genuinely required for a project evaluation, use an approved external test provider instead, subject to current availability/limits. A strong NVIDIA NIM model such as Kimi K3 is an example candidate when available; this is not a permanent provider/model requirement.
 
 ### `codex exec`
 
