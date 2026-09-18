@@ -145,6 +145,23 @@ Consumer hardware may be useful benchmark/deployment profiles, but poor performa
 
 The system should support profiles spanning constrained local systems, consumer workstations, large-memory accelerators, multi-GPU systems, hybrid local/remote execution, and distributed compute.
 
+### Hardware absence, simulation, and emulation
+
+Lack of a physical device must not automatically remove an important capability from evaluation.
+
+When required hardware is unavailable, use an appropriate simulator/emulator/digital test environment where doing so can exercise the real software contracts, protocols, control surfaces, and failure behavior with useful fidelity.
+
+Examples may include:
+
+- robots/embodied systems in Unity, Unreal Engine, or other suitable robotics/simulation environments;
+- simulated sensors/actuators;
+- emulated mobile/edge devices when real devices are unavailable;
+- simulated smart-home devices connected to the real automation software stack.
+
+Prefer **real surrounding software plus simulated missing hardware** over replacing the entire integration with a fake when the real software can reasonably run.
+
+Simulation/emulation limitations and remaining hardware-only validation gaps must be explicit rather than silently treated as equivalent to physical testing.
+
 ---
 
 ## Execution and Resource Abstraction
@@ -290,6 +307,31 @@ Slow cognition must not unnecessarily block fast reactions.
 
 ---
 
+## Multi-Source Perception
+
+The platform must support multiple independent perception streams of the same modality when applications require them.
+
+For visual perception, named streams may include desktop/screen capture, camera feeds, self/mirror views, environment cameras, application-rendered views, or future sources.
+
+Streams should be independently configurable and individually enableable/disableable.
+
+The architecture should preserve source identity/provenance and allow stream-specific:
+
+- sampling/rate;
+- preprocessing;
+- privacy/access policy;
+- latency budget;
+- provider/model routing;
+- retention;
+- quality/resolution;
+- downstream subscribers.
+
+Different streams must not be forced through one model/provider or one cadence.
+
+Optional cross-stream fusion should be possible without erasing the independent provenance or control of each source.
+
+---
+
 ## Interruption and Proactive Intercept
 
 The system must distinguish passive interruption from proactive interception.
@@ -398,6 +440,21 @@ Protocol/application adapters such as VMC-compatible integration or application-
 
 Controller abstractions should be broad enough that suitable VLA/control policies can potentially operate other embodiments, including robots or simulated entities, when an appropriate observation/action adapter exists.
 
+### 3D avatar asset interoperability
+
+The embodiment/avatar layer must support real-world avatar assets without tying the core to one authoring ecosystem.
+
+At minimum, implementation must provide a sound path for:
+
+- VRM models;
+- VRChat-ready Unity avatar packages (`.unitypackage`).
+
+PMX/MMD assets are an additional explicit interoperability target and should work cleanly where technically practical.
+
+Format-specific import/conversion/runtime concerns should live behind adapters or bounded integration layers rather than leak into generic cognitive contracts.
+
+Implementation should validate interoperability using representative real assets and textures when provided, not only synthetic placeholder geometry.
+
 ---
 
 ## Module System Requirements
@@ -464,6 +521,8 @@ The exact module set and whether a scaffold/generator is warranted are research 
 The system may ship first-party agent skills where a skill is genuinely the right abstraction, but the default should be **sparse and curated**, not a large undifferentiated skill dump.
 
 Shipped skills must be purposeful, documented, versioned, security-reviewed, and consistent with the broader module/capability architecture.
+
+A skill discovered during research is only a **candidate**. Before it becomes part of the implemented/shipped system, the implementation phase must evaluate it against the actual architecture, security model, maintenance quality, and current requirements and may modify, replace, or retire it.
 
 ---
 
