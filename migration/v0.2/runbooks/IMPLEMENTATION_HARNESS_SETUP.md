@@ -109,6 +109,8 @@ Dedicated implementation laptop:
 - roughly 6–6.5 GB VRAM available in a lightweight/headless-ish environment;
 - machine is dedicated to the implementation run so the owner's main workstation remains available.
 
+The Huawei P30 (`ELE-L29`) used by the Bedside Companion reference system will remain physically connected to this laptop with ADB enabled throughout implementation/testing, allowing automated install/debug/log/control workflows.
+
 Known Codex CUDA-capable security/approval baseline that has already worked:
 
 - `sandbox_mode = danger-full-access`;
@@ -122,6 +124,25 @@ The implementation run must execute its own code/tests/evaluations on the dedica
 **Do not use GitHub Actions as an execution resource for the implementation run.** GitHub Actions capacity is reserved for the separate WebUI research/setup-design/review runs unless the owner explicitly changes this constraint.
 
 The implementation run may author CI/workflow files for the project when the architecture calls for them, but should not trigger/consume GitHub Actions minutes as part of its own implementation workflow under the current constraint.
+
+---
+
+## Owner-Provided Implementation Inbox
+
+The implementation workspace may contain a dedicated owner-provided **Inbox** directory for fixtures/assets that should be consumed by the project but are not implementation-agent tools or subagents.
+
+Known planned fixtures include a matching 3D avatar supplied in:
+
+- VRM;
+- VRChat-ready Unity package (`.unitypackage`);
+- PMX/MMD format;
+- associated textures/assets.
+
+Treat these as real interoperability/test fixtures.
+
+Do not modify or discard original Inbox assets in place unless explicitly authorized. Prefer copying/deriving working assets into project-controlled locations so the original fixture remains reproducible.
+
+The Inbox mechanism should be generic enough for future owner-provided test assets/fixtures without becoming a hidden dependency on undocumented local files.
 
 ---
 
@@ -259,6 +280,34 @@ Prefer a small deliberate tool surface.
 
 ---
 
+## Research-Selected System Skill Candidates
+
+Public skills/components identified during Research for possible use by the future system are **candidates, not approved dependencies**.
+
+During implementation, evaluate each candidate against:
+
+- actual architecture/contracts;
+- security/permissions;
+- code quality;
+- maintenance status;
+- license;
+- portability;
+- current requirements;
+- overlap with native project capabilities.
+
+Implementation may:
+
+- adopt;
+- modify/fork where legally/technically appropriate;
+- replace;
+- or retire/reject
+
+a Research-selected candidate.
+
+Persist the decision/rationale so Research recommendations do not become cargo-cult dependencies.
+
+---
+
 ## Custom Tooling
 
 If a meaningful harness capability is missing, you may design/build a small custom tool, skill, MCP server, plugin, helper, or integration.
@@ -378,6 +427,27 @@ They must not augment the implementation agent's own reasoning workforce.
 
 ---
 
+## Hardware Simulation / Emulation During Implementation
+
+Do not skip an architecturally important hardware-dependent test merely because the physical device is unavailable.
+
+Use an appropriate simulation/emulation environment when useful fidelity is achievable.
+
+Examples include:
+
+- robot/embodied-agent simulation in Unity, Unreal Engine, or a suitable robotics simulator;
+- simulated sensors/actuators;
+- emulated edge/mobile devices where the real device is unavailable;
+- simulated smart-home devices attached to the real Home Assistant software stack.
+
+Relevant simulator/plugins may be installed or provided by the owner when needed.
+
+When Home Assistant OS behavior itself matters, use a real HAOS instance (for example in a VM on the Ubuntu host) and simulate/emulate the missing devices around it rather than replacing HAOS with a fake. Home Assistant Container is a different installation type and must not be treated as equivalent for HAOS-specific validation.
+
+Clearly document what the simulation validates and what still requires later physical-hardware testing.
+
+---
+
 ## Project-Test Provider Boundaries
 
 Existing owner-approved resources for **project-under-test** work may include:
@@ -455,7 +525,6 @@ Capture relevant limit classes such as:
 - reset semantics;
 - checked-at timestamp/source.
 
-Do **not** count saved/banked/bonus resets as dependable capacity.
 
 ---
 
