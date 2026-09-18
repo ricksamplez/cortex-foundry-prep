@@ -72,4 +72,7 @@ audit:
   mapped_section_count: 62
   unmapped_sections: []
   dropped_sections: []
-  semantic_audit_complete: false
+  semantic_audit_complete: true
+
+  post_v01_decisions_integrated: 30
+  post_v01_decisions_pending: 0
