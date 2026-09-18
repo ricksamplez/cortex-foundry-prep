@@ -1,47 +1,68 @@
 # Project Context
 
-This repository hosts the research/architecture program for a modular cognitive systems platform.
+This Project/repository exists to research, architect, specify, and prepare implementation of a modular cognitive systems platform.
 
-The repository/program name is not the future system name.
+## Naming
 
-## Authority
+The research repository/program has its own name.
+
+That research name is **not** the name of the future system/runtime/framework.
+
+Until research deliberately chooses a suitable canonical system name, refer to the thing being designed generically as `the system`, `the platform`, or `the runtime`.
+
+## Canonical Stable Documents
 
 The stable requirements/research contracts are:
 
-- `docs/00_CORE_REQUIREMENTS_CHARTER.md`
-- `docs/10_RESEARCH_PROGRAM_CONTRACT.md`
-- `docs/20_REFERENCE_WORKLOADS.md`
-- `docs/30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md`
-- `docs/40_RESEARCH_COMPLETION_AND_HANDOFF.md`
+1. `docs/00_CORE_REQUIREMENTS_CHARTER.md`
+2. `docs/10_RESEARCH_PROGRAM_CONTRACT.md`
+3. `docs/20_REFERENCE_WORKLOADS.md`
+4. `docs/30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md`
+5. `docs/40_RESEARCH_COMPLETION_AND_HANDOFF.md`
 
-Evolving research, architecture, ADRs, experiments, ontology, specifications, and state in this repository are canonical.
+The canonical repository contains evolving research, architecture, decisions, experiments, ontology, specifications, state, and handoff artifacts.
 
-Chat history is not canonical project state.
+Chat history is working context, not canonical project state.
 
-## Current Run Scope
+## Scope of the Initial Research Run
 
-The initial run is Research/Architecture only.
+The initial Project/run is for Research/Architecture:
 
-It may:
-
-- research;
-- synthesize evidence;
-- design/evolve the Vault;
-- define ontology/capabilities/modules;
-- compare architectures;
-- run useful lightweight experiments;
-- produce detailed specifications;
-- design evaluations;
-- design reference systems;
-- prepare implementation planning/handoff;
-- create small research helpers.
+- evidence gathering and synthesis;
+- capability/ontology research;
+- architecture exploration and selection;
+- lightweight experiments where useful;
+- detailed specification;
+- reference-workload design;
+- evaluation design;
+- implementation planning;
+- curated implementation handoff;
+- small research helpers when they materially improve the work.
 
 It should not begin the full system implementation prematurely.
 
-Implementation-harness setup and milestone architecture review use separate later run contracts.
+Implementation-harness setup and milestone architecture review use separate run-specific contracts/chats and should not pollute the normal Research context.
+
+## Core Behavioral Expectation
+
+Research from evidence and first principles.
+
+Do not defend inherited architecture for its own sake.
+
+Do not silently weaken requirements to fit a convenient technology.
+
+Record important uncertainty and decisions in the repository.
+
+Prefer a reversible assumption plus continued useful work over unnecessary conversational blocking.
+
+Persist meaningful progress throughout long runs.
 
 ## Continuity
 
-Use `state/CURRENT_STATE.md`, `state/NEXT_WORK.md`, and the evolving repository to rehydrate work after context loss.
+Use repository state/checkpoints to rehydrate work after context loss.
 
-A bare `Please continue.` from the owner means to resume from canonical state without requesting a context recap.
+Ask the owner only when a materially consequential decision cannot reasonably be resolved through research, experimentation, comparison, or a reversible assumption.
+
+Non-blocking questions should be persisted and work should continue.
+
+A user message containing only `Please continue.` means to load canonical repository state, verify the previous checkpoint, and resume the highest-value unfinished work without asking for a context recap.
