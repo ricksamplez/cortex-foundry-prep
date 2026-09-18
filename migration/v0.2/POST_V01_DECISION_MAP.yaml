@@ -123,7 +123,49 @@ decisions:
     destination: ["MIGRATION_MAP.yaml", "MIGRATION_AUDIT.md"]
     status: integrated
 
+
+  - id: D031
+    topic: "Avatar interoperability: VRM + VRChat Unity package required path; PMX/MMD explicit target; real owner-provided cross-format avatar fixture"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#3d-avatar-asset-interoperability", "20_REFERENCE_WORKLOADS.md#avatar-interoperability-and-control-stress", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#owner-provided-implementation-inbox"]
+    status: integrated
+  - id: D032
+    topic: "Unavailable physical hardware must be simulated/emulated rather than silently skipped; prefer real surrounding software stack"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#hardware-absence-simulation-and-emulation", "10_RESEARCH_PROGRAM_CONTRACT.md#unavailable-physical-hardware", "40_RESEARCH_COMPLETION_AND_HANDOFF.md#deferred-work", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hardware-simulation-emulation-during-implementation"]
+    status: integrated
+  - id: D033
+    topic: "Research-selected public skills for future system require implementation reevaluation and may be adopted, modified, replaced, or rejected"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#first-party-skills", "10_RESEARCH_PROGRAM_CONTRACT.md#public-skill-registries", "40_RESEARCH_COMPLETION_AND_HANDOFF.md#curated-implementation-handoff", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#research-selected-system-skill-candidates"]
+    status: integrated
+  - id: D034
+    topic: "Huawei P30 remains physically connected to implementation laptop with ADB enabled"
+    destination: ["20_REFERENCE_WORKLOADS.md#candidate-physical-platform", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-host-profile"]
+    status: integrated
+  - id: D035
+    topic: "AI VTuber / AI Performer becomes Social Companion Tier C and requires independent individually switchable named vision streams"
+    destination: ["20_REFERENCE_WORKLOADS.md#tier-c-fixed-direction-embodied-ai-vtuber-ai-performer", "00_CORE_REQUIREMENTS_CHARTER.md#multi-source-perception"]
+    status: integrated
+  - id: D036
+    topic: "Ambient/Home Automation Tier A fixed direction is Greenhouse Agent; real HAOS with simulated devices when HAOS semantics matter"
+    destination: ["20_REFERENCE_WORKLOADS.md#tier-a-fixed-direction-greenhouse-agent", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hardware-simulation-emulation-during-implementation"]
+    status: integrated
+  - id: D037
+    topic: "Desktop/Computer Agent Tier A fixed direction is Application-Attached CoWork Agent"
+    destination: ["20_REFERENCE_WORKLOADS.md#tier-a-fixed-direction-application-attached-cowork-agent"]
+    status: integrated
+  - id: D038
+    topic: "Seventh workload remains intentionally open; Embodied Robotics is candidate only"
+    destination: ["20_REFERENCE_WORKLOADS.md#seventh-reference-workload-pending-selection"]
+    status: integrated
+  - id: D039
+    topic: "Project Docs are stable mirrors/snapshots; repository copies are canonical evolving authority"
+    destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#project-docs-vs-repository-copies"]
+    status: integrated
+  - id: D040
+    topic: "Future-facing Provider Capacity Snapshot docs should avoid saved/banked/bonus reset discussion"
+    destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#provider-capacity-snapshots", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#provider-capacity-snapshot-during-setup"]
+    status: integrated
+
 audit:
-  decision_count: 30
-  integrated_count: 30
+  decision_count: 40
+  integrated_count: 40
   pending_count: 0
