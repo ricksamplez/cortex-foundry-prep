@@ -27,6 +27,20 @@ Do not choose a different harness merely because it is novel.
 
 ---
 
+## Setup-Design Execution Surface
+
+Conduct this setup/design run in ChatGPT WebUI.
+
+For scripts, config generation, parsing, lightweight experiments, and setup-analysis code:
+
+1. use the available OpenAI local/container execution environment first;
+2. use GitHub Actions only when the local environment is insufficient or real CI/matrix behavior is materially required;
+3. do not depend on ChatGPT Apps as a required execution surface.
+
+This WebUI setup-design compute policy is separate from the later implementation run, which executes on the dedicated local host and must not use GitHub Actions as its own execution resource.
+
+---
+
 ## Inputs
 
 The setup run should receive:
@@ -272,6 +286,8 @@ This is a **working hypothesis**, not a guaranteed subscription-accounting rule.
 
 Do not brute-force every Astra reasoning level across a large benchmark matrix.
 
+Do not attempt to solve main-agent selection through a circular exhaustive self-benchmark in which the harness/model being evaluated is also required to run the benchmark campaign that is supposed to decide whether it should have been selected.
+
 Use:
 
 - official model guidance;
@@ -286,6 +302,8 @@ Select the configuration expected to minimize **effective end-to-end implementat
 ## Subagents
 
 Specialized subagents may be defined when they materially improve quality, throughput, reliability, context management, or separation of concerns.
+
+Subagents do not all need to use Astra. Select the model/reasoning configuration appropriate to each role within the approved ChatGPT-subscription/OAuth implementation-agent boundary.
 
 For every proposed role determine:
 
