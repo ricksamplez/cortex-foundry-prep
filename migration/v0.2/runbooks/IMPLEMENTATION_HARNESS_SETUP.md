@@ -198,6 +198,25 @@ Existing owner-approved project-test provider credentials are governed separatel
 
 ---
 
+## Third-Party Software Policy
+
+OSI-approved open-source software is preferred when technically competitive.
+
+Free non-OSI, source-available, or otherwise freely usable software may also be considered, particularly as an alternative solution.
+
+For nontrivial third-party software, document relevant:
+
+- licensing/usage restrictions;
+- redistribution constraints;
+- telemetry/privacy implications;
+- maintenance/lock-in risk;
+- Ubuntu/Linux compatibility;
+- operational/security implications.
+
+Do not reject a technically strong tool solely because it is non-OSI when its terms are acceptable for the project's use, but do not hide restrictions behind "free".
+
+---
+
 ## Skills, Plugins, and MCPs
 
 Search public skill/plugin/MCP ecosystems when useful for optimizing implementation.
