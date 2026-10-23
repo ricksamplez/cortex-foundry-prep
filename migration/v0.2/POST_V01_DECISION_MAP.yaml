@@ -199,7 +199,7 @@ decisions:
     status: integrated
   - id: D049
     topic: "Preparation-only publication intent: owner-controlled publication; likely core + selected reference/template modules; no bundled model weights"
-    destination: ["planning/CURRENT_DECISIONS.md#preparation-only-publication-note-do-not-propagate"]
+    destination: ["planning/CURRENT_DECISIONS.md"]
     status: preparation_only
 
 audit:
