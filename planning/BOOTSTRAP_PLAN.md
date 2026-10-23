@@ -1,6 +1,8 @@
 # Cortex Foundry — Bootstrap Preparation Plan
 
-**Purpose:** define the next preparation sequence before any real research run is launched.
+**Purpose:** define the preparation sequence before any real research run is launched.
+
+**Current status:** Phases 1–6 have prepared candidate artifacts; the final editorial/integration/audit gate remains open before cutover.
 
 This plan is preparation-only. Later runs must not receive references to this workspace.
 
@@ -211,4 +213,4 @@ Before the first real run:
 
 ## Immediate next action
 
-Begin Phase 1: construct the modular charter successor and migration map in this preparation workspace before writing anything into the real research repository.
+Complete the reopened final editorial/integration pass, refresh migration/seed/prelaunch audits, and only then populate the real research repository and launch the first Research run.
