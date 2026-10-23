@@ -97,6 +97,18 @@ The architecture should permit hierarchical/cascading strategies where appropria
 
 ---
 
+## Task-Specialized Learned Components
+
+Repeated narrow semantic, predictive, ranking, filtering, or routing functions should be evaluated for replacement or augmentation by task-specialized learned components when sufficient data and objective evaluation exist.
+
+Suitable implementations may include deterministic rules, classical machine learning, embedding-plus-head systems, small encoders, token classifiers, adapters, compact neural models, or other specialized mechanisms. No model class is preferred by default; select the smallest implementation that satisfies measured quality, latency, reliability, resource, privacy, and maintainability requirements.
+
+Specialized learned components must participate through normal capability contracts, remain replaceable, and support abstention/escalation when uncertainty, novelty, out-of-distribution input, or risk exceeds their validated operating envelope. A general model or other provider may remain available as fallback without being required on the routine path.
+
+Training/adaptation is not itself a required runtime dependency. A deployed specialist must be usable independently of the process that produced it.
+
+---
+
 ## Polyglot and Language-Neutral Contracts
 
 The architecture must not require all modules to use one programming language.
@@ -190,6 +202,8 @@ Relevant resource dimensions may include:
 - privacy constraints;
 - reliability.
 
+Hardware/runtime suitability must not be collapsed into simplistic flags such as `cpu_only: true`. Suitability should be measurable against explicit hardware/runtime profiles that may differ by architecture, ISA/vector support, core topology, memory subsystem, accelerator, backend, quantization, concurrency, batching, and deployment constraints.
+
 Modules should declare what they require and support rather than directly assuming a particular machine or accelerator whenever practical.
 
 ---
@@ -257,6 +271,24 @@ The architecture must be capable of representing useful execution compositions i
 Local/module routing freedom must preserve enough global observability for resource allocation, scheduling, cancellation, tracing, deadlines, failure handling, and resource accounting.
 
 Working principle: **local routing freedom, global observability**.
+
+---
+
+## Scoped Manual Routing and Resource Overrides
+
+Automatic model/provider routing, module routing, placement, and hardware allocation must support explicit manual constraints without requiring the rest of the automatic system to be disabled.
+
+Research should define override semantics equivalent where useful to:
+
+- force/pin;
+- prefer;
+- deny/exclude;
+- scope by request, session, module/capability, profile, deployment, or other suitable boundary;
+- bounded or persistent lifetime with explicit reset/expiry behavior.
+
+The automatic router/allocator should continue operating inside the remaining unconstrained decision space. Overrides must be observable, auditable, reversible, and precedence-defined.
+
+A routing/resource override is not permission to bypass capability compatibility, security, privacy, safety, or other higher-authority policy constraints.
 
 ---
 
@@ -596,7 +628,9 @@ Potentially optimizable elements may include:
 - module selection;
 - hardware placement;
 - caching;
+- task-specialized learned components;
 - fine-tunes/adapters;
+- training/annotation pipelines;
 - training data;
 - distillation.
 
@@ -605,6 +639,8 @@ Improvements should follow a process broadly equivalent to:
 `observe → evaluate → propose → sandbox → benchmark → compare → approve/promote → monitor → rollback`
 
 The exact mechanism is a research decision.
+
+Training, annotation, and adaptation inputs must preserve provenance and applicable reuse restrictions. Provider/source integrations should expose machine-readable restrictions where practical. Explicitly prohibited reuse must be blocked. Undefined or unclear reuse policy must not be silently treated as permission; an owner may explicitly opt in after a clear warning, with that override recorded for auditability.
 
 Security boundaries, trust roots, permission enforcement, audit integrity, update authority, and evaluation integrity must not be optimized away.
 
