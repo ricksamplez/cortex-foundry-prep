@@ -33,10 +33,12 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 40 |
-| unique decision IDs | 40 |
+| persisted decision IDs | 49 |
+| unique decision IDs | 49 |
 | decisions still pending integration | 0 |
-| mapped decision destination references | 57 |
+| mapped decision destination references | 77 |
+| future-facing integrated decisions | 48 |
+| preparation-only owner notes intentionally not propagated | 1 |
 | broken decision destination references | 0 |
 
 ## Scope-isolation checks
@@ -55,13 +57,13 @@ Approximate character counts:
 
 | Draft | Characters |
 |---|---:|
-| Core Requirements Charter | 21,539 |
-| Research Program Contract | 16,482 |
-| Reference Workloads | 13,348 |
-| Knowledge & Workspace Governance | 11,923 |
-| Research Completion & Handoff | 9,509 |
-| Implementation Harness Setup Runbook | 16,391 |
-| Architecture Review Runbook | 7,297 |
+| Core Requirements Charter | 27,308 |
+| Research Program Contract | 20,814 |
+| Reference Workloads | 20,097 |
+| Knowledge & Workspace Governance | 14,865 |
+| Research Completion & Handoff | 10,972 |
+| Implementation Harness Setup Runbook | 22,561 |
+| Architecture Review Runbook | 7,788 |
 
 No draft currently exhibits pathological giant-file growth.
 
@@ -87,6 +89,12 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Unavailable hardware:** added simulation/emulation requirements so important hardware-dependent coverage is not silently skipped; real surrounding software should be retained when practical.
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
+- **Task-specialized learned components:** added bounded research requirements for small learned specialists, optional Teacher Workflows, canonical capture/dataset projection, calibration/abstention, and a strict Research-vs-Implementation training boundary.
+- **Social Companion affect/speech:** added optional per-stream text/audio/fusion affect routes, a separate context-aware AI-character affect path, provider-neutral expressive TTS control, lip-sync/blendshape separation, and direct non-affect LLM/VLA/controller actions.
+- **Manual routing/resource overrides:** added scoped force/prefer/deny/pin/exclude semantics while preserving automatic routing in remaining decision space.
+- **Heterogeneous hardware:** replaced simplistic CPU suitability assumptions with hardware/runtime execution profiles and clustered NPU/AMD-GPU/dual-GPU validation campaigns during Implementation.
+- **Provider-output reuse:** added explicit-prohibition hard blocks plus warned/audited owner opt-in for genuinely unclear reuse cases.
+- **Implementation resources:** added Jev as a project-test-only current-credit resource and the official GitHub integration as a valid private-repository/control-plane option; neither changes the hard implementation-subagent boundary or GitHub Actions compute restriction.
 
 ## Important retained owner deltas
 
@@ -114,7 +122,12 @@ The modular draft explicitly retains, among other additions:
 - module-level serial/parallel/conditional routing;
 - production-quality reference/template modules;
 - milestone-only architecture reviews with implementation paused;
-- zero-to-many issue creation per review campaign.
+- zero-to-many issue creation per review campaign;
+- task-specialized learned components, optional Teacher Workflows, canonical dataset projection, and Implementation-owned model training;
+- scoped manual model/module/resource overrides;
+- Social Companion text/audio/contextual affect routes and provider-neutral expressive speech rendering;
+- hardware-specific Model Suitability profiles and clustered alternate-device validation;
+- provider-output reuse governance with explicit-prohibition blocks and warned/audited unclear-case opt-in.
 
 ## Naming audit
 
