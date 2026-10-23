@@ -165,7 +165,45 @@ decisions:
     destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#provider-capacity-snapshots", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#provider-capacity-snapshot-during-setup"]
     status: integrated
 
+  - id: D041
+    topic: "Task-specialized learned components, optional Teacher Workflows, canonical capture/dataset projection, and Research-vs-Implementation training boundary"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#task-specialized-learned-components", "10_RESEARCH_PROGRAM_CONTRACT.md#specialized-learned-components-data-and-teacher-workflows", "30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#dataset-annotation-teacher-and-learned-component-provenance", "40_RESEARCH_COMPLETION_AND_HANDOFF.md#research-completion-criteria"]
+    status: integrated
+  - id: D042
+    topic: "Social Companion affect architecture: optional per-stream text/audio/fusion routes, AI-character contextual affect, expressive provider-neutral TTS, direct non-affect avatar actions"
+    destination: ["20_REFERENCE_WORKLOADS.md#cross-tier-affect-speech-and-embodiment-dimension"]
+    status: integrated
+  - id: D043
+    topic: "Scoped manual overrides for model/provider/module routing and hardware/resource allocation without disabling remaining automatic routing"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#scoped-manual-routing-and-resource-overrides"]
+    status: integrated
+  - id: D044
+    topic: "Hardware-specific execution profiles; CPU/GPU/NPU/mixed inference; clustered NPU/AMD-GPU/dual-GPU validation campaigns while laptop remains primary implementation host"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#execution-and-resource-abstraction", "30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#hardware-specific-execution-profiles", "40_RESEARCH_COMPLETION_AND_HANDOFF.md#curated-implementation-handoff", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-model-training-and-hardware-validation-campaigns"]
+    status: integrated
+  - id: D045
+    topic: "Provider-output training/adaptation reuse governance: explicit prohibitions block; undefined/unclear reuse requires warned owner opt-in and audit"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#controlled-optimization-and-improvement", "30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#dataset-annotation-teacher-and-learned-component-provenance"]
+    status: integrated
+  - id: D046
+    topic: "TypeSafe Jev approved for project-under-test inference/evaluation with current $5 Monthly credit; not a Codex/Astra harness utility or production dependency; dynamic metadata normally refreshed at most daily"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries"]
+    status: integrated
+  - id: D047
+    topic: "Research contemporary prior art for typed local decisions, learned routers, continual adaptation, eval-gated promotion, branchable state, governed execution, artifact provenance, and effective-cost evaluation"
+    destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems", "10_RESEARCH_PROGRAM_CONTRACT.md#initial-research-domains"]
+    status: integrated
+  - id: D048
+    topic: "Official GitHub integration/plugin is a legitimate private-repository and repo-native engineering-control-plane option during Implementation Harness Setup"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#issue-and-work-tracking"]
+    status: integrated
+  - id: D049
+    topic: "Preparation-only publication intent: owner-controlled publication; likely core + selected reference/template modules; no bundled model weights"
+    destination: ["planning/CURRENT_DECISIONS.md#preparation-only-publication-note-do-not-propagate"]
+    status: preparation_only
+
 audit:
-  decision_count: 40
-  integrated_count: 40
+  decision_count: 49
+  integrated_count: 48
+  preparation_only_count: 1
   pending_count: 0
