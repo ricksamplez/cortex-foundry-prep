@@ -269,6 +269,11 @@ When evidence supports it, capture:
 - latency implications;
 - effective-cost implications;
 - reliability/failure patterns;
+- runtime/backend requirements;
+- memory footprint and cold/warm start behavior;
+- hardware-profile-specific latency/throughput;
+- calibration/abstention/OOD behavior where relevant;
+- training/update cost for learned specialists where relevant;
 - confidence;
 - evidence;
 - revisit conditions.
@@ -312,6 +317,49 @@ The knowledge representation must support feature-level requirements and conditi
 Document known unsuitable/unsafe choices when evidence is strong enough.
 
 A statement such as "family Z is not recommended for this structured streaming tool workflow under these conditions" can be as valuable as a positive recommendation.
+
+### Hardware-specific execution profiles
+
+Do not represent CPU/GPU/NPU suitability as one hardware-agnostic Boolean. Preserve enough profile detail to distinguish materially different execution environments, including where relevant:
+
+- CPU architecture/ISA/vector capabilities and core/thread topology;
+- memory class/bandwidth/capacity;
+- GPU/NPU/other accelerator identity and available memory;
+- runtime/backend and version;
+- precision/quantization;
+- threading/concurrency/batching;
+- cold/warm latency and throughput;
+- transfer overhead and model residency;
+- power/thermal constraints where material.
+
+Suitability statements should therefore be conditional on a reproducible execution profile rather than assuming that all x86, ARM, CPU, GPU, or NPU devices behave alike.
+
+---
+
+## Dataset, Annotation, Teacher, and Learned-Component Provenance
+
+Reusable training/evaluation evidence should have one canonical capture/source representation where practical. Avoid duplicating the same raw example into independent per-model datasets merely because several pipelines need it.
+
+Derived datasets should be reproducible projections of canonical evidence using versioned selection rules, transformations, schemas, and build metadata.
+
+Preserve, when applicable:
+
+- raw/source reference and source type;
+- language/domain and conversation/sample family;
+- original vs synthetic/augmented/translated/back-translated lineage;
+- annotation source and annotator/teacher identity/version;
+- teacher prompt/context/template version where relevant;
+- confidence/disagreement and human review/correction state;
+- deterministic/runtime outcome evidence;
+- label/ontology/schema version;
+- privacy/data classification;
+- source/provider license or contractual reuse restrictions;
+- train/validation/test membership and near-duplicate lineage;
+- dataset-builder/config/version/checksum provenance.
+
+Teacher outputs and model judgments are annotations/evidence, not automatic truth. Dataset builders should be able to exclude a provider, teacher, transformation family, or other provenance class deterministically.
+
+Provider/source modules should expose training/derivative-use restrictions when known. An explicit prohibition is a hard block. If no policy is defined or applicability remains unclear, default to an `unclear` state: do not include the data automatically, but permit an explicit owner opt-in after a warning that the choice is made at the owner's risk, and record the decision.
 
 ---
 
