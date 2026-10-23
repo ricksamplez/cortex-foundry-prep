@@ -58,7 +58,7 @@ Checks:
 
 ## File-size sanity
 
-Largest prepared seed document is the Core Requirements Charter at roughly 24.5k characters after the latest simulation, avatar-interoperability, and multi-source-perception requirements.
+Largest prepared seed document is currently `00_CORE_REQUIREMENTS_CHARTER.md` at roughly 27.3k characters after the latest learned-component, affect/speech, routing-override, data-provenance, and hardware-profile refinements.
 
 No seed state/log file is large.
 
@@ -67,6 +67,8 @@ The future Research run remains responsible for creating an explicit measurable 
 ## Seed synchronization
 
 All five seed docs match their modular migration counterparts after normalizing the intentional Status line difference.
+
+The latest specialized-learning, affect/speech, routing/resource-override, data-provenance, and hardware-profile refinements are synchronized.
 
 No seed/migration content drift was detected in this audit.
 
