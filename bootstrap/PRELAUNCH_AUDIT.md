@@ -8,9 +8,13 @@
 - [x] All 62 v0.1 numbered sections mapped.
 - [x] Zero v0.1 sections marked dropped.
 - [x] All migration destination file/anchor references resolve.
-- [x] 30 persisted post-v0.1 decisions mapped.
+- [x] 49 persisted post-v0.1 owner decisions/notes accounted for: 48 propagated into future-facing artifacts and 1 intentionally retained as preparation-only.
 - [x] Zero mapped post-v0.1 decisions remain pending.
 - [x] Non-trivial semantic changes documented.
+- [x] Specialized learned-component / Teacher / canonical-data requirements integrated without making them the program's primary focus.
+- [x] Scoped manual routing/resource overrides integrated.
+- [x] Social Companion affect/speech/embodiment refinements integrated.
+- [x] Implementation-only Jev/current-hardware/GitHub-integration details remain isolated from Research Project Docs where appropriate.
 - [x] Research-program/repository naming boundary preserved.
 
 Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
