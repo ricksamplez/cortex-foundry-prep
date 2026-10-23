@@ -410,6 +410,24 @@ Evaluation must include interactions between modules rather than testing every c
 
 Reference workloads should be used as architecture-level stress tests, not merely marketing demos.
 
+For learned classifiers/routers and comparable predictive components, evaluation should additionally consider calibration, selective accuracy/risk-coverage, abstention quality, out-of-distribution behavior, drift, class-specific precision/recall where relevant, and hardware-specific latency/resource profiles. Dataset splits must account for provenance, semantic near-duplicates, conversation/source families, synthetic/augmentation lineage, and multilingual/domain slices rather than relying only on random row splitting.
+
+---
+
+## Specialized Learned Components, Data, and Teacher Workflows
+
+Research when repeated narrow functions can move from general-purpose intelligence to smaller task-specialized learned components without losing required quality or robustness. This is one research area among many, not the main focus of the program.
+
+The Research run must not train/fine-tune deliverable project models or spend accelerator time building production classifiers. It may inspect/evaluate existing public models, compare algorithms, define contracts, design datasets/evaluations, and specify/prepare deferred experiments. Actual project-specific model training, fine-tuning, quantization, promotion, and rollback belong to Implementation.
+
+Training/adaptation pipelines should be able to use optional **Teacher Workflows** with zero, one, or multiple teachers. Teachers may include general or reasoning models, task/domain-specific fine-tunes, multimodal/speech models, deterministic evaluators, runtime outcomes, and human/operator judgments. A model may contribute a self-judgment only as one explicitly identified signal, preferably under isolated context; it must not become sole ground truth merely by judging its own output.
+
+Capture reusable evidence once in a canonical representation, then derive task/model-specific training formats through deterministic, versioned transformations when needed. Preserve source/annotation provenance so downstream dataset builds can include/exclude teachers, providers, synthetic transforms, translations, or other sources without duplicating raw evidence.
+
+Investigate where useful: weak supervision and probabilistic label aggregation; active learning/disagreement sampling; calibration and abstention; out-of-distribution/drift handling; multilingual/domain adaptation; continual/online learning; parameter-efficient and very-low-rank adaptation; fast/slow adaptation and consolidation; replay/rehearsal and anti-forgetting; delayed feedback/credit assignment; shadow evaluation; promotion/rollback; and background adaptation using otherwise idle resources.
+
+Local inference optimization should cover heterogeneous CPU/GPU/NPU and mixed execution. CPU-efficient operation is desirable where adequate, but must not prevent a GPU/NPU path when that is the better technical fit.
+
 ---
 
 ## Prior Internal Designs
@@ -450,7 +468,12 @@ Study relevant real systems/projects when they expose useful lessons for:
 - multimodal cognition;
 - modular skills;
 - specialized controllers;
+- task-specialized learned decision systems;
+- learned routing with abstention/escalation;
 - model routing;
+- feedback-driven ranking and memory;
+- continual/adaptive learning;
+- evaluation-gated promotion/rollback;
 - memory;
 - embodied agents;
 - AI VTubers;
@@ -554,9 +577,14 @@ The initial program should investigate at least the following broad areas and ex
 - agent security;
 - evaluation;
 - continual improvement;
+- task-specialized classifiers/decision systems;
+- weak supervision and active learning;
+- calibration, abstention, OOD detection, and drift;
+- continual/online and parameter-efficient adaptation;
 - fine-tuning;
 - distillation;
-- dataset capture;
+- canonical dataset capture, annotation provenance, and deterministic dataset projection;
+- heterogeneous local inference optimization;
 - observability;
 - replay;
 - fault tolerance;
