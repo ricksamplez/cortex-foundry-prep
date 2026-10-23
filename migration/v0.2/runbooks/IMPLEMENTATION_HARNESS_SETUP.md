@@ -229,6 +229,8 @@ You may investigate/use suitable:
 - custom local extensions;
 - issue/work tracking integrations.
 
+The official GitHub integration/plugin is a legitimate option for private-repository access and repo-native operations such as issues, pull requests, commits, and engineering-control-plane workflows. Prefer supported integration paths over unnecessary manual credential handling when they satisfy the required capability and security model.
+
 Local tooling is preferred where capability/reliability are competitive.
 
 The final recommended implementation-harness equipment should not introduce new credential-bearing or paid service dependencies without owner approval.
@@ -456,6 +458,7 @@ Existing owner-approved resources for **project-under-test** work may include:
 - Groq Free — account/key exists but integration may still need setup;
 - OpenRouter Free — account/key exists but integration may still need setup;
 - NVIDIA NIM free endpoints;
+- TypeSafe Jev — owner account currently observed with a $5 `Monthly credit` balance and no payment information configured;
 - local models/runtimes;
 - ChatGPT-subscription OAuth under the Luna-only rule below.
 
@@ -467,7 +470,9 @@ For OpenRouter:
 - do not rely on a random/free router when reproducibility requires knowing the actual model;
 - assume limits applicable to a fresh account that has not unlocked higher free limits through a credit purchase.
 
-Provider limits must be checked/documented at the time of setup or evaluation rather than assumed static.
+Provider limits must be checked/documented at the time of setup or evaluation rather than assumed static. Dynamic provider metadata such as pricing, limits, credits, and terms should normally be refreshed at most once per 24 hours; invalidate that cache earlier only when a provider/runtime error, explicit change signal, or owner request makes an earlier check useful.
+
+Jev is currently approved as a **project-under-test inference/evaluation resource**, not as a hidden Codex/Astra implementation copilot or general harness utility, and no production dependency on Jev is assumed.
 
 ### ChatGPT OAuth project-test rule
 
@@ -504,6 +509,22 @@ Larger quantized/offloaded models may be technically usable for slow background 
 Do not confuse "technically runs eventually" with "appropriate interactive runtime".
 
 Avoid implementation-agent workflows that waste hours polling long-running project-model tests when asynchronous/background execution and later result collection can be used.
+
+---
+
+## Project Model Training and Hardware Validation Campaigns
+
+Project-specific classifier/model training, fine-tuning, adapter work, quantization, and promotion happen during Implementation when the relevant contracts, capture data, and evaluation gates are mature enough. Where practical, schedule such work as preemptible/background compute that uses otherwise idle resources and yields to foreground implementation/testing needs.
+
+The dedicated laptop remains the primary implementation machine. Some real-hardware validation requires temporary execution elsewhere:
+
+- NPU validation may use the owner-provided main PC or NUC because the laptop has no known NPU;
+- AMD-GPU validation may use the NUC;
+- dual-GPU validation may use the main PC.
+
+Prepare as much implementation and automated testing as possible on the laptop first, then cluster device-specific physical-hardware tests into one or a small number of coherent campaigns per target machine instead of repeatedly switching hosts for isolated checks.
+
+Record the exact hardware/runtime profile used for each result so Model Suitability evidence remains conditional and reproducible.
 
 ---
 
@@ -544,6 +565,9 @@ When implementation/evaluation reveals useful evidence, record:
 - quantization sensitivity;
 - reasoning requirements;
 - effective cost;
+- CPU/GPU/NPU or mixed-execution profile where relevant;
+- cold/warm latency, memory footprint, throughput, and backend/quantization details where relevant;
+- calibration/abstention/OOD behavior for specialized learned components where relevant;
 - evidence/confidence.
 
 Do not bury reusable model-selection evidence in transient implementation logs.
