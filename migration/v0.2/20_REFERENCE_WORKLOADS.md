@@ -189,6 +189,28 @@ Stresses:
 - interruption/turn-taking;
 - progressively richer embodiment.
 
+#### Cross-tier affect, speech, and embodiment dimension
+
+Social Companion tiers should investigate affect/speech processing as composable capability routes rather than one mandatory monolith.
+
+For human speech, each speaker/ASR stream may independently enable:
+
+- transcript/text-based affect or emotion classification;
+- audio/prosodic affect or emotion classification;
+- shared-encoder, multitask, or audio+text fusion approaches where justified.
+
+Not every stream must activate every route. Source identity and timing/provenance must remain available for optional fusion.
+
+The AI character may use a separate context-aware affect estimator that can consume generated text plus compact dialogue/social/runtime state rather than only the literal spoken sentence. A capable general model may initially provide this function while production usage is captured; a smaller specialist may later take over routine cases when implementation-time evaluation demonstrates that it is adequate.
+
+Affect is one optional control signal, not a universal avatar-action gateway. It may influence facial expression, affect-dependent micro-behavior, and speech rendering, while unrelated high-level/direct actions may flow from an LLM/tool call, VLA, controller, or other appropriate capability without passing through the affect classifier.
+
+Expressive Social Companion speech requires controllable rendering; a TTS path limited to uncontrolled plain-text input is not sufficient where expressive voice is required. The generic speech contract should remain provider-neutral and may map to structured style/prosody parameters, natural-language instructions, inline tags, control tokens, reference/style embeddings, nonverbal vocalizations such as laughter/sighs/throat-clearing, or future mechanisms supported by the selected TTS.
+
+Lip sync should be derivable from generated TTS audio and/or provider timing/phoneme/viseme information where available. Facial expression should remain behind the abstract avatar-control contract and may commonly map to standard/custom blendshapes.
+
+When VLA-style control is justified by embodiment complexity, high-level intent may originate from an LLM or other cognition while the VLA/controller remains capable of immediate perception-driven reactions such as obstacle avoidance or safety stops without waiting for a new high-level instruction.
+
 #### Tier A fixed concept: Bedside Companion
 
 Tier A must be designed around a focused, genuinely useful **Bedside Companion** living locally on or near a smart display/device at the bedside.
