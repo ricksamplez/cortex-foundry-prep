@@ -1,6 +1,6 @@
 # Cortex Foundry — Current Preparation Decisions
 
-**Status:** preparation checkpoint before Project-/Repo-Bootstrap and Research Start Contract
+**Status:** active preparation decision ledger before Research cutover. Earlier "remaining work" sections may describe historical checkpoints; current launch status is tracked in `bootstrap/PRELAUNCH_AUDIT.md`.
 
 This file records decisions made after the original v0.1 charter. It is preparation-only and is intended to prevent information loss while the final run-specific documents are designed.
 
@@ -564,9 +564,12 @@ The Implementation Harness Setup run may investigate using GitHub Issues as a cr
 
 ---
 
-## 22. Remaining immediate work
+## 22. Historical immediate-work checkpoint — superseded
 
-Before launching the first real research run:
+This section records the earlier bootstrap sequence for provenance. Most items have since been completed in the preparation workspace; current launch blockers and status are tracked in `bootstrap/PRELAUNCH_AUDIT.md`.
+
+The earlier sequence was:
+
 
 1. losslessly modularize the v0.1 charter;
 2. integrate every persisted delta from this file;
@@ -715,3 +718,144 @@ The architecture/planning representation should simply model the provider capaci
 
 Preparation history may retain the rationale, but final Research documents should avoid unnecessary discussion of non-modeled bonus mechanisms.
 
+
+
+---
+
+## 32. Task-specialized learned components, Teacher Workflows, and canonical data
+
+The Research program must investigate when repeated narrow semantic/predictive functions are better served by task-specialized learned components than by recurring general-purpose model calls.
+
+This is a supporting architecture capability, not a new primary focus.
+
+Potential implementations include classical ML, embedding-plus-head systems, compact encoders, token classifiers, adapters, or other small learned mechanisms. The correct model class must be determined empirically.
+
+Training/adaptation pipelines should support optional Teacher Workflows with zero, one, or multiple teachers. Teachers may include general/reasoning models, task/domain-specific or roleplay/social fine-tunes, multimodal/speech models, deterministic evaluators, runtime outcomes, and human/operator judgments.
+
+A model may contribute a self-judgment only as one explicitly identified signal, preferably with isolated context; it must not become sole ground truth merely by judging its own output.
+
+Reusable evidence should be captured once in a canonical representation and projected deterministically/versionedly into task/model-specific training formats when needed.
+
+Research specifies approaches, contracts, data/evaluation design, and deferred experiments. It must not train/fine-tune deliverable project classifiers/models. Actual training, fine-tuning, quantization, shadow evaluation, promotion, and rollback happen during Implementation, potentially as opportunistic/preemptible background work when compute is otherwise idle.
+
+Research should cover relevant concepts such as weak supervision, active learning, calibration/abstention, OOD/drift, continual/online learning, very-low-rank or other parameter-efficient adaptation, fast/slow adaptation and consolidation, replay/rehearsal, anti-forgetting, delayed feedback, and evaluation-gated promotion/rollback.
+
+---
+
+## 33. Social Companion affect, speech, and embodiment specialization
+
+Across the three Social Companion tiers, human speech streams may independently enable transcript/text affect classification, audio/prosodic affect classification, or shared/multimodal fusion. Not every ASR/speaker stream must run every classifier.
+
+The AI character may have a separate context-aware affect classifier that can use generated text plus compact dialogue/social/runtime state rather than only the literal spoken text. A capable general model may initially perform this function while real usage produces curated evidence; a smaller specialist may later take routine cases when implementation-time evaluation demonstrates adequacy.
+
+Affect may feed both affect-dependent avatar micro-behavior and speech rendering so tone remains consistent. It is not a universal action gateway: unrelated or complex avatar actions may flow directly from LLM tool calls, VLA/controller paths, or other suitable capabilities.
+
+Expressive TTS is required for Social Companion speech. The generic contract must not depend on inline tags alone and may support structured parameters, instructions, tags, control tokens, reference/style representations, and nonverbal vocalizations such as laughter, sighs, or throat-clearing according to provider capability.
+
+Lip sync should be derivable from TTS audio and/or timing/phoneme/viseme data. Facial expression will commonly map to standard/custom blendshapes behind an abstract avatar-control contract.
+
+Where VLA-style control is justified, a higher-level LLM/cognition layer may provide intent while the VLA/controller remains able to react locally to immediate obstacles/safety conditions without waiting for another high-level command.
+
+---
+
+## 34. Scoped manual routing and resource overrides
+
+Model/provider routing, module routing, and hardware/resource allocation must support manual overrides without breaking or globally disabling automatic routing.
+
+Useful semantics to research include force/pin, prefer, deny/exclude, scoped lifetime, and explicit reset/expiry.
+
+Automatic routing/allocation should continue inside the remaining unconstrained decision space.
+
+Manual overrides remain subject to capability compatibility and higher-authority security/privacy/safety policy.
+
+---
+
+## 35. Heterogeneous inference profiles and clustered hardware validation
+
+Model suitability must be measured against explicit hardware/runtime profiles rather than a simplistic CPU-only Boolean.
+
+Research/Implementation should consider CPU, GPU, NPU, and mixed execution with hardware architecture, memory subsystem, runtime/backend, quantization, concurrency/batching, latency, throughput, transfer cost, and residency where relevant.
+
+The dedicated laptop remains the primary implementation host. Real NPU tests may require temporary use of the main PC or NUC; AMD-GPU tests may use the NUC; dual-GPU tests may use the main PC.
+
+Prepare tests on the laptop when practical and group hardware-specific validation into one or a few coherent campaigns per alternate machine rather than repeatedly switching hosts for isolated checks.
+
+---
+
+## 36. Provider-output reuse governance for training/adaptation
+
+Provider/source modules should expose known training/derivative-use restrictions in machine-readable form where practical.
+
+Explicitly prohibited uses are hard blocks.
+
+If a provider/model/source has no defined policy for a contemplated reuse, or applicability remains genuinely unclear, the default state is `unclear`: do not include it automatically, but permit explicit owner opt-in after a clear warning that the decision is taken at the owner's risk, and record the override.
+
+This permits narrow task-specific training where not prohibited without pretending that an exhaustive positive allowlist exists.
+
+Direct model distillation or other explicitly prohibited uses remain prohibited.
+
+---
+
+## 37. TypeSafe Jev as an approved project-test resource
+
+TypeSafe Jev may be used by the system/project-under-test for evaluation, semantic decision experiments, routing/classification research, feature extraction, dataset/evidence workflows, or other suitable project purposes.
+
+Current observed owner-account state during preparation:
+
+- $5 `Monthly credit`;
+- no payment information configured.
+
+This credit is opportunistic/current state, not durable architectural capacity.
+
+Jev is **not currently approved as a hidden Codex/Astra implementation copilot or general harness utility**, and no production-agent dependency on Jev is planned.
+
+Dynamic provider information such as pricing, limits, credits, and terms normally needs refreshing no more than once per 24 hours unless an error/change signal or explicit owner request justifies an earlier refresh.
+
+---
+
+## 38. Contemporary learned-system prior-art leads
+
+Research should investigate current work around:
+
+- typed local semantic decision systems;
+- learned routing with confidence/abstention/escalation;
+- fast/slow continual adaptation and consolidation;
+- feedback-driven retrieval/ranking;
+- branchable/rollbackable experimental state;
+- evaluation-gated self-improvement;
+- durable long-running agent loops;
+- capability-governed execution;
+- portable model/adapter/evidence artifacts;
+- specialist/MoE extraction and fallback;
+- useful-work/effective-cost evaluation;
+- multimodal sensor evidence with provenance.
+
+Current preparation research found the RuVector/ruvnet ecosystem particularly rich in examples across these themes (including RuVector/OpenJev-style typed decisions, SONA, MetaHarness/Tiny Dancer, Ruflo, AgentDB/AgenticOW, Autogenous/Dream Machine/openAVO/rGi, RVM/RVF, MoE Foundry, APx, RuField/WorldGraph).
+
+These are research leads/prior art only. Claims, benchmarks, and architectural choices require independent verification; predominantly first-party project code remains the intended direction.
+
+---
+
+## 39. Official GitHub integration for private repositories
+
+The official GitHub plugin/integration is now considered a legitimate Implementation Harness option for working with private repositories and repo-native workflows.
+
+The Harness Setup run may use/evaluate it for repository access, issues, pull requests, commits, review state, and related engineering-control-plane work, reducing the need for manual credential handling where the official integration is sufficient.
+
+This does not by itself change the separate current restriction on using GitHub Actions as Implementation compute.
+
+---
+
+## 40. Preparation-only publication note — do not propagate
+
+Current owner publication intent is preparation-only context and must not be injected into Research, Implementation Harness Setup, Implementation, or Architecture Review requirements.
+
+If the owner later publishes parts of the system, the likely scope is:
+
+- core;
+- a small selected subset of reference workloads;
+- template/reference modules.
+
+Model weights should not be bundled regardless of model license; downstream users should obtain models themselves, with recommendations and original-source links where useful.
+
+The owner controls publication manually. This note is intentionally excluded from the modular future-facing requirements set.
