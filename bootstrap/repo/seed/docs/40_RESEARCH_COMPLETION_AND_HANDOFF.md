@@ -53,7 +53,9 @@ Before the research phase is declared complete, the project should have:
 32. remaining uncertainty and open implementation questions explicitly identified;
 33. no known major unresolved contradiction between requirements and architecture;
 34. no known silent loss of required v0.1/post-v0.1 semantics from the modular requirements set;
-35. system naming either deliberately resolved or explicitly deferred with rationale if architecture identity is still insufficient.
+35. system naming either deliberately resolved or explicitly deferred with rationale if architecture identity is still insufficient;
+36. a documented strategy for task-specialized learned components, teacher workflows, canonical capture/dataset projection, evaluation/promotion, and the Research-vs-Implementation training boundary;
+37. scoped manual routing/resource-override semantics plus a plan for any hardware-specific validation campaigns required by the implementation/evaluation strategy.
 
 The research program may strengthen these criteria when evidence identifies a meaningful missing gate.
 
@@ -99,7 +101,9 @@ The handoff should contain, at minimum:
 - security rules;
 - versioning/compatibility rules;
 - relevant research references/evidence;
-- Model Suitability guidance relevant to the implementation;
+- Model Suitability guidance relevant to the implementation, including hardware-specific execution profiles where material;
+- specialized learned-component / Teacher Workflow / dataset-provenance guidance where applicable;
+- manual routing/resource-override semantics;
 - open implementation questions;
 - known deferred experiments;
 - unavailable-hardware simulation/emulation plans and remaining physical-validation gaps;
@@ -207,6 +211,8 @@ Deferred items should include, where useful:
 - revisit trigger.
 
 A deferred experiment must not masquerade as completed evidence.
+
+Project-specific classifier/model training, fine-tuning, quantization, and promotion are intentionally Implementation responsibilities rather than Research deliverables. Research should hand off the contracts, data/evaluation design, candidate approaches, and deferred experiment specifications needed to execute them efficiently.
 
 If physical hardware is unavailable but suitable simulation/emulation exists, the relevant test should ordinarily be prepared or executed through that simulation rather than simply marked "hardware unavailable" and skipped. Remaining physical-only validation must be explicit.
 
