@@ -33,11 +33,12 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 49 |
-| unique decision IDs | 49 |
+| persisted decision IDs | 57 |
+| unique decision IDs | 57 |
 | decisions still pending integration | 0 |
-| mapped decision destination references | 77 |
-| future-facing integrated decisions | 48 |
+| mapped decision destination references | 89 |
+| future-facing integrated decisions | 53 |
+| superseded decisions | 3 |
 | preparation-only owner notes intentionally not propagated | 1 |
 | broken decision destination references | 0 |
 
@@ -89,6 +90,11 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Unavailable hardware:** added simulation/emulation requirements so important hardware-dependent coverage is not silently skipped; real surrounding software should be retained when practical.
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
+- **Standalone Quest VR / frontend independence:** Social Companion Tier B now requires optional standalone Quest-class VR with backend/client separation and cross-client session continuity; frontend technologies may differ freely across workloads.
+- **Avatar renderer split:** VRChat/Unity-package support is no longer a Cognitive-Core format requirement. The workload now exercises a lightweight VRM-oriented path plus a heavier game-engine/VRChat-package path, with PMX/MMD as an additional target.
+- **Persistent Personal Assistant Tier A:** now fixed as a Smartphone Personal Assistant with local/LAN/cloud/split inference options.
+- **Seventh workload:** finalized as Embodied Agent / Robotics with Game/Virtual-World, Simulated Robotics/Digital Twin, and Physical/HIL tiers.
+- **Implementation fixtures/versions:** dedicated P30 unattended ADB posture, Unity 6.3 LTS, Unreal Engine 5.8.4, Quest-class VR target, and owner-provided HAOS 18.3 KVM image fixture are reflected in the setup runbook.
 - **Task-specialized learned components:** added bounded research requirements for small learned specialists, optional Teacher Workflows, canonical capture/dataset projection, calibration/abstention, and a strict Research-vs-Implementation training boundary.
 - **Social Companion affect/speech:** added optional per-stream text/audio/fusion affect routes, a separate context-aware AI-character affect path, provider-neutral expressive TTS control, lip-sync/blendshape separation, and direct non-affect LLM/VLA/controller actions.
 - **Manual routing/resource overrides:** added scoped force/prefer/deny/pin/exclude semantics while preserving automatic routing in remaining decision space.
@@ -113,7 +119,7 @@ The modular draft explicitly retains, among other additions:
 - approved external/local test-provider boundaries;
 - guaranteed-capacity-only Provider Capacity Snapshots;
 - feature/modality-aware Model Suitability Knowledge Base;
-- seven-workload target framework and 21+ eventual tier systems, with six families currently fixed and the seventh intentionally pending;
+- seven fixed workload families and at least 21 tiered reference systems, with Embodied Agent / Robotics now filling the seventh family;
 - Bedside Companion Tier-A concept including Huawei P30/Android candidate;
 - Desktop Agent Tier-C learning-by-demonstration capability cluster;
 - extensible instruction/context artifacts beyond `AGENTS.md`;
