@@ -354,9 +354,7 @@ The final tier names may be improved by research.
 
 ## 14. Reference workload framework
 
-The program targets seven workload families with three production-meaningful tiers each.
-
-Six families are currently fixed:
+The program now has seven fixed workload families with three production-meaningful tiers each:
 
 1. Coding Agent
 2. Research Assistant
@@ -364,28 +362,49 @@ Six families are currently fixed:
 4. Social Companion
 5. Ambient Environment / Home-Automation Agent
 6. Interactive Desktop / Computer Agent
+7. Embodied Agent / Robotics
 
-The seventh family remains intentionally open until a genuinely orthogonal, useful workload is selected.
+This yields at least 21 reference systems.
 
-Once selected, the framework yields at least 21 reference systems.
+### Persistent Personal Assistant
+
+Tier A fixed direction: **Smartphone Personal Assistant**.
+
+It must be genuinely useful on a smartphone and may use fully local inference on sufficiently capable hardware, LAN-hosted inference, cloud/external inference, or a split local/remote architecture.
+
+The Huawei P30 may be used as a constrained mobile test target. A tiny on-device model/runtime such as a Gemma4 E2B-class model via LiteRT-LM or a comparable mobile stack may be tested only to validate the local path; external/LAN inference remains the more realistic profile for this device.
 
 ### Social Companion
 
 Current fixed anchors:
 
 - Tier A: Bedside Companion;
-- Tier B: broader serious Social Companion, detailed design open;
+- Tier B: Persistent Companion with optional standalone Quest-class VR client;
 - Tier C: Embodied AI VTuber / AI Performer.
 
-### Desktop / Computer Agent
+Tier B VR is **VR-capable, not VR-dependent**. The VR client runs directly on the headset rather than requiring PCVR, while backend cognition/services may run on a LAN PC/server or remote server. Session/identity/memory continuity should permit moving into VR during an active interaction instead of starting a disconnected companion instance.
 
-The earlier standalone Interactive Apprenticeship / Learning-by-Demonstration idea is primarily a major Tier-C capability cluster of the Desktop/Computer Agent rather than its own workload.
+### Ambient Environment / Home-Automation Agent
+
+Tier A fixed direction: **Greenhouse Agent**.
+
+### Interactive Desktop / Computer Agent
 
 Current progression:
 
 - Tier A: Application-Attached CoWork Agent;
 - Tier B: broader serious cross-application work system;
 - Tier C: ambitious multi-agent desktop work, background/parallel workflows, skill creation, learning from demonstration, interactive teaching, cross-application task induction, verification/recovery, etc.
+
+### Embodied Agent / Robotics
+
+Current progression:
+
+- Tier A: Game / Virtual-World Agent;
+- Tier B: Simulated Robotics / Digital-Twin Agent;
+- Tier C: Physical / Hardware-in-the-Loop Robotics Agent.
+
+Physical robot hardware is not currently available, so implementation should maximize simulation/HIL coverage and leave remaining physical-validation gaps explicit until hardware exists.
 
 ---
 
@@ -585,18 +604,21 @@ The earlier sequence was:
 
 ---
 
-## 23. Avatar interoperability and owner-provided implementation fixtures
+## 23. Avatar renderer paths and owner-provided implementation fixtures
 
-3D avatar interoperability must support at minimum:
+Avatar-format support is **not** a Cognitive-Core requirement.
 
-- VRM;
-- VRChat-ready Unity avatar packages (`.unitypackage`).
+The generic architecture must support replaceable avatar renderer/engine implementations behind stable embodiment/control contracts.
 
-PMX/MMD is an additional explicit interoperability target and should work cleanly where technically practical.
+For the Social Companion / AI Performer reference path, current implementation targets are:
+
+- a lightweight VRM-oriented renderer/runtime path;
+- a heavier game-engine-backed renderer path capable of handling VRChat-style Unity avatar packages (`.unitypackage`) where useful;
+- PMX/MMD interoperability as an additional explicit target where technically practical.
 
 The owner has one matching avatar available in all three formats plus associated textures/assets.
 
-During implementation, these files will be placed into a dedicated owner-provided Inbox/fixture directory in the implementation workspace.
+During implementation, these files will be placed into a dedicated owner-provided Inbox/input directory in the implementation workspace.
 
 Original Inbox assets should be treated as reproducible fixtures and should not be destructively modified in place unless explicitly authorized.
 
@@ -633,11 +655,17 @@ The resulting decision and rationale should become durable project knowledge.
 
 ---
 
-## 26. Bedside device implementation connection
+## 26. Huawei P30 unattended implementation connection
 
 During the implementation run, the Huawei P30 (`ELE-L29`) is expected to remain physically connected to the implementation laptop with ADB enabled.
 
-This permits automated installation, debugging, logs, control, and repeatable device-level testing.
+The device is intentionally configured for autonomous test access:
+
+- lockscreen friction is disabled;
+- relevant ADB/security prompts that would otherwise require owner presence have been disabled for this dedicated test device;
+- the display remains on while connected to power.
+
+Codex/the implementation harness should therefore be able to automate installation, debugging, logging, screenshots/control, and repeatable device-level tests without routine owner intervention.
 
 ---
 
@@ -684,17 +712,19 @@ Tier C remains an ambitious desktop-work system including multi-agent orchestrat
 
 ---
 
-## 29. Seventh reference workload remains intentionally open
+## 29. Seventh reference workload fixed: Embodied Agent / Robotics
 
-The program still targets seven workload families and three production-meaningful tiers per family.
+The seventh workload family is now accepted as **Embodied Agent / Robotics**.
 
-Only six workload families are currently fixed after moving the AI VTuber into Social Companion Tier C.
+Tier directions:
 
-Do not fill the seventh slot merely to preserve the count.
+- Tier A: Game / Virtual-World Agent;
+- Tier B: Simulated Robotics / Digital-Twin Agent;
+- Tier C: Physical / Hardware-in-the-Loop Robotics Agent.
 
-A candidate should add a genuinely orthogonal architecture stress dimension.
+The workload adds a genuinely orthogonal architecture stress dimension around VLA/control, sensor fusion, continuous control, physical safety, simulation/emulation, and simulation-to-real behavior.
 
-Embodied Robotics / Physical Agent is currently a strong candidate because it would stress VLA/control, sensor fusion, continuous control, physical safety, simulation/emulation, and sim-to-real behavior, but it is **not yet an accepted requirement**.
+No physical robot is currently available. Missing hardware is not grounds to skip the workload; maximize simulation/HIL coverage and preserve explicit physical-validation gaps.
 
 ---
 
@@ -859,3 +889,81 @@ If the owner later publishes parts of the system, the likely scope is:
 Model weights should not be bundled regardless of model license; downstream users should obtain models themselves, with recommendations and original-source links where useful.
 
 The owner controls publication manually. This note is intentionally excluded from the modular future-facing requirements set.
+
+
+---
+
+## 41. Client/frontend independence
+
+Reference workloads and deployment profiles may use entirely different frontend technologies, languages, rendering stacks, and frameworks.
+
+The platform must not impose one universal frontend implementation merely for consistency.
+
+Clients should integrate through stable backend/platform contracts.
+
+Where useful, session/identity/memory state should survive transitions between clients, including moving from a non-VR interface into a VR client during active use.
+
+---
+
+## 42. Social Companion Tier B standalone VR
+
+Social Companion Tier B must support optional VR directly on a Quest-class standalone headset and remain fully useful without VR.
+
+This is **not PCVR**.
+
+The VR client runs on the headset while backend cognition/services may run on:
+
+- a PC/server on the same LAN;
+- a remote server;
+- another suitable backend deployment.
+
+The user should be able to put on the headset during an existing interaction and continue the same companion/session.
+
+VR may add spatial/embodied capabilities beyond the non-VR frontend.
+
+The implementation is not tied to one game engine. Unity or Unreal may be selected per reference implementation/experiment, and using both for different experiments is acceptable when useful.
+
+---
+
+## 43. Current engine baseline
+
+The dedicated implementation laptop currently has:
+
+- Unity 6.3 LTS (`6000.3.x`);
+- Unreal Engine 5.8.4.
+
+Both may be used for VR, game/virtual-world, robot simulation, digital twins, or other suitable implementation/evaluation work.
+
+Do not impose one global engine choice when different engines are better suited to different tasks.
+
+---
+
+## 44. Home Assistant OS fixture
+
+The owner has downloaded:
+
+`haos_ova-18.3.qcow2.xz`
+
+This Home Assistant OS KVM image archive will be placed into the owner-provided implementation workspace input/Inbox area before relevant work.
+
+When HAOS-specific behavior matters, use the real HAOS VM and simulate unavailable devices around it rather than substituting Home Assistant Container or a fake HA layer.
+
+---
+
+## 45. Smartphone-local inference test path
+
+For Persistent Personal Assistant Tier A and other mobile deployment testing, the Huawei P30 may be used to validate a fully local small-LLM path if technically feasible.
+
+A candidate example is a Gemma4 E2B-class model through LiteRT-LM or a comparable mobile inference stack.
+
+This is only a deployment-path test on constrained hardware, not a requirement that production use the P30 locally. External or LAN-hosted inference remains a normal/likely profile.
+
+---
+
+## 46. Quest / engine flexibility across VR reference work
+
+Standalone Quest VR clients may be implemented using Unity, Unreal Engine, or another technically suitable stack.
+
+Different VR experiments/reference implementations may intentionally use different engines.
+
+Engine choice is a workload/implementation decision, not a universal platform contract.
