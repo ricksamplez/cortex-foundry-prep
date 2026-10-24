@@ -73,7 +73,8 @@ decisions:
   - id: D018
     topic: "Seven-workload target framework; six families fixed, seventh pending; 21+ reference systems once selected"
     destination: ["20_REFERENCE_WORKLOADS.md#reference-workload-families"]
-    status: integrated
+    status: superseded
+    superseded_by: D054
   - id: D019
     topic: "Desktop/Computer Agent Tier C includes apprenticeship/learning-by-demonstration; do not tier the single feature"
     destination: ["20_REFERENCE_WORKLOADS.md#interactive-desktop-computer-agent"]
@@ -126,8 +127,9 @@ decisions:
 
   - id: D031
     topic: "Avatar interoperability: VRM + VRChat Unity package required path; PMX/MMD explicit target; real owner-provided cross-format avatar fixture"
-    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#3d-avatar-asset-interoperability", "20_REFERENCE_WORKLOADS.md#avatar-interoperability-and-control-stress", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#owner-provided-implementation-inbox"]
-    status: integrated
+    destination: ["20_REFERENCE_WORKLOADS.md#avatar-renderer-and-interoperability-stress", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#owner-provided-implementation-inbox"]
+    status: superseded
+    superseded_by: D050
   - id: D032
     topic: "Unavailable physical hardware must be simulated/emulated rather than silently skipped; prefer real surrounding software stack"
     destination: ["00_CORE_REQUIREMENTS_CHARTER.md#hardware-absence-simulation-and-emulation", "10_RESEARCH_PROGRAM_CONTRACT.md#unavailable-physical-hardware", "40_RESEARCH_COMPLETION_AND_HANDOFF.md#deferred-work", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hardware-simulation-emulation-during-implementation"]
@@ -154,8 +156,9 @@ decisions:
     status: integrated
   - id: D038
     topic: "Seventh workload remains intentionally open; Embodied Robotics is candidate only"
-    destination: ["20_REFERENCE_WORKLOADS.md#seventh-reference-workload-pending-selection"]
-    status: integrated
+    destination: ["20_REFERENCE_WORKLOADS.md#embodied-agent-robotics"]
+    status: superseded
+    superseded_by: D054
   - id: D039
     topic: "Project Docs are stable mirrors/snapshots; repository copies are canonical evolving authority"
     destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#project-docs-vs-repository-copies"]
@@ -202,8 +205,43 @@ decisions:
     destination: ["planning/CURRENT_DECISIONS.md"]
     status: preparation_only
 
+
+  - id: D050
+    topic: "Avatar asset formats are not Cognitive-Core requirements; use replaceable renderer/engine paths, including lightweight VRM and heavier game-engine/VRChat-package paths for relevant workloads"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#avatar-renderer-engine-extensibility", "20_REFERENCE_WORKLOADS.md#avatar-renderer-and-interoperability-stress", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#owner-provided-implementation-inbox"]
+    status: integrated
+  - id: D051
+    topic: "Social Companion Tier B requires optional standalone Quest-class VR client, not PCVR; backend may run on LAN/remote server; active session continuity across non-VR and VR clients"
+    destination: ["20_REFERENCE_WORKLOADS.md#tier-b-fixed-direction-persistent-companion-with-optional-standalone-vr", "00_CORE_REQUIREMENTS_CHARTER.md#client-and-frontend-independence"]
+    status: integrated
+  - id: D052
+    topic: "Persistent Personal Assistant Tier A fixed direction is Smartphone Personal Assistant with local, LAN, cloud, or split inference; P30 may validate tiny local model path"
+    destination: ["20_REFERENCE_WORKLOADS.md#tier-a-fixed-direction-smartphone-personal-assistant", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#local-modeltest-capability"]
+    status: integrated
+  - id: D053
+    topic: "Reference workloads and deployment profiles may use different frontend languages/frameworks/stacks; shared contracts and optional cross-client session continuity"
+    destination: ["00_CORE_REQUIREMENTS_CHARTER.md#client-and-frontend-independence"]
+    status: integrated
+  - id: D054
+    topic: "Seventh workload fixed as Embodied Agent / Robotics with Tier A Game/Virtual-World Agent, Tier B Simulated Robotics/Digital Twin, Tier C Physical/HIL Robotics"
+    destination: ["20_REFERENCE_WORKLOADS.md#embodied-agent-robotics"]
+    status: integrated
+  - id: D055
+    topic: "Implementation engine baseline is Unity 6.3 LTS (6000.3.x) and Unreal Engine 5.8.4; both may be selected per VR/simulation/reference task and different experiments may use different engines"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#existing-host-software-baseline", "20_REFERENCE_WORKLOADS.md#tier-b-fixed-direction-persistent-companion-with-optional-standalone-vr", "20_REFERENCE_WORKLOADS.md#embodied-agent-robotics"]
+    status: integrated
+  - id: D056
+    topic: "Huawei P30 dedicated test posture supports unattended ADB automation: lockscreen/security friction disabled as owner-authorized and display stays on while powered"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-host-profile", "20_REFERENCE_WORKLOADS.md#candidate-physical-platform"]
+    status: integrated
+  - id: D057
+    topic: "Owner-provided implementation input includes downloaded HAOS KVM image archive haos_ova-18.3.qcow2.xz for real HAOS VM testing with simulated devices"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#owner-provided-implementation-inbox", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hardware-simulation-emulation-during-implementation"]
+    status: integrated
+
 audit:
-  decision_count: 49
-  integrated_count: 48
+  decision_count: 57
+  integrated_count: 53
+  superseded_count: 3
   preparation_only_count: 1
   pending_count: 0
