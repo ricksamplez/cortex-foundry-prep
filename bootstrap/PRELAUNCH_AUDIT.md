@@ -8,7 +8,7 @@
 - [x] All 62 v0.1 numbered sections mapped.
 - [x] Zero v0.1 sections marked dropped.
 - [x] All migration destination file/anchor references resolve.
-- [x] 57 persisted post-v0.1 owner decisions/notes accounted for: 53 current future-facing decisions integrated, 3 earlier decisions explicitly superseded, and 1 intentionally retained as preparation-only.
+- [x] 60 persisted post-v0.1 owner decisions/notes accounted for: 55 current future-facing decisions integrated, 3 earlier decisions explicitly superseded, and 2 intentionally retained as preparation-only.
 - [x] Zero mapped post-v0.1 decisions remain pending.
 - [x] Non-trivial semantic changes documented.
 - [x] Specialized learned-component / Teacher / canonical-data requirements integrated without making them the program's primary focus.
@@ -85,6 +85,8 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Current Unity/Unreal/P30/HAOS implementation-fixture state integrated.
 - [x] Seed ↔ migration document synchronization rechecked.
 - [x] Decision-map anchors revalidated with zero broken references.
+- [x] Test-chan/P30 fixture details integrated into the Implementation Harness Setup runbook.
+- [x] Home Automation / Greenhouse shopping shortlist kept preparation-only and excluded from future-facing requirements.
 
 ## G. Still required before launch
 
