@@ -239,9 +239,23 @@ decisions:
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#owner-provided-implementation-inbox", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hardware-simulation-emulation-during-implementation"]
     status: integrated
 
+
+  - id: D058
+    topic: "Initial avatar fixtures: Test-chan (CC0, Booth.pm, VRM0) plus a separate owner-provided VRM1 avatar for interoperability testing"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#owner-provided-implementation-inbox"]
+    status: integrated
+  - id: D059
+    topic: "Huawei P30 dedicated unattended-debug posture includes explicit Developer Options/USB/debug/log settings, no SIM, no stored Wi-Fi, and permanent powered ADB connection"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-host-profile"]
+    status: integrated
+  - id: D060
+    topic: "Preparation-only Home Automation / Greenhouse hardware purchasing shortlist; not a Research/Implementation requirement until owner acquires specific hardware"
+    destination: ["planning/HOME_AUTOMATION_HARDWARE_CANDIDATES_2026-10-24.md"]
+    status: preparation_only
+
 audit:
-  decision_count: 57
-  integrated_count: 53
+  decision_count: 60
+  integrated_count: 55
   superseded_count: 3
-  preparation_only_count: 1
+  preparation_only_count: 2
   pending_count: 0
