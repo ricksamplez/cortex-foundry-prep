@@ -1,371 +1,504 @@
-# Home-Automation / Greenhouse Hardware Candidates — Prep Only
+# Home-Automation / Greenhouse / Hydro Hardware Candidates — Prep Only
 
 **Status:** preparation-only purchasing/research note  
 **Snapshot date:** 2026-10-24  
 **Do not propagate automatically into Research, Implementation Harness Setup, Implementation, or Architecture Review requirements.**
 
-This file is a shortlist of inexpensive physical devices that could materially improve Home Assistant / Greenhouse-Agent experiments while remaining useful afterwards.
+This file is a budget-aware shortlist of physical devices and already-owned hardware that could materially improve Home Assistant / Greenhouse-Agent / Hydroponics experiments while remaining useful afterwards.
 
-Nothing here is an approved purchase requirement.
+Nothing listed as a candidate is an approved purchase requirement.
 
-Availability and prices should be rechecked before buying.
-
----
-
-## Selection goals
-
-Prioritize devices that:
-
-- are inexpensive;
-- have good Home Assistant / Zigbee2MQTT / ESPHome integration paths;
-- exercise different useful capabilities (sensor, actuator, power, water, contact, mesh);
-- remain useful after the experiment;
-- avoid proprietary hubs where practical;
-- can work with the planned real HAOS VM.
-
-A mixed protocol set is useful because the system should not only work with one ecosystem.
+Availability/prices/integration status must be rechecked before buying.
 
 ---
 
-# Priority A — best initial value
+# Current strategy
 
-## 1. Zigbee coordinator
+Prefer **Wi-Fi + BLE + ESPHome first**.
 
-### Budget choice: SONOFF ZBDongle-E or ZBDongle-P
+Reasons:
 
-Observed current SONOFF Germany pricing for Zigbee USB Dongle Plus family: about **€24.90**.
+- the owner already operates a dedicated 2.4-GHz-only IoT Wi-Fi network on a Ubiquiti UDR7;
+- most normal household traffic uses 5/6 GHz, leaving the 2.4-GHz IoT network relatively quiet;
+- multiple ThermoPro TP357 BLE thermo/hygrometers are already owned and already used for greenhouse work;
+- a VIVOSUN GrowHub E42A is already owned;
+- avoiding Zigbee initially removes the cost of both a coordinator and new Zigbee-only sensors;
+- ESPHome/M5Stack/Seeed devices remain highly reusable.
 
-Home Assistant ZHA currently documents both SONOFF ZBDongle-E and ZBDongle-P as compatible adapters.
+Zigbee remains attractive for later scale/battery sensors, but is deliberately **deferred rather than rejected**.
 
-Why useful:
+---
 
-- enables real Zigbee device integration against the HAOS VM;
-- supports many cheap battery sensors;
-- exercises coordinator/device pairing and availability behavior;
-- remains useful in a permanent Home Assistant setup;
-- mains-powered Zigbee devices can later act as mesh routers.
+# Already-owned high-value hardware
 
-Implementation note:
+## ThermoPro TP357 BLE thermo/hygrometers
 
-- pass the USB coordinator through to the HAOS VM;
-- use either ZHA or Zigbee2MQTT according to the experiment;
-- do not attach one Zigbee device to multiple coordinators simultaneously.
+Status: **already owned; no purchase required**.
 
-### Alternative: Home Assistant Connect ZBT-2
+Home Assistant officially supports the TP357 through the ThermoPro integration.
 
-Official Home Assistant recommendation for new ZHA networks.
+The integration uses Bluetooth and is classified by Home Assistant as Local Push.
 
-Observed MSRP: **€45**; German retail observed around **€50–51**.
+Recommended experiment path:
+
+`TP357 BLE broadcasts → ESPHome Bluetooth Proxy → HAOS Bluetooth/ThermoPro integration`
+
+This avoids needing Bluetooth passthrough directly into the HAOS VM and lets a cheap proxy be placed physically close to the greenhouse tents.
+
+Potential uses:
+
+- tent temperature/humidity;
+- room temperature/humidity;
+- cross-checking VIVOSUN telemetry;
+- thermal-response experiments around window/fan actions;
+- evaluating sensor disagreement/failure handling.
+
+Sources:
+
+- https://www.home-assistant.io/integrations/thermopro/
+- https://www.home-assistant.io/integrations/bluetooth/
+- https://esphome.io/components/bluetooth_proxy/
+
+---
+
+## VIVOSUN GrowHub E42A — old/non-Plus model
+
+Status: **already owned; promising existing integration target**.
+
+A current unofficial Home Assistant HACS integration (`lientry/homeassistant-vivosun-growhub`) explicitly lists the original GrowHub **E42A** as verified working.
+
+Current exposed functions include, depending on connected VIVOSUN hardware:
+
+- grow-light control/brightness;
+- circulation-fan control;
+- duct-fan control;
+- fan presets/auto thresholds;
+- temperature;
+- humidity;
+- VPD;
+- grow-plan/stage/schedule information.
+
+Important limitation:
+
+**The current integration is not local/offline.**
+
+It depends on:
+
+- VIVOSUN account credentials;
+- VIVOSUN cloud;
+- AWS IoT;
+- outbound internet access.
+
+Therefore:
+
+- it is excellent as an immediate real-device integration experiment;
+- it should not be mistaken for proof of local/offline E42A control;
+- a later local protocol/BLE investigation may still be worthwhile if the architecture wants a local-first path.
+
+This existing controller may significantly reduce the amount of additional fan/light actuator hardware needed for the first experiments.
+
+Sources:
+
+- https://github.com/lientry/homeassistant-vivosun-growhub
+- https://vivosun.com/en/technical-guide/vivosun-growhub-controller-t143409044027744256
+- https://vivosun.com/support/guide/growhub-e42a
+
+---
+
+## Milwaukee Instruments MC811 MAX
+
+Status: **already owned; useful Hydroponics measurement source**.
+
+The MC811 MAX continuously displays:
+
+- pH;
+- EC;
+- temperature
+
+on three large LCD displays.
+
+The current manual documents the display/probes/power/calibration behavior but does not expose an obvious digital telemetry/API interface for integration.
+
+### Cheap telemetry workaround: fixed camera node
+
+A fixed ESP32/ESP32-S3 camera node can photograph the display at intervals and send frames or cropped regions to the backend.
+
+Prefer:
+
+`fixed camera → fixed display ROIs → dedicated digit/segment recognition → plausibility filtering → HA/system entities`
+
+rather than relying only on unconstrained generic OCR.
 
 Advantages:
 
-- official Home Assistant hardware/firmware path;
-- Zigbee or Thread;
-- simplest supported ZHA experience.
+- no modification of the MC811 MAX;
+- avoids purchasing duplicate pH/EC probes just for telemetry;
+- yields real pH/EC/temp data from the already trusted measurement device;
+- camera can later be repurposed.
 
-Why not first budget pick:
+Validation requirements:
 
-- roughly twice the price of the SONOFF dongle for the current experiments.
+- compare extracted readings against manual visual readings;
+- reject low-confidence/implausible values;
+- detect stale/obscured display;
+- never let one bad OCR reading directly trigger dangerous chemical dosing.
 
-Suggested approach:
+Potential camera candidates can be investigated separately; M5Stack and Seeed both offer inexpensive ESP32-S3 camera hardware.
 
-**Buy ZBT-2 only if the additional official-support/Thread value matters enough at purchase time; otherwise start with a compatible SONOFF USB coordinator.**
+Source:
 
-Sources:
-- https://www.home-assistant.io/integrations/zha/
-- https://www.home-assistant.io/connect/zbt-2/
-- https://sonoff.tech/en-de/collections/gateway-sensors
-
----
-
-## 2. Greenhouse air temperature/humidity
-
-### SONOFF SNZB-02WD
-
-Observed price: **€19.90**
-
-Relevant characteristics:
-
-- Zigbee 3.0;
-- IP65 enclosure;
-- temperature + humidity;
-- ±0.2 °C temperature accuracy stated by manufacturer;
-- ±2 % RH humidity accuracy stated by manufacturer;
-- CR2477 battery;
-- LCD display.
-
-Why it is a strong first Greenhouse-Agent sensor:
-
-- suitable for humid/splash-prone environments;
-- directly measures two of the most important greenhouse variables;
-- useful afterwards in bathroom, basement, storage area, etc.;
-- tests real sleepy/battery-powered Zigbee sensor behavior.
-
-Note:
-
-IP65 does not mean submersible or suitable for high-pressure water.
-
-Sources:
-- https://sonoff.tech/de-de/products/snzb-02wd-ip65-zigbee-lcd-smart-temperature-humidity-sensor
-- https://support.sonoff.tech/snzb-02wd-usermanual/
+- Milwaukee MC810/MC811 MAX manual:
+  https://milwaukeeinstruments.eu/media/2b/fb/12/1733927478/mc810_811.pdf
 
 ---
 
-## 3. General-purpose switched load + power telemetry
+# Priority A — highest value per Euro
 
-### Shelly Plug M Gen3
+## 1. M5Stack AtomS3 Lite as ESPHome / Bluetooth proxy / expandable node
 
-Observed price: **€12.90**
+Observed German pricing: about **€9.90** at BerryBase.
 
-Relevant characteristics:
+Why this is currently one of the strongest purchases:
 
-- Wi-Fi + Bluetooth;
-- Matter-compatible;
-- real-time power monitoring;
-- appliance switching;
-- up to 13 A / 3000 W resistive load according to Shelly;
-- overheating protection.
+- ESP32-S3;
+- Wi-Fi + BLE;
+- compact enclosure;
+- USB-C;
+- Grove/HY2.0 expansion;
+- official/known ESPHome ecosystem support;
+- can operate as a Home Assistant Bluetooth Proxy;
+- can later host I²C sensors or other M5Stack Units.
 
-Why useful:
+Immediate use:
 
-- can switch a fan, lamp, small pump or other experimental load;
-- gives actual power telemetry to the agent;
-- exercises a non-Zigbee path alongside Zigbee;
-- remains broadly useful around the house afterwards.
+`TP357 BLE → AtomS3 Lite → dedicated 2.4-GHz IoT Wi-Fi → HAOS VM`
+
+A single node could initially serve TP357 data and later be repurposed/extended.
+
+ESPHome has both official Bluetooth-proxy projects and M5Stack-compatible configurations.
+
+Sources:
+
+- https://www.berrybase.de/m5stack/
+- https://esphome.io/components/bluetooth_proxy/
+- https://github.com/esphome/bluetooth-proxies
+- https://docs.m5stack.com/en/homeassistant/
+
+---
+
+## 2. Shelly Plug M Gen3 — general-purpose mains actuator + power telemetry
+
+Observed German price range: roughly **€12.90+** depending on seller/variant/shipping.
+
+Relevant capabilities:
+
+- 2.4-GHz Wi-Fi;
+- Bluetooth;
+- Matter;
+- MQTT;
+- switched mains output;
+- power measurement;
+- temperature/protection telemetry.
+
+High-value uses:
+
+- hydro circulation pump;
+- air pump;
+- fan;
+- greenhouse light;
+- test load;
+- detecting whether a supposedly running load is actually consuming power.
+
+This is currently preferable to a garden water-valve experiment because the owner does not have an obvious conventional outdoor water-tap use case and already has more relevant Hydroponics pumps.
 
 Safety:
 
-Use only within rated load/device conditions. For pumps/heaters/inductive loads, confirm the actual load characteristics and the manufacturer's suitability before switching.
+Only switch equipment within Shelly's documented electrical ratings and suitable load type. Do not treat nominal wattage alone as sufficient for inductive/motor loads.
 
 Sources:
-- https://www.shelly.com/de
-- https://www.shelly.com/blogs/documentation/whats-the-difference-between-the-plug-s-plug-m-and-plug-pm-gen3
+
+- https://www.shelly.com/
+- https://geizhals.de/shelly-plug-m-gen3-a3779234.html
 
 ---
 
-# Priority B — very useful after the basic loop works
+## 3. Window state sensor for greenhouse-room thermal logic
 
-## 4. Water/leak detection
+A window contact is genuinely useful for the room containing the greenhouse tents.
 
-### SONOFF SNZB-05P
+Desired automation/reasoning inputs:
 
-Observed SONOFF price: about **€19.90**
+- window closed/open/tilted;
+- room temperature/humidity;
+- tent temperature/humidity;
+- outside temperature;
+- sunlight/solar/weather conditions;
+- wind where available.
 
-Exposes through Zigbee2MQTT:
+Example reasoning:
 
-- water leak state;
-- battery state;
-- low-battery state.
+Opening the window may help when outside air is materially cooler than the room/tents.
 
-Why useful:
+Opening it may be counterproductive when it is 30+ °C outside, sunny, and windless.
 
-- meaningful physical-safety/failure input;
-- directly useful near irrigation/reservoir/pumps;
-- reusable under sink, washing machine, dishwasher, etc.;
-- good test for safety-triggered automation.
+In winter, the same state can prevent excessive room cooling and help avoid greenhouse ventilation remaining suppressed for too long.
+
+### Current attractive candidate: Shelly BLU Door/Window Mini ZB
+
+Despite the `ZB` product name, this device supports **both Bluetooth 5 LE and Zigbee 3.0**, including simultaneous operation.
+
+Current Shelly EU price observed: **€15.90**.
+
+Relevant features:
+
+- open/closed state;
+- tilt/inclination;
+- ambient-light measurement;
+- Bluetooth BTHome;
+- Zigbee available later if desired;
+- up to five-year advertised battery life.
+
+This is especially attractive because it can be used **BLE-only now**, through the same Home Assistant Bluetooth/BTHome + ESPHome proxy infrastructure as other BLE devices, while retaining a future Zigbee path.
+
+Home Assistant's Shelly integration explicitly directs BLU devices to BTHome.
 
 Sources:
-- https://www.zigbee2mqtt.io/devices/SNZB-05P
-- https://sonoff.tech/en-de/collections/gateway-sensors
+
+- https://www.shelly.com/de/products/shelly-blu-door-window-mini-zb-white
+- https://kb.shelly.cloud/knowledge-base/shelly-blu-door-window-mini-zb
+- https://www.home-assistant.io/integrations/bthome/
+- https://www.home-assistant.io/integrations/shelly
 
 ---
 
-## 5. Door/window/contact state
+# Priority B — useful expansion after the basic loop works
 
-### SONOFF SNZB-04P
+## 4. Cheap light-state / relative-brightness sensor
 
-Observed SONOFF price: about **€15.90**
+The goal is **not horticultural-grade PPFD/PAR measurement**.
 
-Why useful:
+The useful first questions are:
 
-- greenhouse/window/door state;
-- tests event-driven binary sensors;
-- can be repurposed for ordinary doors/windows afterwards;
-- useful input for ventilation/safety logic.
+- is the light actually on?
+- did brightness change?
+- is daylight contribution high/low?
+- does measured light roughly match the commanded schedule?
 
-Source:
-- https://sonoff.tech/en-de/collections/gateway-sensors
+### Minimal module: BH1750
 
----
+Observed price: about **€2.40**.
 
-## 6. Cheap ESPHome experimental node
+### Easier M5Stack version: DLight Unit (BH1750)
 
-### Seeed Studio XIAO ESP32-C3
+Observed price: about **€6.50**.
 
-Observed BerryBase price: **from €7.90**
+Advantages of the M5Stack DLight path:
 
-Why useful:
+- prebuilt connector/module;
+- quicker experiments;
+- less breadboard wiring;
+- easy attachment to an Atom/other M5Stack controller.
 
-- Wi-Fi + BLE;
-- cheap programmable sensor node;
-- excellent platform for custom ESPHome sensors;
-- reusable far beyond this experiment.
-
-### Capacitive soil moisture sensor
-
-Two inexpensive observed options:
-
-- BerryBase generic analog capacitive sensor: **€2.60**
-- Seeed Grove corrosion-resistant capacitive soil sensor: **€6.90**
-
-Why useful:
-
-- lets us test soil moisture without committing to one proprietary Zigbee device;
-- calibration and sensor drift become explicit experimental concerns;
-- ESPHome can expose the result to Home Assistant.
-
-### BH1750 light sensor
-
-Observed BerryBase price: **€2.40**
-
-Why useful:
-
-- greenhouse illumination input;
-- cheap I²C sensor;
-- reusable for many embedded projects.
-
-Combined value:
-
-One ESP32-C3 can potentially host several simple sensors, making this a very cheap custom Greenhouse-Agent fixture.
-
-Important:
-
-These modules need wiring/enclosure/power and must be protected appropriately from humidity/water. Raw hobby PCBs are not greenhouse-weatherproof simply because the sensor measurement is relevant to a greenhouse.
+Do not interpret raw lux as grow-light PAR/PPFD.
 
 Sources:
-- https://www.berrybase.de/seeed
-- https://www.berrybase.de/analoger-kapazitiver-bodenfeuchtesensor
+
 - https://www.berrybase.de/bh1750-digitaler-lichtsensor
-- https://esphome.io/components/sensor/sht4x/
+- https://www.berrybase.de/m5stack/
 
 ---
 
-# Priority C — buy only if/when the experiment needs it
+## 5. M5Stack ecosystem for fast custom nodes
 
-## 7. Irrigation actuator
+M5Stack is a particularly useful candidate ecosystem because many functions are available as small prebuilt Grove-compatible Units and Home Assistant/ESPHome documentation exists for numerous modules.
 
-### SONOFF Zigbee Smart Water Valve
+Interesting examples:
 
-Observed price: **€29.90**
+### AtomS3 Lite
 
-Manufacturer positioning:
+~€9.90; useful base/controller/BLE proxy.
 
-- Zigbee 3.0;
-- installs between water tap and hose;
-- irrigation schedules;
-- intended for lawns/gardens/beds;
-- supports open-source home-automation integration via compatible SONOFF Zigbee dongles.
+### ENV-IV
 
-Why useful:
+Temperature, humidity, pressure using SHT40 + BMP280; ESPHome components are documented by M5Stack.
 
-- actual physical actuator for Greenhouse-Agent watering;
-- much more representative than toggling a dummy relay;
-- can remain useful for real irrigation afterwards.
+This is less urgent because TP357 devices already cover temperature/humidity.
 
-Why not Priority A:
+### DLight / BH1750
 
-- requires an actual suitable water/hose setup;
-- physical-water failure modes increase the stakes;
-- should come after sensing/safety/control logic is already behaving sensibly.
+~€6.50; easy light-state/relative-brightness fixture.
 
-Source:
-- https://sonoff.tech/de-de/products/sonoff-zigbee-smart-water-valve
+### 2-channel relay Unit
 
----
+Observed about **€7.50**.
 
-## 8. Off-the-shelf Zigbee soil sensor
+Potentially useful for low-voltage control experiments when the exact load and electrical ratings are appropriate.
 
-Zigbee2MQTT currently supports several inexpensive soil-sensor families, including variants of:
+### 4-relay Unit
 
-- Tuya TS0601 soil sensors;
-- COOLO CS-201Z;
-- HOBEIAN ZG-303Z;
-- Haozee HZ-SL10;
-- GIEX GX06;
-- several soil-fertility multi-sensors.
+Observed about **€15.40**.
 
-Potentially exposed values include:
+Useful if multiple isolated switching channels are needed.
 
-- soil moisture;
-- soil temperature;
-- sometimes humidity/illuminance/fertility;
-- battery state.
+### Watering Unit
 
-Why this is not an immediate recommendation:
+Observed about **€14.50**.
 
-The low-cost Tuya/generic market contains many visually similar hardware variants and manufacturer fingerprints.
+Combines capacitive soil sensing and small-pump control.
 
-**Do not buy a generic "TS0601 soil sensor" solely from the marketing name.**
-
-Before purchase, verify the exact model/manufacturer fingerprint against Zigbee2MQTT/ZHA support and current user reports.
+This is more interesting for soil/substrate experiments than for the owner's current Hydroponics priority, but it is a cheap integrated actuator/sensor fixture.
 
 Sources:
-- https://www.zigbee2mqtt.io/devices/TS0601_soil.html
-- https://www.zigbee2mqtt.io/devices/CS-201Z.html
-- https://www.zigbee2mqtt.io/devices/ZG-303Z.html
-- https://www.zigbee2mqtt.io/devices/HZ-SL10.html
-- https://www.zigbee2mqtt.io/devices/GX06.html
+
+- https://docs.m5stack.com/en/homeassistant/
+- https://docs.m5stack.com/en/homeassistant/components/sensor/unit_env_iv
+- https://docs.m5stack.com/en/homeassistant/components/sensor/unit_watering
+- https://www.berrybase.de/m5stack/
+- https://www.berrybase.de/sensoren-module/m5stack-units/
 
 ---
 
-## 9. Motion/presence sensor
+## 6. Seeed XIAO ESP32-C6 Soil Moisture Sensor
 
-### SONOFF SNZB-03P
+Observed:
 
-Observed price: **€16.51**
+- Seeed official: about **US$10.90**;
+- German OpenELAB listing: about **€14.85**.
 
-Why useful:
+Characteristics:
 
-- not essential to the Greenhouse-Agent MVP;
-- cheap event-driven occupancy/movement input;
-- highly reusable later for home automation;
-- useful for testing local automations and event latency.
+- XIAO ESP32-C6;
+- Wi-Fi/BLE plus 802.15.4 capability;
+- single-AA battery;
+- Home Assistant compatibility;
+- low-power soil monitoring.
 
-Source:
-- https://sonoff.tech/de-de/products/sonoff-zigbee-motion-sensor-snzb-03p
+This is a much cleaner productized soil sensor than a bare probe + development board.
 
----
+However, soil/substrate sensing is currently lower priority than Hydroponics, so purchase can wait unless a soil-growing experiment needs it.
 
-# Suggested minimal purchase order
+Sources:
 
-If spending must stay low, prioritize in this order:
-
-1. **Zigbee coordinator** — only if none is already available;
-2. **SNZB-02WD** — real greenhouse air sensing;
-3. **Shelly Plug M Gen3** — physical actuator + power telemetry + non-Zigbee protocol;
-4. **SNZB-05P** — water-safety signal;
-5. **XIAO ESP32-C3 + soil sensor + BH1750** — cheap custom ESPHome experimentation;
-6. **SNZB-04P** — contact sensor;
-7. **SONOFF water valve** — only once water-control logic is ready for real physical testing;
-8. other soil/presence/multi-sensors as experiments justify them.
-
-This sequence intentionally gives useful sensor + actuator + failure-state coverage before buying specialized gadgets.
+- https://www.seeedstudio.com/XIAO-Soil-Sensor-p-6452.html
+- https://wiki.seeedstudio.com/xiao_soil_moisture_sensor/
+- https://openelab.de/products/seeed-studio-xiao-bodenfeuchtesensor
 
 ---
 
-# Research notes
+# Hydroponics control candidates
 
-## Zigbee network
+## 7. Main circulation / air / auxiliary pump control
 
-Home Assistant ZHA currently recommends Home Assistant Connect ZBT-2 for a new network but also documents SONOFF ZBDongle-E/P as known compatible adapters.
+For ordinary mains-powered pumps, the simplest first path is often:
 
-One Zigbee network has one coordinator.
+`HAOS/System → Shelly Plug M Gen3 → existing pump`
 
-Mains-powered Zigbee devices commonly act as routers; battery-powered sensors are normally end devices.
+Advantages:
 
-## ZHA vs Zigbee2MQTT
+- no custom mains wiring;
+- easy manual override;
+- power telemetry;
+- reusable afterwards.
 
-Both are reasonable experiment targets.
+For low-voltage pumps/valves, use appropriately rated relay/MOSFET hardware rather than forcing every actuator through a mains smart plug.
 
-Do not decide permanently in this preparation shopping note.
+M5Stack relay Units can be useful for low-voltage/control-side experiments, but exact voltage/current/load ratings must be verified for the target device before connection.
 
-The Research/Implementation work should choose based on the actual architecture/evaluation need.
+---
 
-## ESPHome
+## 8. Dosing pumps — later and with safety interlocks
 
-ESPHome is particularly attractive for custom greenhouse sensing because inexpensive ESP32 hardware can expose custom sensors cleanly to Home Assistant.
+If peristaltic nutrient/pH dosing is added later, treat it separately from basic circulation pump control.
 
-It also gives the experiments a second integration style beyond commercial Zigbee products.
+Minimum architecture expectations before autonomous chemical dosing:
+
+- hard maximum dose per action/window;
+- reservoir/flow plausibility;
+- stale/invalid pH/EC reading rejection;
+- manual override/emergency stop;
+- calibration tracking;
+- audit log;
+- time for mixing before remeasurement;
+- no direct actuation from one OCR value.
+
+The initial Hydro experiment does **not** need autonomous pH dosing to prove the agent/control architecture.
+
+---
+
+# Weather-aware room/window logic
+
+No dedicated outdoor sensor purchase is required for the first experiment.
+
+Home Assistant weather integrations can initially provide external context such as:
+
+- outside temperature;
+- forecast;
+- cloud/sun conditions;
+- wind.
+
+Combine with:
+
+- room TP357;
+- tent TP357 / VIVOSUN telemetry;
+- window contact/tilt;
+- light-state estimate;
+- current fan/light states.
+
+This provides a meaningful agent decision problem:
+
+`Should opening/closing the window improve the thermal state right now?`
+
+A physical outdoor temperature/weather sensor can later be added if internet weather data proves too coarse or poorly localized.
+
+---
+
+# Bluetooth architecture recommendation
+
+Because several useful devices are BLE-based, a small Wi-Fi-connected ESPHome Bluetooth proxy is high-value.
+
+Current preferred cheap candidate:
+
+**M5Stack AtomS3 Lite**
+
+Possible architecture:
+
+`
+TP357(s)
+Shelly BLU Window
+other future BLE sensors
+        │
+        ▼
+AtomS3 Lite / ESPHome Bluetooth Proxy
+        │  2.4-GHz IoT Wi-Fi
+        ▼
+HAOS VM
+        │
+        ▼
+Home Assistant integrations / system modules
+`
+
+Home Assistant automatically aggregates supported ESPHome Bluetooth proxies with other Bluetooth adapters.
+
+This also keeps the HAOS VM independent of a dedicated passed-through Bluetooth USB dongle for normal sensor reception.
+
+---
+
+# Revised suggested purchase order
+
+Given the owner's already-owned hardware and current budget constraints:
+
+1. **Buy nothing first:** integrate existing TP357 sensors and VIVOSUN E42A against HAOS.
+2. **M5Stack AtomS3 Lite (~€9.90):** BLE proxy + expandable ESPHome node.
+3. **Shelly Plug M Gen3 (~€12.90+):** universal actuator/power monitor; especially useful for Hydro pumps.
+4. **Shelly BLU Door/Window Mini ZB (~€15.90):** use over BLE/BTHome now; Zigbee remains future option.
+5. **BH1750 (€2.40) or M5Stack DLight (€6.50):** light on/off + relative brightness.
+6. **Camera node for MC811 MAX:** choose once camera placement/image requirements are clearer.
+7. **M5Stack relay/pump hardware:** only when a specific low-voltage pump/control target is chosen.
+8. **XIAO ESP32-C6 Soil Sensor (~€10.90–14.85):** when soil/substrate experiments become relevant.
+9. **Leak/water-level sensing:** choose based on actual Hydro reservoir layout.
+10. **Zigbee coordinator + Zigbee-only devices:** later, when device count/value justifies the extra entry cost.
+
+This sequence can start meaningful experiments with roughly **€10–40 of new hardware**, depending on how much is purchased initially, because the most valuable climate/controller devices are already owned.
 
 ---
 
@@ -373,4 +506,6 @@ It also gives the experiments a second integration style beyond commercial Zigbe
 
 Nothing in this file is assumed to be physically available to Implementation until the owner explicitly says it was purchased/received and adds it to the implementation input/inventory.
 
-Do not copy this shopping shortlist into the future-facing requirements documents merely because it exists.
+Already-owned devices explicitly stated by the owner are exceptions and should be tracked separately as existing test fixtures.
+
+Do not copy this shopping shortlist into future-facing requirements documents merely because it exists.
