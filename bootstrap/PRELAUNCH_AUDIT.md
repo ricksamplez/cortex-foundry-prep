@@ -8,7 +8,7 @@
 - [x] All 62 v0.1 numbered sections mapped.
 - [x] Zero v0.1 sections marked dropped.
 - [x] All migration destination file/anchor references resolve.
-- [x] 49 persisted post-v0.1 owner decisions/notes accounted for: 48 propagated into future-facing artifacts and 1 intentionally retained as preparation-only.
+- [x] 57 persisted post-v0.1 owner decisions/notes accounted for: 53 current future-facing decisions integrated, 3 earlier decisions explicitly superseded, and 1 intentionally retained as preparation-only.
 - [x] Zero mapped post-v0.1 decisions remain pending.
 - [x] Non-trivial semantic changes documented.
 - [x] Specialized learned-component / Teacher / canonical-data requirements integrated without making them the program's primary focus.
@@ -75,6 +75,16 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Full implementation explicitly gated.
 - [x] Maximum useful work per expensive message required.
 - [x] Continuation protocol included.
+
+## Latest reconciliation
+
+- [x] Seven reference workload families are now fixed; Embodied Agent / Robotics is #7.
+- [x] Social Companion Tier B standalone Quest VR requirement integrated.
+- [x] Smartphone Personal Assistant Tier A integrated.
+- [x] VRChat asset support removed from Cognitive-Core requirements and retained as a workload-specific renderer/import path.
+- [x] Current Unity/Unreal/P30/HAOS implementation-fixture state integrated.
+- [x] Seed ↔ migration document synchronization rechecked.
+- [x] Decision-map anchors revalidated with zero broken references.
 
 ## G. Still required before launch
 
