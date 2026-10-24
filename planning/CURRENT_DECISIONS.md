@@ -967,3 +967,62 @@ Standalone Quest VR clients may be implemented using Unity, Unreal Engine, or an
 Different VR experiments/reference implementations may intentionally use different engines.
 
 Engine choice is a workload/implementation decision, not a universal platform contract.
+
+
+---
+
+## 47. Initial avatar test fixtures
+
+The first concrete implementation test avatar will be **Test-chan**.
+
+Known owner-provided properties:
+
+- sourced from Booth.pm;
+- CC0;
+- includes VRM0.
+
+The owner will provide Test-chan through the implementation workspace input/Inbox area.
+
+A separate suitable **VRM1** avatar will also be sourced and provided before the relevant interoperability tests.
+
+Test-chan is a test fixture, not the final project avatar and not an architecture dependency.
+
+---
+
+## 48. Huawei P30 detailed unattended-debug posture
+
+The Huawei P30 (`ELE-L29`) is a dedicated implementation test device and is intentionally configured for unattended Codex/harness access.
+
+Current device state includes:
+
+- no SIM card;
+- no stored Wi-Fi network;
+- ADB enabled and permanently connected to the implementation laptop during relevant testing;
+- lockscreen friction disabled;
+- `Enable view attribute inspection` enabled;
+- `Allow ADB debugging in charge only mode` enabled;
+- `Show touches` enabled;
+- `Show all ANRs` enabled;
+- `Always prompt when connecting to USB` disabled;
+- `Verify apps over USB` disabled;
+- log buffer size set to `1 MB per log buffer`;
+- display configured to remain on while connected to power;
+- other owner-approved security friction removed where needed for unattended testing.
+
+This is an intentionally permissive dedicated test-device posture, not a recommendation for production/end-user Android devices.
+
+Because no Wi-Fi network is stored, network provisioning for a test must be performed deliberately rather than assumed.
+
+---
+
+## 49. Preparation-only Home Automation hardware shortlist
+
+A dated shortlist of inexpensive Home Assistant / Greenhouse-Agent sensors and actuators is maintained at:
+
+`planning/HOME_AUTOMATION_HARDWARE_CANDIDATES_2026-10-24.md`
+
+This is **preparation-only purchasing research**.
+
+It must not be propagated into Research/Implementation requirements or treated as available hardware until the owner explicitly purchases/receives an item and adds it to the implementation inventory/input state.
+
+The shortlist currently prioritizes inexpensive Zigbee sensing, one general-purpose switched/power-metered actuator, optional ESPHome soil/light sensing, leak/contact sensors, and later irrigation control.
