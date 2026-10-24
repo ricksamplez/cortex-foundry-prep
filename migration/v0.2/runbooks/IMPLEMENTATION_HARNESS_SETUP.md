@@ -113,10 +113,21 @@ The Huawei P30 (`ELE-L29`) used by mobile/Bedside reference testing will remain 
 
 It is intentionally configured for unattended automation:
 
+- no SIM card is installed;
+- no Wi-Fi network is currently stored on the device;
 - lockscreen friction is disabled;
+- `Enable view attribute inspection` is enabled;
+- `Allow ADB debugging in charge only mode` is enabled;
+- `Show touches` is enabled;
+- `Show all ANRs` is enabled;
+- `Always prompt when connecting to USB` is disabled;
+- `Verify apps over USB` is disabled;
+- Android log buffer size is set to `1 MB per log buffer`;
 - relevant ADB/security prompts or barriers that would require owner presence have been disabled where the owner considers that acceptable for this dedicated test device;
 - the display remains on while the device is connected to power;
-- installation, debugging, logs, control, screenshots, and repeatable device-level tests should be automatable without requiring the owner to unlock/confirm routine steps.
+- installation, debugging, logs, view-hierarchy inspection, UI automation, screenshots/control, ANR diagnosis, and repeatable device-level tests should be automatable without requiring the owner to unlock/confirm routine steps.
+
+Because no trusted Wi-Fi network is preconfigured, network access should be provisioned deliberately by the implementation workflow when a test requires it rather than assumed to exist.
 
 Treat this as an owner-authorized dedicated test-device posture, not a general recommendation for production user devices.
 
@@ -140,12 +151,18 @@ The implementation run may author CI/workflow files for the project when the arc
 
 The implementation workspace may contain a dedicated owner-provided **Inbox** directory for fixtures/assets that should be consumed by the project but are not implementation-agent tools or subagents.
 
-Known planned fixtures include a matching 3D avatar supplied in:
+Known planned avatar fixtures include:
 
-- VRM;
-- VRChat-ready Unity package (`.unitypackage`);
-- PMX/MMD format;
-- associated textures/assets.
+- **Test-chan** as the first concrete test avatar:
+  - CC0;
+  - sourced by the owner from Booth.pm;
+  - includes VRM0;
+- an additional suitable VRM1 avatar to be supplied by the owner before the relevant interoperability tests;
+- a matching cross-format avatar fixture available in:
+  - VRM;
+  - VRChat-ready Unity package (`.unitypackage`);
+  - PMX/MMD format;
+  - associated textures/assets.
 
 The owner has also downloaded the Home Assistant OS KVM image archive:
 
