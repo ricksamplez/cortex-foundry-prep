@@ -121,6 +121,26 @@ Cross-language interoperability, serialization, IPC, ABI boundaries, RPC, shared
 
 Extremely latency-sensitive components must not be forced through expensive interoperability mechanisms merely to preserve uniformity.
 
+## Client and Frontend Independence
+
+Different reference workloads, deployment profiles, and clients may use completely different frontend technologies, programming languages, rendering stacks, and frameworks.
+
+The platform must not require one universal UI/frontend framework merely to preserve consistency.
+
+Frontends should integrate through stable platform contracts/capabilities and may include, for example:
+
+- native mobile clients;
+- desktop applications;
+- web interfaces;
+- VR/XR clients;
+- game-engine clients;
+- embedded displays;
+- operator/mission-control interfaces.
+
+Where a workload benefits from multiple client forms, the architecture should support session/state continuity across clients rather than making the frontend itself the sole owner of cognitive/session state.
+
+A client transition — including moving from a non-VR client into a VR client during an active interaction — should be technically possible when the workload requires it.
+
 ---
 
 ## Deployment and Compute Scaling
@@ -472,20 +492,17 @@ Protocol/application adapters such as VMC-compatible integration or application-
 
 Controller abstractions should be broad enough that suitable VLA/control policies can potentially operate other embodiments, including robots or simulated entities, when an appropriate observation/action adapter exists.
 
-### 3D avatar asset interoperability
+### Avatar renderer / engine extensibility
 
-The embodiment/avatar layer must support real-world avatar assets without tying the core to one authoring ecosystem.
+The generic embodiment/avatar architecture must not hardcode one renderer, engine, asset ecosystem, or import pipeline.
 
-At minimum, implementation must provide a sound path for:
+It must support replaceable renderer/engine implementations behind stable avatar/embodiment contracts.
 
-- VRM models;
-- VRChat-ready Unity avatar packages (`.unitypackage`).
+A lightweight renderer optimized for direct/common avatar formats and a heavier game-engine-backed renderer are both valid implementation strategies when they serve different capability/performance needs.
 
-PMX/MMD assets are an additional explicit interoperability target and should work cleanly where technically practical.
+Format-specific support such as VRM, VRChat Unity packages, PMX/MMD, engine-specific assets, or future formats belongs to renderer/import adapters and workload-specific interoperability requirements rather than the cognitive core.
 
-Format-specific import/conversion/runtime concerns should live behind adapters or bounded integration layers rather than leak into generic cognitive contracts.
-
-Implementation should validate interoperability using representative real assets and textures when provided, not only synthetic placeholder geometry.
+The core should expose the contracts needed for rendering state, animation/expression/action surfaces, controller integration, lifecycle, and capability discovery without depending on one asset format.
 
 ---
 
