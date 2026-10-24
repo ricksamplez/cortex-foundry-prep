@@ -18,11 +18,9 @@ They exist to:
 - force realistic failure/degraded-mode design;
 - evaluate reuse across materially different applications.
 
-The program targets **seven** materially different workload families.
+The program defines **seven** materially different workload families.
 
-Six families are currently fixed below. The seventh remains intentionally open until a genuinely orthogonal, useful workload is selected; do not fill the slot merely to preserve a count.
-
-Once the seventh family is selected, every family must be developed into **three complete, production-meaningful reference systems**, yielding at least 21 reference systems.
+Every family must be developed into **three complete, production-meaningful reference systems**, yielding at least 21 reference systems.
 
 Research may add additional orthogonal workloads when strong evidence shows they expose an important architectural dimension not covered here.
 
@@ -81,6 +79,7 @@ At minimum, capture:
 - realtime/latency expectations;
 - quality requirements;
 - deployment assumptions;
+- client/frontend model where relevant;
 - relevant resource classes;
 - security/trust requirements;
 - failure modes;
@@ -167,7 +166,24 @@ Stresses:
 
 Keep this workload distinct from the Social Companion: practical assistance may overlap with social behavior, but neither should automatically collapse into the other.
 
-No concrete Personal-Assistant tier implementation is fixed yet. Research must design all three tiers according to the global tier semantics.
+#### Tier A fixed direction: Smartphone Personal Assistant
+
+Tier A must be deployable as a genuinely useful personal assistant on a smartphone.
+
+Inference may be:
+
+- fully local on sufficiently capable hardware;
+- provided by a machine on the local network;
+- provided by an external/cloud inference endpoint;
+- split between local specialist models and remote general intelligence.
+
+Fully local operation is a valid deployment profile when the device is capable enough; it is not a universal Tier-A requirement.
+
+The Huawei P30 (`ELE-L29`) may be used as a constrained mobile test target. For local-only validation, a very small on-device LLM stack — for example a Gemma-family E2B-class model through LiteRT-LM or a comparable mobile runtime, if technically suitable at implementation time — may be tested. This is a test path, not a requirement that the P30 serve production inference; external inference is expected to be the more practical profile for that device.
+
+#### Tier B and Tier C — Open design space
+
+Research must design the broader tiers according to the global tier semantics.
 
 ---
 
@@ -254,13 +270,25 @@ A ready avatar asset may be supplied to the implementation workspace; avatar-aut
 
 The exact split remains a research decision.
 
-#### Tier B — Open design space
+#### Tier B fixed direction: Persistent Companion with Optional Standalone VR
 
-Tier B is intentionally not fixed yet.
+Tier B must be a broader serious social companion with richer continuity, initiative, multimodal interaction, memory, tools, and embodiment.
 
-Research should design a broader serious social companion that expands continuity, initiative, multimodal interaction, memory, tools, and richer embodied/social behavior without yet requiring the full live-performer integration burden of Tier C.
+It must support **optional VR presence compatible with Meta Quest 3**, while remaining fully useful without VR.
 
-Define the exact boundary from Tier A using architecture/value rather than arbitrary feature count.
+The VR path must be a client running **directly on the Quest-class headset**, not a PCVR-only design.
+
+The cognitive/backend services may run:
+
+- on a PC/server on the same local network;
+- on a remote server;
+- or in another suitable backend deployment.
+
+The frontend/backend boundary should allow the user to continue an existing interaction/session by putting on the headset during operation rather than starting a disconnected companion instance.
+
+The VR client may expose additional spatial/embodied capabilities that are unavailable or unnecessary in the non-VR client, while preserving shared identity/session/memory continuity.
+
+The VR implementation is not tied to one engine. Unity or Unreal Engine may be selected per reference implementation according to technical fit, and using different engines for different VR experiments/reference implementations is acceptable when that yields useful evidence.
 
 #### Tier C fixed direction: Embodied AI VTuber / AI Performer
 
@@ -324,16 +352,18 @@ Not every stream must be sent to the same model or processed at the same rate.
 
 The system should support optional cross-stream fusion without losing the ability to reason about streams independently.
 
-##### Avatar interoperability and control stress
+##### Avatar renderer and interoperability stress
 
-3D avatar support must be designed so the system can work cleanly with at least:
+Tier C should validate more than one renderer/import strategy rather than forcing every avatar asset through one path.
 
-- VRM avatars;
-- VRChat-ready Unity avatar packages (`.unitypackage`).
+At minimum, investigate/implement:
 
-PMX/MMD avatar support is also an explicit interoperability target and should be supported where technically practical.
+- a comparatively lightweight VRM-oriented renderer/runtime path;
+- a heavier game-engine-backed renderer path capable of handling VRChat-style Unity avatar packages (`.unitypackage`) where appropriate.
 
-Implementation testing will have access to one owner-provided avatar available in all three representations, together with its textures, so compatibility should be validated with real fixture assets rather than only synthetic placeholders.
+PMX/MMD interoperability remains an additional explicit target where technically practical.
+
+Implementation testing will have access to one owner-provided avatar available in VRM, VRChat Unity-package, and PMX/MMD representations together with textures/assets.
 
 Reference designs should exercise the distinction between:
 
@@ -451,15 +481,53 @@ Research should investigate relevant approaches such as Programming/Learning fro
 
 ---
 
-### Seventh Reference Workload — Pending Selection
+### Embodied Agent / Robotics
 
-The seventh workload family is intentionally **not yet fixed**.
+This workload covers agents/controllers that act through embodied virtual, simulated, hardware-in-the-loop, or physical action spaces.
 
-Select it only when a candidate adds a materially different architecture stress dimension that is not already covered by the other six families.
+It stresses:
 
-A strong candidate may involve physical/robotic embodiment, simulation-to-real control, or another orthogonal domain, but this is not yet a requirement.
+- VLA and other perception-action policies;
+- sensor fusion;
+- continuous/low-latency control;
+- action-space negotiation;
+- embodied state/proprioception;
+- motion/planning/control separation;
+- hard stop/preemption;
+- safety constraints;
+- simulation/emulation;
+- simulation-to-real transfer;
+- high-level cognition plus fast local control;
+- partial hardware failure;
+- actuator/sensor availability;
+- deterministic safety boundaries;
+- observability/replay of embodied actions.
 
-Research may propose the final seventh workload when enough evidence exists, or the owner may fix it before the Research run.
+#### Tier A fixed direction: Game / Virtual-World Agent
+
+Tier A should be a genuinely useful embodied agent operating inside a game or virtual world.
+
+It should exercise navigation, world state, object interaction, goals, perception/action loops, local reactions, and high-level cognition without requiring physical robotics hardware.
+
+Unity 6.3 LTS (`6000.3.x`) and Unreal Engine 5.8.4 are both valid installed implementation/simulation environments. Engine choice should follow technical fit rather than a project-wide mandate.
+
+#### Tier B fixed direction: Simulated Robotics / Digital-Twin Agent
+
+Tier B should move into robotics-like sensing/control using a serious simulated robot or digital-twin environment.
+
+It should add richer sensors/actuators, proprioception, continuous control, obstacle/environment handling, safety constraints, controller hierarchy, and VLA/learned-control evaluation where useful.
+
+Unity, Unreal Engine, or another suitable robotics simulator may be used. Different experiments may use different engines when appropriate.
+
+#### Tier C fixed direction: Physical / Hardware-in-the-Loop Robotics Agent
+
+Tier C should validate the architecture against real physical robotics or hardware-in-the-loop behavior when suitable hardware becomes available.
+
+It should stress real sensor/actuator timing, safety, partial hardware failure, jitter/latency, emergency-stop semantics, local fast control, slow cognition, and simulation-to-real gaps.
+
+A physical robot is not currently available. Until one is available, implementation must maximize simulation/HIL coverage and explicitly preserve the remaining physical-validation gap rather than skipping the workload.
+
+A general controller/action-surface abstraction should permit suitable controller families — including VLA-style controllers — to operate virtual agents, simulated robots, physical robots, avatars, or other embodiments through target-specific adapters.
 
 ---
 
@@ -509,7 +577,7 @@ The core must not become a collection of hardcoded special cases for the seven r
 
 ## Evaluation Use
 
-The completed tiered reference-system set — targeting 21+ systems once the seventh workload is selected — should be used throughout architecture research to ask:
+The completed tiered reference-system set — at least 21 systems across the seven workload families — should be used throughout architecture research to ask:
 
 - Can this requirement be expressed cleanly?
 - Which core abstractions are shared?
