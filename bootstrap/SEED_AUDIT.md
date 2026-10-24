@@ -58,7 +58,7 @@ Checks:
 
 ## File-size sanity
 
-Largest prepared seed document is currently `00_CORE_REQUIREMENTS_CHARTER.md` at roughly 27.3k characters after the latest learned-component, affect/speech, routing-override, data-provenance, and hardware-profile refinements.
+Largest prepared seed document is `00_CORE_REQUIREMENTS_CHARTER.md` at approximately 28,505 characters.md` at roughly 27.3k characters after the latest learned-component, affect/speech, routing-override, data-provenance, and hardware-profile refinements.
 
 No seed state/log file is large.
 
@@ -71,6 +71,15 @@ All five seed docs match their modular migration counterparts after normalizing 
 The latest specialized-learning, affect/speech, routing/resource-override, data-provenance, and hardware-profile refinements are synchronized.
 
 No seed/migration content drift was detected in this audit.
+
+## Latest reconciliation checks
+
+- all five seed docs match the current modular migration counterparts after Status-line normalization;
+- VRChat-specific asset support is no longer a Cognitive-Core requirement;
+- seven reference workload families are now fixed;
+- Unity/Unreal implementation versions reflect the current host;
+- no stale "seventh workload pending" wording remains;
+- no preparation-workspace leakage was detected.
 
 ## Cutover readiness
 
