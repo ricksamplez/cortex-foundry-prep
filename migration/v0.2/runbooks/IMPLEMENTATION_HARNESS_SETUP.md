@@ -109,7 +109,16 @@ Dedicated implementation laptop:
 - roughly 6–6.5 GB VRAM available in a lightweight/headless-ish environment;
 - machine is dedicated to the implementation run so the owner's main workstation remains available.
 
-The Huawei P30 (`ELE-L29`) used by the Bedside Companion reference system will remain physically connected to this laptop with ADB enabled throughout implementation/testing, allowing automated install/debug/log/control workflows.
+The Huawei P30 (`ELE-L29`) used by mobile/Bedside reference testing will remain physically connected to this laptop with ADB enabled throughout implementation/testing.
+
+It is intentionally configured for unattended automation:
+
+- lockscreen friction is disabled;
+- relevant ADB/security prompts or barriers that would require owner presence have been disabled where the owner considers that acceptable for this dedicated test device;
+- the display remains on while the device is connected to power;
+- installation, debugging, logs, control, screenshots, and repeatable device-level tests should be automatable without requiring the owner to unlock/confirm routine steps.
+
+Treat this as an owner-authorized dedicated test-device posture, not a general recommendation for production user devices.
 
 Known Codex CUDA-capable security/approval baseline that has already worked:
 
@@ -138,7 +147,13 @@ Known planned fixtures include a matching 3D avatar supplied in:
 - PMX/MMD format;
 - associated textures/assets.
 
-Treat these as real interoperability/test fixtures.
+The owner has also downloaded the Home Assistant OS KVM image archive:
+
+- `haos_ova-18.3.qcow2.xz`
+
+and plans to place it in the same owner-provided workspace input area before relevant implementation/testing begins.
+
+Treat these as real interoperability/test fixtures. Verify fixture presence/version before use rather than assuming a path forever.
 
 Do not modify or discard original Inbox assets in place unless explicitly authorized. Prefer copying/deriving working assets into project-controlled locations so the original fixture remains reproducible.
 
@@ -160,8 +175,12 @@ Already installed/available:
 ### 3D / game / interactive
 
 - Blender 5.2.2 + MCP;
-- Unity 6.6 + CLI + MCP;
-- Unreal Engine 5.8.2, linked into `~/.local/bin`, + MCP.
+- Unity 6.3 LTS (`6000.3.x`) + CLI + MCP;
+- Unreal Engine 5.8.4 + MCP.
+
+A Meta Quest 3 is a target device for the standalone Social-Companion VR client.
+
+Unity and Unreal are both valid for VR, virtual-world, robotics-simulation, or other engine-backed experiments. Select the engine per task based on technical fit; the project does not impose one global engine. Different reference implementations/experiments may intentionally use different engines when doing so yields useful evidence.
 
 ### Development
 
@@ -437,14 +456,16 @@ Use an appropriate simulation/emulation environment when useful fidelity is achi
 
 Examples include:
 
-- robot/embodied-agent simulation in Unity, Unreal Engine, or a suitable robotics simulator;
+- robot/embodied-agent simulation in Unity 6.3 LTS, Unreal Engine 5.8.4, or a suitable robotics simulator;
 - simulated sensors/actuators;
 - emulated edge/mobile devices where the real device is unavailable;
 - simulated smart-home devices attached to the real Home Assistant software stack.
 
 Relevant simulator/plugins may be installed or provided by the owner when needed.
 
-When Home Assistant OS behavior itself matters, use a real HAOS instance (for example in a VM on the Ubuntu host) and simulate/emulate the missing devices around it rather than replacing HAOS with a fake. Home Assistant Container is a different installation type and must not be treated as equivalent for HAOS-specific validation.
+When Home Assistant OS behavior itself matters, use a real HAOS instance in a VM on the Ubuntu host and simulate/emulate the missing devices around it rather than replacing HAOS with a fake. Home Assistant Container is a different installation type and must not be treated as equivalent for HAOS-specific validation.
+
+The owner-provided `haos_ova-18.3.qcow2.xz` KVM image archive should be used as the initial HAOS fixture when present, after normal integrity/version checks and extraction/provisioning.
 
 Clearly document what the simulation validates and what still requires later physical-hardware testing.
 
@@ -505,6 +526,8 @@ Model/provider selection for project tests remains part of the system's provider
 The laptop can comfortably host lightweight models fitting within roughly 6 GB usable VRAM, including many embeddings/classifiers/small specialized models.
 
 Larger quantized/offloaded models may be technically usable for slow background project evaluation through tools such as Unsloth Studio, Ollama, or llama.cpp.
+
+For smartphone-local inference validation on the Huawei P30, a very small mobile LLM stack — for example a Gemma4 E2B-class model through LiteRT-LM or a comparable runtime/model if supported at implementation time — may be tested purely to validate the local deployment path. External/LAN inference remains the more realistic default candidate for that constrained device.
 
 Do not confuse "technically runs eventually" with "appropriate interactive runtime".
 
