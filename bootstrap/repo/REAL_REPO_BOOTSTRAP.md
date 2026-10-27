@@ -35,6 +35,16 @@ Do **not** pre-build a giant final ontology/taxonomy before research begins.
 
 These should initially match the approved modular preparation drafts.
 
+### Prior-art inputs
+
+- `prior-art/ai_vtuber_v1_technical_blueprint_spec_PATCHED_v4_alpha_beta_roadmap.md`
+
+This previous internal AI-VTuber blueprint is supplied as **prior art / requirements evidence**, not as architecture authority.
+
+It should remain available on demand without becoming an always-on Project Doc.
+
+The Research run must reassess useful requirements/patterns independently and treat concrete historical technology choices as candidates rather than inherited defaults.
+
 ### Minimal state
 
 - `state/CURRENT_STATE.md`
