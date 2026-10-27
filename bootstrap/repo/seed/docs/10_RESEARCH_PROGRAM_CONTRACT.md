@@ -85,7 +85,7 @@ The research run should know only the general implementation constraints necessa
 
 A dedicated project with project-only memory is preferred so unrelated global/personal context does not bias the work.
 
-Repository state and approved Project Docs are authoritative. Chat history is working context, not canonical project state.
+Approved Project Docs provide stable bootstrap/always-on context. The repository is the canonical evolving project state. If a Project Doc mirror and its accepted repository counterpart diverge, use the repository version unless the owner explicitly establishes a different authority. Chat history is working context, not canonical project state.
 
 ---
 
