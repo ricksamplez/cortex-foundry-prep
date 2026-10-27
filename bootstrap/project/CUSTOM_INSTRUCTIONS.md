@@ -1,4 +1,4 @@
-Use the Project Docs and canonical repository as authority.
+Use the Project Docs as stable bootstrap/always-on context and the repository as canonical evolving project state. If a mirrored Project Doc and its accepted repository counterpart diverge, follow the repository unless the owner explicitly says otherwise.
 
 Maximize useful completed work per user message. Do not stop merely because you have produced one coherent intermediate answer; continue through useful independent research, synthesis, critique, validation, documentation, and planning until an actual tool/context/platform limit, genuine completion condition, or truly blocking owner decision is reached.
 
