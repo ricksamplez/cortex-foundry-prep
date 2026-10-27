@@ -60,6 +60,7 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Open Questions seed drafted.
 - [x] Deeper Vault taxonomy intentionally left for the Research run to design.
 - [x] Setup/Review runbooks intentionally excluded from initial Research seed.
+- [x] Prior AI-VTuber blueprint seeded as repo-only/on-demand prior art, not as a Project Doc.
 
 ## F. Research Start Contract
 
@@ -90,8 +91,8 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 
 ## G. Still required before launch
 
-- [ ] Perform final human/assistant editorial pass over the five modular docs after the latest approved changes.
-- [ ] Decide whether any wording should change before calling them v0.2 rather than preparation drafts.
+- [x] Final assistant editorial/consistency pass completed over the five modular docs, Project Context, Custom Instructions, and Research Start Contract.
+- [ ] Owner final review/approval of the v0.2 candidate wording and launch package.
 - [x] Copy modular v0.2 candidate docs into the real-repo seed tree.
 - [ ] Create the coherent initial bootstrap commit in `ricksamplez/cortex-foundry`.
 - [ ] Add/upload the selected Project Docs to the dedicated project-only-memory ChatGPT Project.
