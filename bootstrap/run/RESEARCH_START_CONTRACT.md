@@ -205,7 +205,7 @@ Do not design the architecture exclusively around any single workload.
 
 Identify reusable capabilities/modules and genuine workload-specific needs.
 
-The fixed Bedside Companion Tier-A concept and Desktop-Agent Tier-C learning-by-demonstration requirement must be preserved.
+All fixed tier directions and cross-tier constraints defined in the Reference Workloads document are authoritative. Do not maintain a separate competing workload/tier list in run-local state; link back to the canonical document and only elaborate it through accepted research artifacts.
 
 ## Output of this first run
 
