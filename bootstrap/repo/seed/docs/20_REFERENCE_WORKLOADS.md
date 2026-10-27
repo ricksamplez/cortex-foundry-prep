@@ -253,8 +253,6 @@ This workload is intentionally limited to bedside/near-device use; it does not n
 
 A Huawei P30 (`ELE-L29`) is available for full repurposing and experimentation, making Android a particularly interesting concrete candidate platform.
 
-During implementation, this device is expected to remain physically connected to the implementation laptop with ADB enabled so installation, debugging, logging, control, and repeatable device-level testing can be automated.
-
 The device may be freely modified/reconfigured for this use case.
 
 Research must not assume that all inference fits locally. In particular, components such as TTS may reasonably be offloaded when local compute/quality would produce an unacceptable voice experience.
@@ -266,7 +264,7 @@ A practical architecture may combine:
 - cloud or LAN-hosted conversational intelligence;
 - offloaded TTS or other components when local quality/compute is inadequate.
 
-A ready avatar asset may be supplied to the implementation workspace; avatar-authoring itself should not become an accidental prerequisite for validating the Bedside Companion runtime.
+Avatar authoring should not become an accidental prerequisite for validating the Bedside Companion runtime; the runtime should be testable with representative pre-existing assets.
 
 The exact split remains a research decision.
 
@@ -363,7 +361,7 @@ At minimum, investigate/implement:
 
 PMX/MMD interoperability remains an additional explicit target where technically practical.
 
-Implementation testing will have access to one owner-provided avatar available in VRM, VRChat Unity-package, and PMX/MMD representations together with textures/assets.
+Interoperability should be validated with representative real assets across the supported renderer/import paths rather than only synthetic placeholder geometry.
 
 Reference designs should exercise the distinction between:
 
@@ -416,7 +414,7 @@ Tier A should be a focused, genuinely useful **Greenhouse Agent**.
 
 It should exercise real environment sensing/control, schedules, automation coexistence, fault handling, and physical-world consequences without requiring whole-home scope.
 
-Where Home Assistant semantics are part of the test, prefer a real Home Assistant OS instance with simulated/emulated devices rather than replacing Home Assistant itself with a fake. On the Ubuntu implementation host, a virtualized HAOS instance is the appropriate class of setup; Home Assistant Container is a distinct installation type and should not be treated as equivalent when HAOS-specific behavior matters.
+Where Home Assistant semantics are part of the test, prefer a real Home Assistant OS instance with simulated/emulated devices rather than replacing Home Assistant itself with a fake. Home Assistant Container is a distinct installation type and should not be treated as equivalent when HAOS-specific behavior matters.
 
 #### Tier B and Tier C — Open design space
 
@@ -525,7 +523,7 @@ Tier C should validate the architecture against real physical robotics or hardwa
 
 It should stress real sensor/actuator timing, safety, partial hardware failure, jitter/latency, emergency-stop semantics, local fast control, slow cognition, and simulation-to-real gaps.
 
-A physical robot is not currently available. Until one is available, implementation must maximize simulation/HIL coverage and explicitly preserve the remaining physical-validation gap rather than skipping the workload.
+When suitable physical robot hardware is unavailable, maximize simulation/HIL coverage and explicitly preserve the remaining physical-validation gap rather than skipping the workload.
 
 A general controller/action-surface abstraction should permit suitable controller families — including VLA-style controllers — to operate virtual agents, simulated robots, physical robots, avatars, or other embodiments through target-specific adapters.
 
