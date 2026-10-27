@@ -509,7 +509,7 @@ Tier A should be a genuinely useful embodied agent operating inside a game or vi
 
 It should exercise navigation, world state, object interaction, goals, perception/action loops, local reactions, and high-level cognition without requiring physical robotics hardware.
 
-Unity 6.3 LTS (`6000.3.x`) and Unreal Engine 5.8.4 are both valid installed implementation/simulation environments. Engine choice should follow technical fit rather than a project-wide mandate.
+Unity, Unreal Engine, or another suitable virtual-world/simulation environment may be used. Engine choice should follow technical fit rather than a project-wide mandate.
 
 #### Tier B fixed direction: Simulated Robotics / Digital-Twin Agent
 
@@ -517,7 +517,7 @@ Tier B should move into robotics-like sensing/control using a serious simulated 
 
 It should add richer sensors/actuators, proprioception, continuous control, obstacle/environment handling, safety constraints, controller hierarchy, and VLA/learned-control evaluation where useful.
 
-Unity, Unreal Engine, or another suitable robotics simulator may be used. Different experiments may use different engines when appropriate.
+Different suitable simulation engines/environments may be used across experiments when that produces better evidence or capability coverage.
 
 #### Tier C fixed direction: Physical / Hardware-in-the-Loop Robotics Agent
 
