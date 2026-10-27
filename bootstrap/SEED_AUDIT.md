@@ -17,7 +17,7 @@ The target repository remains untouched by this preparation audit.
 
 ## Prepared seed
 
-Prepared future-facing seed files: **10**
+Prepared future-facing seed files: **11**
 
 - `README.md`
 - `PROJECT_CONTEXT.md`
@@ -29,6 +29,7 @@ Prepared future-facing seed files: **10**
 - `docs/20_REFERENCE_WORKLOADS.md`
 - `docs/30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md`
 - `docs/40_RESEARCH_COMPLETION_AND_HANDOFF.md`
+- `prior-art/ai_vtuber_v1_technical_blueprint_spec_PATCHED_v4_alpha_beta_roadmap.md`
 
 ## Seed scope checks
 
@@ -58,7 +59,9 @@ Checks:
 
 ## File-size sanity
 
-Largest prepared seed document is `00_CORE_REQUIREMENTS_CHARTER.md` at approximately 28,505 characters.md` at roughly 27.3k characters after the latest learned-component, affect/speech, routing-override, data-provenance, and hardware-profile refinements.
+Largest prepared seed requirements document is `00_CORE_REQUIREMENTS_CHARTER.md` at approximately 28.5k characters.
+
+The prior-art AI-VTuber blueprint is intentionally larger (~72.6k characters) but is a deep/on-demand source artifact, not an always-on mutable knowledge file.
 
 No seed state/log file is large.
 
@@ -79,7 +82,8 @@ No seed/migration content drift was detected in this audit.
 - seven reference workload families are now fixed;
 - Unity/Unreal implementation versions reflect the current host;
 - no stale "seventh workload pending" wording remains;
-- no preparation-workspace leakage was detected.
+- no preparation-workspace leakage was detected;
+- the prior-art blueprint copy matches the preparation source copy exactly and remains repo-only/on-demand rather than a Project Doc.
 
 ## Cutover readiness
 
