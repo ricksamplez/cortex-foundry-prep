@@ -33,3 +33,10 @@ The deeper Vault structure is expected to evolve as research discovers what the 
 - durable repository state instead of chat-memory dependency.
 
 The repository is intended to remain usable as a portable Git/Markdown knowledge base and may also be opened as an Obsidian Vault.
+
+
+## Prior Art
+
+`prior-art/ai_vtuber_v1_technical_blueprint_spec_PATCHED_v4_alpha_beta_roadmap.md` contains a previous internal AI-VTuber architecture blueprint.
+
+Use it as prior art, requirements evidence, and a source of lessons/ideas. Do not treat its historical technology choices as binding architecture.
