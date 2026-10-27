@@ -32,6 +32,8 @@ Verify that you understand:
 
 Then inspect the seed repository/state.
 
+The repository also contains a prior internal AI-VTuber blueprint under `prior-art/`. Treat it as a source of requirements evidence, architectural lessons, and reusable ideas — **not** as binding architecture. Load/review it when relevant, separate useful constraints from historical stack choices, and do not inherit its concrete technologies without independent justification.
+
 ### Bootstrap the research workspace
 
 Design and establish the **minimal scalable** Git/Markdown/Obsidian-compatible workspace structure needed for serious long-running research.
