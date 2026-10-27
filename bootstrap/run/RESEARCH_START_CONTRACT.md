@@ -1,10 +1,12 @@
 # Research Start Contract — First Run
 
-Use the Project Docs and the canonical repository at:
+Use the Project Docs as the stable bootstrap/always-on context for this research program and the repository at:
 
 `ricksamplez/cortex-foundry`
 
-as the authoritative basis for this research program.
+as the canonical evolving project state.
+
+If an accepted repository document and its Project Doc mirror diverge, follow the repository unless the owner explicitly establishes a different authority.
 
 The repository/program name is not the name of the system being designed. Keep the system generically named until a deliberate canonical naming decision is justified.
 
