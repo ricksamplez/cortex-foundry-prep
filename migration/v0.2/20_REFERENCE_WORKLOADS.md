@@ -179,7 +179,7 @@ Inference may be:
 
 Fully local operation is a valid deployment profile when the device is capable enough; it is not a universal Tier-A requirement.
 
-The Huawei P30 (`ELE-L29`) may be used as a constrained mobile test target. For local-only validation, a very small on-device LLM stack — for example a Gemma-family E2B-class model through LiteRT-LM or a comparable mobile runtime, if technically suitable at implementation time — may be tested. This is a test path, not a requirement that the P30 serve production inference; external inference is expected to be the more practical profile for that device.
+A constrained smartphone test target may be used to validate that a very small on-device model/runtime path can operate when technically feasible. This is a deployment-path test, not a requirement that low-end hardware provide the preferred production inference path.
 
 #### Tier B and Tier C — Open design space
 
