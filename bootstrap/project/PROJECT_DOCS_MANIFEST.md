@@ -59,6 +59,12 @@ Source draft:
 
 Contains completion gates and handoff expectations.
 
+## Repo-only prior art
+
+The previous internal AI-VTuber blueprint should be present in the canonical repository under `prior-art/` and available on demand.
+
+It should **not** be uploaded as an always-on Project Doc. It is prior art / requirements evidence, not architecture authority.
+
 ## Do NOT include in the initial Research Project Docs
 
 - Implementation Harness Setup Runbook;
