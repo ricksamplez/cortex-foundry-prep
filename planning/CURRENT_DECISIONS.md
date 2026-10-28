@@ -1026,3 +1026,28 @@ This is **preparation-only purchasing research**.
 It must not be propagated into Research/Implementation requirements or treated as available hardware until the owner explicitly purchases/receives an item and adds it to the implementation inventory/input state.
 
 The shortlist currently prioritizes inexpensive Zigbee sensing, one general-purpose switched/power-metered actuator, optional ESPHome soil/light sensing, leak/contact sensors, and later irrigation control.
+
+
+---
+
+## 50. Non-obvious / outside-the-box research behavior
+
+The Research/Architecture run must actively explore beyond obvious or conventional solution classes.
+
+For materially important questions, it should consider:
+
+- reframing the problem;
+- alternative system/module boundaries;
+- cross-domain analogies/transfers;
+- second-order and coupled effects;
+- inverted assumptions and counterfactuals;
+- adversarial counterexamples;
+- unconventional combinations of simpler mechanisms;
+- capabilities/opportunities omitted by incumbent systems;
+- possibilities introduced by emerging model classes, hardware, protocols, or execution strategies.
+
+This is disciplined exploration, not novelty for novelty's sake.
+
+Non-obvious ideas remain hypotheses/candidates until supported by evidence and must meet the same feasibility, compatibility, security, maintainability, and evaluation standards as conventional approaches.
+
+The owner's speculation about the internal identity/lineage of the Research model is **not** a project requirement and should not be propagated into Research instructions. The desired behavior is specified directly without model-identity priming.
