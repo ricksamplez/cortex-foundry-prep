@@ -33,13 +33,13 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 60 |
-| unique decision IDs | 60 |
+| persisted decision IDs | 61 |
+| unique decision IDs | 61 |
 | decisions still pending integration | 0 |
 | mapped decision destination references | 91 |
-| future-facing integrated decisions | 55 |
+| future-facing integrated decisions | 56 |
 | superseded decisions | 3 |
-| preparation-only owner notes intentionally not propagated | 1 |
+| preparation-only owner notes intentionally not propagated | 2 |
 | broken decision destination references | 0 |
 
 ## Scope-isolation checks
@@ -76,7 +76,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 
 - **§6 Smallest Adequate Intelligence:** retained while allowing effective end-to-end cost/reliability to matter rather than treating nominal model size as the only optimization.
 - **§11 Routing/Allocation/Scheduling:** strengthened with module/capability-level workflow routing while retaining global observability.
-- **§18 Reference Workloads:** expanded from five workload families to a seven-workload target framework with three production-meaningful tiers per family. Six workload families are currently fixed; the seventh remains deliberately open. The AI VTuber / AI Performer is now Social Companion Tier C rather than a standalone workload.
+- **§18 Reference Workloads:** expanded from five workload families to seven fixed workload families with three production-meaningful tiers per family. The AI VTuber / AI Performer is now Social Companion Tier C rather than a standalone workload, and Embodied Agent / Robotics is the seventh workload family.
 - **§23 Ontology:** strengthened with canonicalization/collision semantics and new module-extension entity relationships.
 - **§31 Research Autonomy:** strengthened with durable non-blocking open-question handling.
 - **§36 CI Permission:** strengthened to container-first execution for WebUI runs, GitHub Actions only when justified, and heavy accelerator work deferred.
@@ -86,10 +86,11 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **§57 Review Issues:** strengthened to permit zero-to-many deduplicated/actionable issues per milestone review campaign.
 - **§58 Research Stages:** implementation-harness setup and independent architecture review were moved into separate run-specific contracts instead of universal research context.
 - **§60 Completion Criteria:** strengthened and reordered so research completes and prepares a handoff before the separate implementation-harness setup finalizes the execution environment.
-- **Avatar interoperability / multi-source perception:** added explicit VRM + VRChat package support targets, PMX/MMD interoperability target, real owner-provided fixtures, and independently routable named vision streams.
+- **Avatar interoperability / multi-source perception:** added independently routable named vision streams and workload-specific renderer/import interoperability. VRChat/Unity-package support is intentionally not a Cognitive-Core format requirement.
 - **Unavailable hardware:** added simulation/emulation requirements so important hardware-dependent coverage is not silently skipped; real surrounding software should be retained when practical.
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
+- **Non-obvious exploration:** the Research run must deliberately challenge obvious framings and explore cross-domain transfers, alternative decompositions, second-order effects, counterexamples, and unconventional plausible combinations while preserving normal evidence, feasibility, security, and evaluation standards.
 - **Standalone Quest VR / frontend independence:** Social Companion Tier B now requires optional standalone Quest-class VR with backend/client separation and cross-client session continuity; frontend technologies may differ freely across workloads.
 - **Avatar renderer split:** VRChat/Unity-package support is no longer a Cognitive-Core format requirement. The workload now exercises a lightweight VRM-oriented path plus a heavier game-engine/VRChat-package path, with PMX/MMD as an additional target.
 - **Persistent Personal Assistant Tier A:** now fixed as a Smartphone Personal Assistant with local/LAN/cloud/split inference options.
