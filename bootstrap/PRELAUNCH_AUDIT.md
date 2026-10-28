@@ -47,7 +47,7 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Assumption/non-blocking-question behavior included.
 - [x] Repository authority/checkpointing included.
 - [x] Container-first / Actions-fallback rule included.
-- [x] `Please continue.` protocol included.
+- [x] `Please continue.` / `Continue.` protocol included, including short intervention + resume behavior.
 - [x] First run instructed to perform substantive work, not only planning.
 
 ## E. Real-repo bootstrap design
@@ -76,6 +76,7 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Full implementation explicitly gated.
 - [x] Maximum useful work per expensive message required.
 - [x] Continuation protocol included.
+- [x] Repository access preflight occurs inside the first Research turn and must immediately continue into substantive work when successful.
 
 ## Latest reconciliation
 
@@ -97,7 +98,7 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [ ] Create the coherent initial bootstrap commit in `ricksamplez/cortex-foundry`.
 - [ ] Add/upload the selected Project Docs to the dedicated project-only-memory ChatGPT Project.
 - [ ] Set the prepared Project Custom Instructions.
-- [ ] Verify GitHub write access from the actual Research chat.
+- [x] GitHub/repository access verification folded into the beginning of the first Research turn; no separate expensive message required.
 - [x] Run one final leak scan on the exact files/prompts being handed to the Research run.
 - [ ] Send the Research Start Contract as the first user message.
 
