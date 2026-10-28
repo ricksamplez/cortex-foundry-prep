@@ -253,9 +253,15 @@ decisions:
     destination: ["planning/HOME_AUTOMATION_HARDWARE_CANDIDATES_2026-10-24.md"]
     status: preparation_only
 
+
+  - id: D061
+    topic: "Research must deliberately explore non-obvious solution classes, alternative framings, cross-domain transfers, second-order effects, counterexamples, and unconventional plausible combinations without novelty-seeking or weakening evidence standards"
+    destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#non-obvious-exploration-and-cross-domain-reasoning"]
+    status: integrated
+
 audit:
-  decision_count: 60
-  integrated_count: 55
+  decision_count: 61
+  integrated_count: 56
   superseded_count: 3
   preparation_only_count: 2
   pending_count: 0
