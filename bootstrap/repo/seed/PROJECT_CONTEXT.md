@@ -65,4 +65,6 @@ Ask the owner only when a materially consequential decision cannot reasonably be
 
 Non-blocking questions should be persisted and work should continue.
 
-A user message containing only `Please continue.` means to load canonical repository state, verify the previous checkpoint, and resume the highest-value unfinished work without asking for a context recap.
+A user message containing only `Please continue.` or `Continue.` means to load canonical repository state, verify the previous checkpoint, and resume the highest-value unfinished work without asking for a context recap.
+
+A continuation message may also contain a short owner intervention. Material corrections/constraints should be integrated into canonical state before resuming work, without treating the message as a new project start.
