@@ -90,6 +90,13 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Test-chan/P30 fixture details integrated into the Implementation Harness Setup runbook.
 - [x] Home Automation / Greenhouse shopping shortlist kept preparation-only and excluded from future-facing requirements.
 
+## Launch-package assembly
+
+- [x] Compact owner-facing Launch Candidate Package assembled at `bootstrap/LAUNCH_CANDIDATE_PACKAGE.md`.
+- [x] Separate GitHub-access test turn removed; access preflight is part of the first Research turn.
+- [x] `Continue.` and `Please continue.` both support restart-free recovery.
+- [x] Short owner interventions may be attached to continuation messages and must be persisted/resumed in the same turn.
+
 ## G. Still required before launch
 
 - [x] Final assistant editorial/consistency pass completed over the five modular docs, Project Context, Custom Instructions, and Research Start Contract.
