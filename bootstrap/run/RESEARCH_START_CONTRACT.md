@@ -107,6 +107,22 @@ External repositories/skills are evidence and prior art, not automatic dependenc
 
 Evaluate license, provenance, security, maintenance, portability, and architectural fit before adopting implementation material.
 
+## Non-obvious exploration
+
+Do not search only the obvious/conventional architecture neighborhood.
+
+For important questions, deliberately test whether the framing itself is wrong or incomplete and look for useful:
+
+- alternative decompositions;
+- cross-domain transfers;
+- second-order interactions;
+- inverted assumptions/counterfactuals;
+- adversarial counterexamples;
+- unusual combinations of simpler mechanisms;
+- possibilities opened by emerging model/hardware/protocol classes.
+
+Treat this as disciplined exploration, not novelty-seeking. Persist promising non-obvious candidates and evaluate them by the same evidence, feasibility, security, maintainability, and performance standards as conventional approaches.
+
 ## Evidence discipline
 
 Prefer primary/high-quality sources for important claims.
