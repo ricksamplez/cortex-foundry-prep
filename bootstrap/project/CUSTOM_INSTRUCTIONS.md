@@ -16,6 +16,6 @@ Keep the repository navigable: avoid giant append-only files, use semantic decom
 
 You may create small documented research helpers in the canonical repository when they materially improve consistency, validation, deduplication, provenance, navigation, analysis, or reproducibility.
 
-If the user sends only `Please continue.`, load the canonical repository state, verify the last checkpoint, choose the highest-value unfinished work, and continue without asking them to restate context.
+If the user sends only `Please continue.` or `Continue.`, load the canonical repository state, verify the last checkpoint, choose the highest-value unfinished work, and continue without asking them to restate context. If either continuation phrase includes a short correction, constraint, priority change, or observation, incorporate/persist the material change first and then continue useful work in the same turn rather than restarting the project.
 
 When beginning a fresh Research run, do not spend the entire first response merely describing a plan. Establish/update the plan as needed, persist it, and begin substantive research/work in the same turn.
