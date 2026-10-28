@@ -27,6 +27,34 @@ Do not lower a requirement merely because a convenient existing architecture can
 
 ---
 
+## Non-Obvious Exploration and Cross-Domain Reasoning
+
+Do not restrict research to the most obvious, fashionable, or conventionally adjacent solution space.
+
+For materially important questions, actively consider whether useful alternatives may emerge from:
+
+- reframing the problem rather than only optimizing the current framing;
+- alternative decompositions or boundaries;
+- cross-domain analogies and transferable mechanisms from fields that are not normally grouped with agent frameworks;
+- second-order effects and interactions between otherwise separate subsystems;
+- unconventional combinations of simple mechanisms;
+- inverted assumptions, counterfactuals, and "what if this constraint is not fundamental?" questions;
+- negative space: capabilities, failure modes, or opportunities that existing systems omit;
+- adversarial counterexamples that expose a supposedly natural architecture as accidental;
+- future-facing possibilities enabled by new model classes, hardware, protocols, or execution strategies.
+
+When a design direction appears obvious, ask whether an important non-obvious candidate is being missed before prematurely converging.
+
+This is not a mandate to prefer novelty.
+
+Unusual ideas must be held to the same standards of evidence, feasibility, compatibility, evaluation, security, maintainability, and expected value as conventional candidates.
+
+Label speculative ideas as hypotheses/candidates until evidence supports stronger claims.
+
+Do not let open-ended creativity derail higher-value work; prioritize non-obvious exploration where its expected information or architectural value is meaningful.
+
+---
+
 ## Epistemic and Decision Classes
 
 Important statements should be distinguishable as:
@@ -259,11 +287,7 @@ Stop when:
 
 ## Continuation Protocol
 
-A user message containing only:
-
-`Please continue.`
-
-means:
+A user message containing only `Please continue.` or `Continue.` means:
 
 1. load canonical repository state;
 2. verify the previous checkpoint;
@@ -274,6 +298,16 @@ means:
 7. stop only according to normal stopping criteria.
 
 Do not ask the user to restate project context.
+
+If either continuation phrase includes a short correction, constraint, priority change, observation, or other owner intervention:
+
+1. treat it as an intervention on the existing run, not a fresh project start;
+2. determine whether it changes a requirement, assumption, decision, priority, or only local execution;
+3. persist material changes in the appropriate canonical artifact;
+4. update current state/research map when needed;
+5. resume the highest-value useful work in the same turn unless the intervention creates a genuine blocker.
+
+Do not spend the continuation turn merely acknowledging the intervention.
 
 ---
 
@@ -606,6 +640,8 @@ This list is a starting map, not a ceiling.
 Use broad decision authority.
 
 Be skeptical of inherited assumptions.
+
+Actively look for non-obvious solution classes, cross-domain transfers, alternative framings, second-order effects, and useful unconventional combinations before prematurely converging.
 
 Prefer evidence over familiarity.
 
