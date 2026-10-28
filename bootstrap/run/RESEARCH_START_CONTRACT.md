@@ -32,6 +32,14 @@ Verify that you understand:
 
 Then inspect the seed repository/state.
 
+### Repository access preflight
+
+As part of this **same first Research turn**, briefly verify that the canonical repository can be read and that required write operations are available.
+
+Do not consume a separate user message merely to test GitHub/repository access.
+
+Prefer a meaningful bootstrap/checkpoint write over a disposable test artifact. If write access is unavailable, report that as an actual blocker; otherwise continue immediately with workspace bootstrap and substantive research in the same turn.
+
 The repository also contains a prior internal AI-VTuber blueprint under `prior-art/`. Treat it as a source of requirements evidence, architectural lessons, and reusable ideas — **not** as binding architecture. Load/review it when relevant, separate useful constraints from historical stack choices, and do not inherit its concrete technologies without independent justification.
 
 ### Bootstrap the research workspace
@@ -147,16 +155,22 @@ Continue into the next useful independent research, synthesis, critique, validat
 - owner input is genuinely blocking;
 - or the research program's completion criteria have been reached.
 
-A user message containing only:
-
-`Please continue.`
-
-means:
+A user message containing only `Please continue.` or `Continue.` means:
 
 - rehydrate canonical repository state;
 - verify the previous checkpoint;
 - select the highest-value unfinished work;
 - continue without asking for a context recap.
+
+If the owner sends `Continue.` / `Please continue.` together with a short correction, constraint, priority change, or observation:
+
+1. treat that addition as an intervention on the existing run, not as a fresh project start;
+2. determine whether it changes a requirement, assumption, decision, priority, or only local execution;
+3. persist material changes in the appropriate canonical artifact;
+4. update the research map/state when needed;
+5. resume the highest-value useful work in the **same turn** unless the intervention creates a genuine blocker.
+
+Do not spend the continuation turn merely acknowledging the intervention.
 
 ## Persistence
 
