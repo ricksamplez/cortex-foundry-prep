@@ -72,6 +72,7 @@ Its responsibilities are behavioral:
 - persist non-blocking questions;
 - checkpoint throughout long runs;
 - preserve epistemic classes;
+- actively challenge obvious solution spaces through alternative framings, cross-domain reasoning, second-order effects, and disciplined non-obvious candidates;
 - container-first / GitHub-Actions-fallback execution;
 - avoid giant append-only files;
 - allow small research helpers;
@@ -284,7 +285,8 @@ Repository-access verification then happens **inside that first Research turn**,
 - final assistant editorial/consistency pass;
 - leak/stale-reference checks;
 - continuation/intervention workflow;
-- first-turn repository preflight design.
+- first-turn repository preflight design;
+- disciplined non-obvious / outside-the-box exploration requirement.
 
 ### Still intentionally open
 
