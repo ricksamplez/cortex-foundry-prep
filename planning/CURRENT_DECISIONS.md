@@ -1174,11 +1174,18 @@ Before that point, Research/Implementation only needs to preserve a generic prov
 
 ### Preferred integration
 
-Prefer the **official Codex SDK** first when its supported feature surface is sufficient.
+Prefer an **official Codex SDK** first when its supported feature surface is sufficient.
 
-The current SDK still wraps/spawns a local Codex runtime/CLI binary, so this is not a way to avoid Codex as a local runtime dependency. It is a cleaner application-facing integration layer.
+Current official language options:
 
-Use `codex app-server` only if the future integration genuinely needs the broader lifecycle/product-control surface that the SDK does not expose.
+- TypeScript: `@openai/codex-sdk`;
+- Python: `openai-codex`.
+
+Do not choose the provider implementation language during preparation. The project is explicitly polyglot; select among current official SDKs based on architecture/module/runtime fit at late integration time, and recheck whether OpenAI has added further official SDK languages.
+
+The current SDKs still depend on/spawn a local Codex runtime/binary, so SDK use is not a way to avoid the Codex runtime. It is a cleaner application-facing integration layer.
+
+Use `codex app-server` only if the future integration genuinely needs the broader lifecycle/product-control surface that the SDKs do not expose.
 
 Relevant distinctions remain:
 
