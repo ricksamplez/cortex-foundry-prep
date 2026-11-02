@@ -33,13 +33,13 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 71 |
-| unique decision IDs | 71 |
+| persisted decision IDs | 74 |
+| unique decision IDs | 74 |
 | decisions still pending integration | 0 |
 | mapped decision destination references | 109 |
-| future-facing integrated decisions | 58 |
-| superseded decisions | 11 |
-| preparation-only owner notes intentionally not propagated | 2 |
+| future-facing integrated decisions | 59 |
+| superseded decisions | 12 |
+| preparation-only owner notes intentionally not propagated | 3 |
 | broken decision destination references | 0 |
 
 ## Scope-isolation checks
@@ -91,6 +91,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
 - **Non-obvious exploration:** the Research run must deliberately challenge obvious framings and explore cross-domain transfers, alternative decompositions, second-order effects, counterexamples, and unconventional plausible combinations while preserving normal evidence, feasibility, security, and evaluation standards.
+- **GPT-4o deadline capture:** the owner's approximately $62 OpenAI API balance expires on 2026-11-21 and may be fully consumed for useful Social-Companion reference capture; training reuse remains explicitly unresolved pending applicable terms/policy determination.
 - **Research/review operational model:** owner switched the WebUI Research/Architecture, Harness-Setup design, and milestone Architecture Review choice from GPT-6 Pro to GPT-5.6 Sol Pro because reported incomplete/aborted GPT-6 Pro runs are too costly under scarce message limits. The model identity remains intentionally absent from the run-facing prompts.
 - **Implementation harness switch:** Codex/GPT-6-Astra implementation assumptions are superseded by Claude Code. Preparation/research/setup-design/review remain in the GPT-5.6 Sol Pro WebUI workflow. Claude Code native agents are the primary implementation workforce, with a single bounded OpenCode free-model auxiliary exception; all other external/local inference remains project-test-only.
 - **Standalone Quest VR / frontend independence:** Social Companion Tier B now requires optional standalone Quest-class VR with backend/client separation and cross-client session continuity; frontend technologies may differ freely across workloads.
