@@ -576,6 +576,12 @@ OpenAI API usage is separate from ChatGPT/Codex subscription usage.
 
 A preparation-time API balance of approximately $62 expires on **2026-11-21**. It may be fully used before expiry for useful project capture; conserving expiring balance is not a goal.
 
+Actual GPT-4o capture must run **locally under Claude Code on the implementation laptop**, not inside the WebUI Research run.
+
+Raw generations, annotations, intermediate datasets, and local capture databases should remain off-repo by default. Commit only schemas, manifests, aggregate statistics, reproducible tooling/configuration, provenance summaries, and deliberately curated small fixtures when appropriate.
+
+If the full implementation phase has not started early enough to use the balance before expiry, a narrowly scoped Claude Code **pre-implementation data-capture lane** is allowed solely to execute the Research-defined capture specification and preserve the expiring resource. It must not silently expand into general system implementation.
+
 GPT-4o is a temporary Social-Companion evaluation/reference candidate while it remains available in the API.
 
 Useful capture areas include RP/creativity comparison, qualitative behavioral reference, prompt-suite benchmarking, human-reviewed examples, interaction-property analysis, and difficult multi-turn social cases.
