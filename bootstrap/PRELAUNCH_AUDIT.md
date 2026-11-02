@@ -8,7 +8,7 @@
 - [x] All 62 v0.1 numbered sections mapped.
 - [x] Zero v0.1 sections marked dropped.
 - [x] All migration destination file/anchor references resolve.
-- [x] 61 persisted post-v0.1 owner decisions/notes accounted for: 56 current future-facing decisions integrated, 3 earlier decisions explicitly superseded, and 2 intentionally retained as preparation-only.
+- [x] 66 persisted post-v0.1 owner decisions/notes accounted for: 57 current future-facing decisions integrated, 7 earlier decisions explicitly superseded, and 2 intentionally retained as preparation-only.
 - [x] Zero mapped post-v0.1 decisions remain pending.
 - [x] Non-trivial semantic changes documented.
 - [x] Specialized learned-component / Teacher / canonical-data requirements integrated without making them the program's primary focus.
