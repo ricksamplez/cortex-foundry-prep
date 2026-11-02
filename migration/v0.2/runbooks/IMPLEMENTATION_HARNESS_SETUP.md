@@ -7,25 +7,32 @@
 
 ## Purpose and Scope
 
-Design the strongest practical implementation harness/environment for implementing the researched system.
+Design and optimize the implementation environment for **Claude Code**, which is now the required implementation harness for this project.
 
-Primary target implementation model:
+The Implementation Harness Setup run is still a preparation/design run conducted separately before implementation.
 
-- GPT-6 Astra.
+Claude Code is a fixed owner decision for the implementation phase unless the owner explicitly changes it later.
 
-Leading baseline harness:
+Do **not** replace Claude Code with Codex, Hermes-Agent, or another primary implementation harness merely because another option benchmarks well. The setup task is to make Claude Code as effective, autonomous, reproducible, and usage-efficient as practical for this project.
 
-- Codex CLI v0.153.4.
+The setup run should determine the current best-supported Claude Code configuration at that time, including:
 
-The baseline is a strong candidate, not an immutable requirement.
+- installation/update channel and version pinning strategy;
+- Claude subscription/OAuth authentication path;
+- main-model selection;
+- native Claude Code subagent roles/model choices;
+- permissions/sandboxing/approval behavior;
+- project memory/instruction strategy;
+- skills/plugins;
+- MCP servers;
+- hooks;
+- code intelligence/LSP where useful;
+- Git/GitHub workflow;
+- context/compaction/resume strategy;
+- observability/recovery;
+- usage-budget strategy.
 
-You may recommend an alternative harness (for example a suitable Hermes-Agent configuration) only when there is a clear evidence-based net benefit and the owner can still use the ChatGPT subscription through an officially supported OAuth path.
-
-Replacing the known Codex baseline carries a high burden of proof.
-
-Do not choose a different harness merely because it is novel.
-
----
+Use officially supported Claude Code/Claude subscription mechanisms. Do not switch the implementation workforce to metered Anthropic API billing or another paid inference path without explicit owner approval.
 
 ## Setup-Design Execution Surface
 
@@ -59,43 +66,46 @@ Deep research remains available on demand but should not be loaded wholesale whe
 
 ---
 
-## Harness Baseline and Alternatives
+## Claude Code Baseline and Optimization Scope
 
-### Codex baseline
+### Required harness
 
-Known candidate:
+Claude Code is the required implementation harness.
 
-- Codex CLI v0.153.4;
-- GPT-6 Astra available;
-- known required experimental context-management behavior works for the owner in this version.
+The setup run must verify the **current** Claude Code release, official installation path, authentication options, model availability, usage semantics, and relevant features immediately before implementation rather than relying on stale preparation-time assumptions.
 
-Do not upgrade simply because a newer release exists.
+Pin or hold a specific Claude Code version only when reproducibility or a known regression makes that materially useful.
 
-Newer versions may be evaluated separately when evidence suggests material value.
+### Subscription authentication
 
-Migration requires evidence that required behavior — particularly context management and project-specific workflows — remains equal or better.
+Prefer the owner's Claude subscription through Claude Code's officially supported OAuth/native login path.
 
-### Alternative harness
+Do not silently fall back to Anthropic Console/API billing for the implementation agent.
 
-An alternative is acceptable only when it demonstrably improves the implementation program on relevant dimensions such as:
+If the owner's current Claude plan, model access, or usage limits are insufficient, surface that as a setup constraint and optimize within the available subscription before proposing any paid API dependency.
 
-- Astra support;
-- ChatGPT-subscription OAuth support;
-- long-running autonomy;
-- context management;
+### Optimization dimensions
+
+The setup run should optimize Claude Code across dimensions including:
+
+- long-horizon autonomy;
+- context management and compaction behavior;
+- session continuation/resume;
 - filesystem/shell/local hardware access;
-- subagents;
-- plugins/skills/MCPs;
+- native subagents;
+- skills/plugins;
+- MCP;
+- hooks;
+- project memory/instruction files such as `CLAUDE.md` where appropriate;
+- code intelligence/LSP;
 - Git/GitHub workflow;
+- permission/security ergonomics;
 - stability/recovery;
-- usage efficiency;
+- subscription-usage efficiency;
 - reproducibility;
-- observability;
-- approval/security controls.
+- observability.
 
-A hybrid arrangement may be considered when it is genuinely simpler or stronger than one harness alone.
-
----
+A wrapper/helper layer around Claude Code is allowed when it materially improves the workflow, but Claude Code remains the primary implementation agent.
 
 ## Implementation Host Profile
 
@@ -131,13 +141,11 @@ Because no trusted Wi-Fi network is preconfigured, network access should be prov
 
 Treat this as an owner-authorized dedicated test-device posture, not a general recommendation for production user devices.
 
-Known Codex CUDA-capable security/approval baseline that has already worked:
+The previous Codex-specific security/approval configuration is historical and is **not** a Claude Code configuration baseline.
 
-- `sandbox_mode = danger-full-access`;
-- `approval_policy = on-request`;
-- `approvals_reviewer = guardian_subagent`.
+The Claude Code setup run must design an appropriate permission/security posture for this dedicated host. It should balance high autonomy against protection of the host, repository, credentials, owner-provided fixtures, connected devices, and external services.
 
-This is an allowed known-good baseline, not automatically the final recommendation.
+Use current Claude Code permission/sandbox/hook mechanisms where useful. Do not enable unrestricted permission bypass merely by analogy with the former Codex configuration; justify any reduced-friction mode against the dedicated-host threat model.
 
 The implementation run must execute its own code/tests/evaluations on the dedicated host or approved project providers.
 
@@ -184,10 +192,12 @@ Already installed/available:
 
 ### AI/model/runtime
 
-- Codex;
+- Claude Code — required implementation harness; installation/version/authentication must be verified/finalized during the setup run;
 - Unsloth Studio — currently preferred for supported purely local model workflows;
 - Ollama;
 - llama.cpp.
+
+Codex may exist on owner machines for unrelated projects, but this implementation must not consume Codex as its main agent, subagent, helper, judge, or test-intelligence path.
 
 ### 3D / game / interactive
 
@@ -228,17 +238,15 @@ Free non-OSI/source-available software may be considered, especially as an alter
 
 ---
 
-## Experimental Features
+## Experimental / Preview Features
 
-Experimental harness/Codex features are allowed.
+Current Claude Code experimental/preview features may be evaluated when they materially improve this project's implementation workflow.
 
 They are not mandatory.
 
-Experimental context management is explicitly within scope.
+Use them only when their expected value outweighs stability/reproducibility risk, and document any version dependency or fallback.
 
-Use experimental features when evidence indicates meaningful value and their failure modes are acceptable.
-
-Do not make an experimental capability a required dependency merely because it exists.
+Do not make a preview capability a hard project dependency merely because it exists.
 
 ---
 
@@ -246,10 +254,15 @@ Do not make an experimental capability a required dependency merely because it e
 
 You may investigate/use suitable:
 
-- Codex plugins;
+- Claude Code plugins;
+- Claude Code skills;
 - third-party skills;
 - public skill registries such as `skills.sh`;
 - MCP servers;
+- Claude Code hooks;
+- native Claude Code subagents;
+- project memory/instruction mechanisms such as `CLAUDE.md`;
+- LSP/code-intelligence integrations;
 - local CLI tools;
 - code intelligence;
 - debuggers;
@@ -265,7 +278,9 @@ You may investigate/use suitable:
 - custom local extensions;
 - issue/work tracking integrations.
 
-The official GitHub integration/plugin is a legitimate option for private-repository access and repo-native operations such as issues, pull requests, commits, and engineering-control-plane workflows. Prefer supported integration paths over unnecessary manual credential handling when they satisfy the required capability and security model.
+The GPT-6-Pro/WebUI setup or review runs may use the available OpenAI GitHub integration for repo-native preparation/review work.
+
+The later Claude Code implementation must not assume that OpenAI's GitHub plugin exists inside Claude Code. For implementation, prefer appropriate local `git`/`gh` workflows and/or a Claude-Code-compatible GitHub MCP/plugin integration when justified.
 
 Local tooling is preferred where capability/reliability are competitive.
 
@@ -365,83 +380,81 @@ Do not invent custom tooling when a superior maintained solution already exists.
 
 ## Main-Agent Configuration
 
-GPT-6 Astra is the primary implementation target model.
+The main implementation agent runs in Claude Code.
 
-Astra Xhigh or Max are strong initial main-agent candidates for long-horizon implementation because greater reasoning may reduce expensive corrective loops.
+Do not permanently hardcode one Claude model in preparation artifacts because Claude Code model availability and plan entitlements can change.
 
-This is a **working hypothesis**, not a guaranteed subscription-accounting rule.
+The setup run must determine the best current main-agent model/configuration for long-horizon implementation using:
 
-Do not brute-force every Astra reasoning level across a large benchmark matrix.
-
-Do not attempt to solve main-agent selection through a circular exhaustive self-benchmark in which the harness/model being evaluated is also required to run the benchmark campaign that is supposed to decide whether it should have been selected.
-
-Use:
-
-- official model guidance;
-- trustworthy community operational evidence;
+- current official Claude Code/model guidance;
+- the owner's actual Claude subscription/entitlements at setup time;
+- trustworthy current operational evidence;
 - project/task characteristics;
-- limited representative validation when uncertainty is material.
+- limited representative validation where uncertainty is material.
 
-Select the configuration expected to minimize **effective end-to-end implementation cost**, not nominal reasoning level alone.
+Prefer a configuration that minimizes **effective end-to-end implementation cost**, including subscription consumption, failure/rework probability, latency, context loss, and orchestration overhead.
+
+A stronger model may be cheaper overall when it avoids repeated corrective loops; a cheaper/faster model may be better for routine or mechanical work.
+
+Do not brute-force every available Claude model × configuration permutation merely because it can be measured.
 
 ---
 
 ## Subagents
 
-Specialized subagents may be defined when they materially improve quality, throughput, reliability, context management, or separation of concerns.
+Use Claude Code's native subagent/delegation mechanisms when they materially improve quality, throughput, context isolation, or separation of concerns.
 
-Subagents do not all need to use Astra. Select the model/reasoning configuration appropriate to each role within the approved ChatGPT-subscription/OAuth implementation-agent boundary.
+Subagents may use different Claude models/configurations when supported and useful.
 
 For every proposed role determine:
 
 - task class;
-- model;
-- reasoning effort;
+- Claude model/configuration;
 - permissions;
-- tools;
+- tools/skills;
 - context scope;
 - expected output;
 - escalation behavior;
 - termination behavior;
-- expected effective cost;
+- expected subscription/effective cost;
 - evaluation basis.
 
 ### Effective-cost rule
 
-Do not assume the smallest/weaker model is automatically cheapest.
+Do not assume the smallest/weaker Claude model is automatically the cheapest useful choice.
 
 Consider:
 
-- subscription allowance consumption;
-- scarce rolling/weekly-window pressure;
+- Claude subscription allowance consumption;
+- scarce rolling/weekly/monthly usage pressure where applicable;
 - wall-clock time;
 - latency;
 - failure probability;
 - expected rework;
-- orchestration overhead;
+- context/orchestration overhead;
 - opportunity cost.
-
-A configuration such as Luna Max may legitimately be more cost-effective than a nominally stronger/other-family Low configuration if plan accounting and reliability favor it.
 
 Use the least expensive configuration that **reliably** clears the required quality threshold.
 
 ### Evidence-first selection
 
-Do not benchmark every model × reasoning combination merely because it is theoretically measurable.
+Do not exhaustively benchmark every model/configuration.
 
 Prefer:
 
-- official information;
-- trustworthy public/community experience;
-- existing evaluations;
+- current official information;
+- trustworthy current community/operational evidence;
+- existing relevant evaluations;
 - model/task fit;
-- targeted validation only where the uncertainty materially affects the setup.
+- targeted validation only where the uncertainty materially affects the implementation setup.
 
 ---
 
-## Hard Subagent Boundary
+## Hard Implementation-Workforce Boundary
 
-**The implementation harness itself must not use local models or external APIs outside the approved ChatGPT-subscription/OAuth harness as its own subagents, copilots, hidden judges, planners, or reasoning helpers.**
+**All implementation-agent reasoning must remain inside Claude Code's approved native Claude/subagent ecosystem using the owner's approved Claude subscription path.**
+
+The implementation harness must not use local models or external APIs as hidden copilots, subagents, planners, judges, reviewers, or reasoning helpers.
 
 This prohibition includes project-test resources such as:
 
@@ -450,6 +463,9 @@ This prohibition includes project-test resources such as:
 - Groq;
 - OpenRouter;
 - NVIDIA NIM;
+- TypeSafe Jev;
+- ChatGPT/OpenAI project-test providers;
+- Anthropic Console/API-key inference outside the approved Claude Code subscription workflow;
 - other external inference APIs.
 
 Those resources exist only for the **system/project being implemented**, for example:
@@ -459,9 +475,11 @@ Those resources exist only for the **system/project being implemented**, for exa
 - test fixtures;
 - runtime/provider experiments;
 - capability validation;
-- benchmark scenarios.
+- benchmark scenarios;
+- model-suitability research;
+- project-specific training/adaptation.
 
-They must not augment the implementation agent's own reasoning workforce.
+They must not augment Claude Code's own implementation reasoning workforce.
 
 ---
 
@@ -510,31 +528,21 @@ For OpenRouter:
 
 Provider limits must be checked/documented at the time of setup or evaluation rather than assumed static. Dynamic provider metadata such as pricing, limits, credits, and terms should normally be refreshed at most once per 24 hours; invalidate that cache earlier only when a provider/runtime error, explicit change signal, or owner request makes an earlier check useful.
 
-Jev is currently approved as a **project-under-test inference/evaluation resource**, not as a hidden Codex/Astra implementation copilot or general harness utility, and no production dependency on Jev is assumed.
+Jev is currently approved as a **project-under-test inference/evaluation resource**, not as a hidden Claude Code implementation copilot or general harness utility, and no production dependency on Jev is assumed.
 
-### ChatGPT OAuth project-test rule
+### ChatGPT/OpenAI project-test rule
 
-If the project-under-test exercises a ChatGPT subscription/OAuth provider during the Astra implementation run:
+If the project-under-test exercises the owner's ChatGPT subscription/OAuth provider during Claude Code implementation:
 
-- use **GPT-5.6 Luna only**;
+- retain the current owner policy of **GPT-5.6 Luna only**;
 - reasoning may be configured up to Max;
-- never use GPT-6 Astra as the project's inference/judge/evaluation provider inside the Astra implementation run.
+- do not broaden this permission to other OpenAI subscription models unless the owner explicitly changes the policy.
 
-This prevents project testing from consuming the same scarce Astra capacity required to implement/fix the system.
+Moving the implementation harness to Claude Code does **not** automatically convert OpenAI subscription capacity into implementation-agent workforce or broaden project-test permissions.
 
-If substantially stronger intelligence is genuinely required for a project evaluation, use an approved external test provider instead, subject to current availability/limits. A strong NVIDIA NIM model such as Kimi K3 is an example candidate when available; this is not a permanent provider/model requirement.
+If substantially stronger intelligence is genuinely required for a project evaluation, use another already approved project-test provider or ask the owner before changing the provider policy.
 
-### `codex exec`
-
-`codex exec` may be exposed as one optional **Test Intelligence Provider** for project evaluation.
-
-It is not:
-
-- a substitute for implementation subagents;
-- a preferred provider merely because it is available;
-- permission to use Astra recursively.
-
-Model/provider selection for project tests remains part of the system's provider/evaluation architecture.
+Codex / `codex exec` is intentionally excluded from this implementation workflow because its usage budget is reserved for other projects.
 
 ---
 
@@ -636,7 +644,7 @@ The goal is cross-run continuity and traceability, not project-management theate
 
 ## Setup Evaluation
 
-Compare meaningful harness/setup alternatives before finalizing.
+Compare meaningful **Claude Code configurations and extensions** before finalizing. Claude Code itself is fixed; the setup experiment space is configuration, model allocation, subagents, permissions, memory/instructions, skills/plugins, MCP, hooks, Git workflow, and supporting local tooling.
 
 Relevant measurements/evidence may include:
 
@@ -683,8 +691,8 @@ Do not rely on undocumented manual state.
 
 Before implementation begins, produce/finalize:
 
-- selected harness and version;
-- main-agent model/reasoning configuration;
+- selected Claude Code version/install channel/authentication path;
+- main-agent Claude model/configuration;
 - subagent definitions if any;
 - context-management configuration;
 - security/approval model;
