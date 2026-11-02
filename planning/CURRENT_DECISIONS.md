@@ -29,11 +29,13 @@ It should not carry detailed Implementation Harness Setup or Architecture Review
 
 Purpose:
 
-- optimize the implementation environment specifically for GPT-6 Astra;
-- treat Codex CLI as the leading baseline, not an immutable requirement;
-- compare suitable alternative harnesses if evidence warrants it;
-- design plugins, skills, MCPs, tools, subagents, model/reasoning allocations, context handling, issue workflow, security/approval behavior, and reproducible setup;
+- keep the setup/design work in the GPT-6-Pro WebUI preparation workflow;
+- optimize **Claude Code**, which is now the required implementation harness;
+- research the current Claude Code version/install/authentication/model options immediately before implementation;
+- design Claude Code skills/plugins, MCPs, hooks, native subagents, model allocation, context/project-memory strategy, Git workflow, permissions/security, issue workflow, and reproducible setup;
 - target the actual dedicated implementation host.
+
+Claude Code is fixed unless the owner explicitly changes this decision later; the setup run no longer compares Codex/Hermes/etc. as replacement primary harnesses.
 
 ### Architecture Review runs
 
@@ -139,25 +141,19 @@ Known host baseline:
 - roughly 6–6.5 GB VRAM can be available in a lightweight/headless-ish environment;
 - dedicated to the project so the owner's main workstation remains usable.
 
-Known Codex security/approval baseline already proven usable for CUDA work:
-
-- `sandbox_mode = danger-full-access`;
-- `approval_policy = on-request`;
-- `approvals_reviewer = guardian_subagent`.
-
-This is an allowed known-good baseline for the dedicated host, not necessarily the final setup.
+The former Codex permission configuration is historical only. Claude Code permissions/sandboxing must be designed independently during the setup run for high autonomy on the dedicated host.
 
 ### Existing local development/runtime software
 
 Installed baseline includes:
 
-- Codex;
+- Claude Code (required implementation harness; installation/version/authentication finalized during setup);
 - Unsloth Studio (currently preferred for supported purely local model workflows);
 - Ollama;
 - llama.cpp;
 - Blender 5.2.2 + MCP;
-- Unity 6.6 + CLI + MCP;
-- Unreal Engine 5.8.2 (linked into `~/.local/bin`) + MCP;
+- Unity 6.3 LTS (`6000.3.x`) + CLI + MCP;
+- Unreal Engine 5.8.4 + MCP;
 - `uv` + system Python;
 - `nvm` + system Node;
 - `gvm` for Go;
@@ -178,78 +174,69 @@ The implementation run does not need GitHub Actions for ordinary local hardware/
 
 ---
 
-## 7. Implementation harness is not synonymous with Codex
+## 7. Claude Code is the required implementation harness
 
-Current leading baseline:
+The owner has removed Codex from this implementation because Codex usage is already required by too many other projects and its subscription limits would not support this implementation reliably in parallel.
 
-- GPT-6 Astra as main implementation model;
-- Codex CLI v0.153.4 as the current known-good candidate because the owner's required experimental context-management behavior works there.
+Current implementation decision:
 
-However, Codex itself is not an immutable requirement.
+- **Claude Code is the required primary implementation harness.**
+- The specific Claude Code version/install channel/authentication path is selected during the later setup run.
+- The specific Claude main model/configuration is intentionally not fixed this far in advance.
+- The setup run optimizes Claude Code rather than comparing replacement primary harnesses.
+- Codex may remain available for unrelated owner projects but must not be consumed by this implementation.
 
-The Implementation Harness Setup run may recommend a different suitable harness (for example Hermes-Agent) only if there is a strong evidence-based reason and the owner can still use the ChatGPT subscription through an officially supported OAuth path.
+The setup run may add supported Claude Code skills/plugins, MCPs, hooks, native subagents, project memory/instruction files, code intelligence, Git tooling, or wrappers when useful.
 
-The burden of proof for replacing the known Codex baseline should be high.
-
-Experimental harness features are allowed but not mandatory.
+All preparation/research/setup-design/architecture-review work remains in the GPT-6-Pro WebUI workflow; the Claude Code switch applies to the actual implementation phase.
 
 ---
 
-## 8. Main-agent and subagent model selection
+## 8. Claude Code main-agent and subagent model selection
 
-Astra Xhigh or Max are strong main-agent candidates for long-running implementation because community experience suggests that more reasoning can sometimes reduce expensive corrective loops. This is a hypothesis, not a guaranteed accounting rule.
+The later GPT-6-Pro Implementation Harness Setup run must research the current Claude Code model landscape and the owner's actual Claude subscription entitlements immediately before implementation.
 
-Do not brute-force every model × reasoning-level combination. Prefer trustworthy public/community evidence and targeted validation for material uncertainties.
+Do not hardcode one Claude model now.
 
-Subagent selection must account for **effective total cost**, not simply model size or reasoning label.
+Model/subagent selection must account for **effective total cost**, not simply nominal model tier.
 
-Relevant cost factors may include:
+Relevant cost factors include:
 
-- subscription allowance consumption;
-- scarce rolling/weekly-window pressure;
-- monetary cost where applicable;
-- latency/wall-clock time;
-- failure probability;
-- expected rework;
-- orchestration overhead;
+- Claude subscription allowance consumption;
+- rolling/weekly/monthly usage pressure where applicable;
+- wall-clock time;
+- failure/rework probability;
+- context loss/compaction overhead;
+- subagent/orchestration overhead;
 - opportunity cost.
 
-A configuration such as Luna Max may be preferable to Terra Low if it is both cheaper in effective allowance terms and more reliable for that role.
+A stronger Claude model may be more efficient end-to-end when it avoids corrective loops; a cheaper/faster model may be preferable for routine or mechanical roles.
 
-Use the least expensive configuration that reliably achieves the required quality — not automatically the weakest or lowest-reasoning model.
+### Hard boundary: implementation workforce
 
-### Hard boundary: implementation subagents
+All main-agent/subagent intelligence used to implement the project must remain inside the approved **Claude Code native Claude/subagent ecosystem using the owner's Claude subscription path**.
 
-**The implementation harness itself must not use local models or external APIs as its own subagents/helpers.**
+Local models and external APIs exist **only for the project being built**, e.g. integration tests, evaluations, experiments, model-suitability work, runtime/provider tests, or project-specific training.
 
-All main-agent/subagent intelligence used to implement the project must remain inside the approved ChatGPT-subscription/OAuth harness ecosystem.
-
-Local models and external APIs outside the ChatGPT subscription exist **only for the project being built**, e.g.:
-
-- module/provider integration tests;
-- evaluations;
-- experimental flows;
-- capability tests;
-- benchmark fixtures;
-- project runtime/provider experiments.
-
-They must not secretly augment the implementation agent's own reasoning workforce.
+They must not secretly augment Claude Code's implementation reasoning workforce.
 
 ---
 
-## 9. ChatGPT-subscription provider safety during implementation
+## 9. Provider separation during Claude Code implementation
 
-If the project-under-test needs to exercise a ChatGPT subscription/OAuth provider during an Astra implementation run:
+Claude Code subscription/OAuth is implementation-harness authentication, not a credential surface for the system-under-test.
 
-- use **GPT-5.6 Luna only**;
-- allow Luna reasoning up to Max;
-- do **not** use GPT-6 Astra as a project inference/judge/evaluation provider inside its own implementation run.
+Do not expose/reuse Claude Code's subscription OAuth as a production/test provider credential for the project runtime. A future Anthropic API/provider integration would require a separately approved supported API/cloud path and owner approval.
 
-This prevents the implementation agent from consuming or deadlocking the same scarce Astra capacity it depends upon.
+The owner's existing ChatGPT subscription/OAuth project-test rule remains conservative:
 
-If an evaluation genuinely needs more intelligence, use an approved external project-test provider instead (for example an appropriate NVIDIA NIM endpoint such as Kimi K3, subject to current availability/limits).
+- use GPT-5.6 Luna only;
+- reasoning may be configured up to Max;
+- do not broaden the allowed OpenAI subscription models without explicit owner approval.
 
-`codex exec` may be exposed as one optional **Test Intelligence Provider** for project evaluations. It is not a substitute for subagents and receives no automatic preference over other suitable test providers.
+Codex / `codex exec` is not an implementation or project-test resource for this run because its usage budget is reserved for other owner projects.
+
+If project evaluation needs stronger intelligence, use another already approved project-test provider or request a policy change.
 
 ---
 
@@ -665,7 +652,7 @@ The device is intentionally configured for autonomous test access:
 - relevant ADB/security prompts that would otherwise require owner presence have been disabled for this dedicated test device;
 - the display remains on while connected to power.
 
-Codex/the implementation harness should therefore be able to automate installation, debugging, logging, screenshots/control, and repeatable device-level tests without routine owner intervention.
+Claude Code/the implementation harness should therefore be able to automate installation, debugging, logging, screenshots/control, and repeatable device-level tests without routine owner intervention.
 
 ---
 
@@ -837,7 +824,7 @@ Current observed owner-account state during preparation:
 
 This credit is opportunistic/current state, not durable architectural capacity.
 
-Jev is **not currently approved as a hidden Codex/Astra implementation copilot or general harness utility**, and no production-agent dependency on Jev is planned.
+Jev is **not currently approved as a hidden Claude Code implementation copilot or general harness utility**, and no production-agent dependency on Jev is planned.
 
 Dynamic provider information such as pricing, limits, credits, and terms normally needs refreshing no more than once per 24 hours unless an error/change signal or explicit owner request justifies an earlier refresh.
 
@@ -866,13 +853,15 @@ These are research leads/prior art only. Claims, benchmarks, and architectural c
 
 ---
 
-## 39. Official GitHub integration for private repositories
+## 39. GitHub integration split between preparation and Claude Code implementation
 
-The official GitHub plugin/integration is now considered a legitimate Implementation Harness option for working with private repositories and repo-native workflows.
+The GPT-6-Pro WebUI preparation/setup/review runs may use the official OpenAI GitHub integration for private-repository access and repo-native workflows.
 
-The Harness Setup run may use/evaluate it for repository access, issues, pull requests, commits, review state, and related engineering-control-plane work, reducing the need for manual credential handling where the official integration is sufficient.
+The Claude Code implementation must not assume that OpenAI's GitHub plugin is available inside Claude Code.
 
-This does not by itself change the separate current restriction on using GitHub Actions as Implementation compute.
+For implementation, use appropriate local Git/GitHub tooling (for example `git`/`gh`) and/or a Claude-Code-compatible GitHub MCP/plugin integration when justified.
+
+This does not change the separate restriction on using GitHub Actions as Implementation compute.
 
 ---
 
@@ -991,7 +980,7 @@ Test-chan is a test fixture, not the final project avatar and not an architectur
 
 ## 48. Huawei P30 detailed unattended-debug posture
 
-The Huawei P30 (`ELE-L29`) is a dedicated implementation test device and is intentionally configured for unattended Codex/harness access.
+The Huawei P30 (`ELE-L29`) is a dedicated implementation test device and is intentionally configured for unattended Claude Code/harness access.
 
 Current device state includes:
 
@@ -1051,3 +1040,28 @@ This is disciplined exploration, not novelty for novelty's sake.
 Non-obvious ideas remain hypotheses/candidates until supported by evidence and must meet the same feasibility, compatibility, security, maintainability, and evaluation standards as conventional approaches.
 
 The owner's speculation about the internal identity/lineage of the Research model is **not** a project requirement and should not be propagated into Research instructions. The desired behavior is specified directly without model-identity priming.
+
+
+---
+
+## 51. Claude Code implementation-harness switch
+
+The implementation phase has been moved from Codex/GPT-6-Astra to **Claude Code** because the owner's Codex subscription capacity is already committed across other projects and would not provide sufficient reliable implementation capacity.
+
+This change applies to the actual implementation agent/harness.
+
+Preparation remains in the GPT-6-Pro WebUI workflow, including:
+
+- Research/Architecture;
+- Implementation Harness Setup design;
+- milestone Architecture Reviews.
+
+The later setup run should optimize Claude Code using current official documentation and current owner subscription state rather than freezing today's Claude Code version/model assumptions.
+
+The implementation workforce boundary now means:
+
+- Claude Code main agent + native Claude Code subagents/models are allowed;
+- external/local inference resources remain project-under-test resources only;
+- Anthropic Console/API billing is not an implementation-agent fallback without explicit owner approval;
+- Claude Code subscription OAuth must not be repurposed as the project's own provider credential;
+- Codex/`codex exec` is excluded from this implementation workflow.
