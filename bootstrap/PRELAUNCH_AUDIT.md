@@ -103,7 +103,7 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] GPT-5.6 Luna / ChatGPT OAuth removed from project-test resources.
 - [x] Claude Pro Fable models excluded unless owner explicitly approves usage-credit spending.
 - [x] OpenCode free-model auxiliary-subagent exception integrated with no silent paid fallback.
-- [x] GPT-4o temporary evaluation/reference policy integrated with training reuse blocked by default.
+- [x] GPT-4o temporary reference-capture policy integrated with `training_reuse_status: unclear_pending_terms_review`; raw capture remains separated from training pipelines until explicitly resolved.
 - [x] Official Claude Code GitHub App/Action recognized as optional repo automation but not routine Implementation compute under current policy.
 
 ## Time-sensitive external resource
@@ -121,6 +121,10 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Separate GitHub-access test turn removed; access preflight is part of the first Research turn.
 - [x] `Continue.` and `Please continue.` both support restart-free recovery.
 - [x] Short owner interventions may be attached to continuation messages and must be persisted/resumed in the same turn.
+
+## Full-repository audit
+
+- [x] Full prep-repository audit completed on 2026-11-02: structural maps, all destination anchors, seed synchronization, path references, secret-like patterns, duplicate anchors, scope leaks, current implementation/provider policies, and real-repo untouched state checked.
 
 ## G. Still required before launch
 
