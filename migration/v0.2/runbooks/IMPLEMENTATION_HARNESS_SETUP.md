@@ -84,6 +84,13 @@ Do not silently fall back to Anthropic Console/API billing for the implementatio
 
 If the owner's current Claude plan, model access, or usage limits are insufficient, surface that as a setup constraint and optimize within the available subscription before proposing any paid API dependency.
 
+Current owner constraint:
+
+- Claude Pro is the expected subscription tier for implementation;
+- Fable models are not part of the allowed implementation pool because they require separate usage credits on Pro;
+- do not enable/purchase Fable usage credits for this project unless the owner explicitly changes that decision;
+- the practical included Claude pool should therefore be selected from the owner's then-current non-credit models (currently expected to be Opus/Sonnet/Haiku families), and must be reverified during setup.
+
 ### Optimization dimensions
 
 The setup run should optimize Claude Code across dimensions including:
@@ -280,7 +287,11 @@ You may investigate/use suitable:
 
 The GPT-6-Pro/WebUI setup or review runs may use the available OpenAI GitHub integration for repo-native preparation/review work.
 
-The later Claude Code implementation must not assume that OpenAI's GitHub plugin exists inside Claude Code. For implementation, prefer appropriate local `git`/`gh` workflows and/or a Claude-Code-compatible GitHub MCP/plugin integration when justified.
+Claude Code also has an official Anthropic GitHub App / `anthropics/claude-code-action` integration. The setup run should evaluate it alongside local `git`/`gh` and any useful Claude-Code-compatible GitHub MCP/plugin path.
+
+Important: the official Claude Code GitHub Action executes through GitHub Actions. Under the current project policy it must **not** become routine implementation compute. It may be installed/configured for repo-native PR/issue automation only if the owner explicitly accepts the corresponding GitHub Actions usage for that workflow.
+
+Local Claude Code + `git`/`gh` remains the default implementation path.
 
 Local tooling is preferred where capability/reliability are competitive.
 
@@ -450,38 +461,65 @@ Prefer:
 
 ---
 
-## Hard Implementation-Workforce Boundary
+## Implementation-Workforce Boundary
 
-**All implementation-agent reasoning must remain inside Claude Code's approved native Claude/subagent ecosystem using the owner's approved Claude subscription path.**
+The primary implementation workforce is:
 
-The implementation harness must not use local models or external APIs as hidden copilots, subagents, planners, judges, reviewers, or reasoning helpers.
+1. Claude Code main agent;
+2. Claude Code native Claude subagents;
+3. **one explicit external exception: an OpenCode instance used as a bounded auxiliary subagent.**
 
-This prohibition includes project-test resources such as:
+All other local models and external APIs remain project-under-test resources only and must not become hidden implementation copilots, planners, judges, or reviewers.
+
+### OpenCode exception
+
+OpenCode is the **only** currently approved non-Claude implementation-agent exception.
+
+Its purpose is to reduce Claude subscription pressure by offloading suitable bounded tasks when a genuinely free/no-cost model is available.
+
+Current candidate:
+
+- `glm-5.3-flash-free` through OpenCode, currently advertised as a limited-time free model.
+
+Setup requirements:
+
+- verify that the model/alias is still free immediately before use;
+- verify actual rate/usage limits and availability;
+- do **not** silently fall back to paid OpenCode models or paid balance;
+- verify task competence before routing meaningful work;
+- verify image-input support end-to-end before assigning visual tasks;
+- keep Claude Code responsible for orchestration, integration, acceptance, and escalation;
+- treat OpenCode output as untrusted implementation-subagent output that must pass normal tests/review;
+- do not let the auxiliary instance mutate critical architecture or security policy without Claude Code validation.
+
+Good candidate tasks may include:
+
+- bounded visual/image-analysis tasks if direct image input works;
+- mechanical code transformation;
+- repository/file analysis;
+- low-risk boilerplate;
+- structured extraction;
+- other clearly scoped work where quality is empirically adequate.
+
+If the useful free model disappears or its limits become too restrictive, the OpenCode workforce exception may simply become inactive. Paid fallback requires explicit owner approval.
+
+### Prohibited implementation-workforce resources
+
+The following remain prohibited as hidden implementation workers unless the owner later changes policy:
 
 - local Unsloth/Ollama/llama.cpp models;
 - Ollama Cloud;
 - Groq;
-- OpenRouter;
+- OpenRouter outside the explicitly approved OpenCode auxiliary instance;
 - NVIDIA NIM;
 - TypeSafe Jev;
-- ChatGPT/OpenAI project-test providers;
+- ChatGPT/OpenAI models;
 - Anthropic Console/API-key inference outside the approved Claude Code subscription workflow;
 - other external inference APIs.
 
-Those resources exist only for the **system/project being implemented**, for example:
+Those resources may still be used by the **system/project being implemented** for integration tests, evaluations, benchmark scenarios, runtime/provider experiments, Model Suitability work, or project-specific training/adaptation.
 
-- module/provider integration tests;
-- evaluations;
-- test fixtures;
-- runtime/provider experiments;
-- capability validation;
-- benchmark scenarios;
-- model-suitability research;
-- project-specific training/adaptation.
-
-They must not augment Claude Code's own implementation reasoning workforce.
-
----
+--- 
 
 ## Hardware Simulation / Emulation During Implementation
 
@@ -516,7 +554,9 @@ Existing owner-approved resources for **project-under-test** work may include:
 - NVIDIA NIM free endpoints;
 - TypeSafe Jev — owner account currently observed with a $5 `Monthly credit` balance and no payment information configured;
 - local models/runtimes;
-- ChatGPT-subscription OAuth under the Luna-only rule below.
+- OpenAI API using the owner's existing prepaid API balance (currently approximately $62, subject to recheck before use).
+
+**ChatGPT subscription/OAuth is currently removed from project-test resources** to avoid interfering with unrelated Codex usage limits.
 
 The Groq/OpenRouter accounts intentionally have no payment information configured; do not assume paid fallback capacity.
 
@@ -530,19 +570,34 @@ Provider limits must be checked/documented at the time of setup or evaluation ra
 
 Jev is currently approved as a **project-under-test inference/evaluation resource**, not as a hidden Claude Code implementation copilot or general harness utility, and no production dependency on Jev is assumed.
 
-### ChatGPT/OpenAI project-test rule
+### OpenAI API project-test / GPT-4o reference rule
 
-If the project-under-test exercises the owner's ChatGPT subscription/OAuth provider during Claude Code implementation:
+OpenAI API usage is separate from ChatGPT/Codex subscription usage and may use the owner's existing API balance when explicitly useful.
 
-- retain the current owner policy of **GPT-5.6 Luna only**;
-- reasoning may be configured up to Max;
-- do not broaden this permission to other OpenAI subscription models unless the owner explicitly changes the policy.
+GPT-4o is a temporary Social-Companion **evaluation/reference** candidate while it remains available in the API.
 
-Moving the implementation harness to Claude Code does **not** automatically convert OpenAI subscription capacity into implementation-agent workforce or broaden project-test permissions.
+Permitted planned use includes:
 
-If substantially stronger intelligence is genuinely required for a project evaluation, use another already approved project-test provider or ask the owner before changing the provider policy.
+- RP/creativity comparison runs;
+- qualitative behavioral reference;
+- prompt-suite benchmarking;
+- human-reviewed examples;
+- identifying desirable interaction characteristics;
+- comparing candidate Social-Companion systems against a 4o reference profile.
 
-Codex / `codex exec` is intentionally excluded from this implementation workflow because its usage budget is reserved for other projects.
+**Do not automatically place GPT-4o outputs, rankings, labels, rubrics, or other derived training signals into datasets for training a non-OpenAI Social-Companion model.**
+
+OpenAI's current terms/policies restrict using outputs to develop competing/alternative models, with only narrow exceptions. Therefore mark GPT-4o-derived reference artifacts with provenance such as:
+
+- `training_allowed: false`;
+- provider/model/snapshot;
+- generation date;
+- intended use: evaluation/reference only;
+- relevant policy/terms snapshot.
+
+Recheck OpenAI terms and GPT-4o availability before any use. GPT-4o API snapshots are currently deprecated and scheduled for shutdown on **2027-01-14**.
+
+Codex / `codex exec` and ChatGPT subscription models are intentionally excluded from this implementation workflow because their subscription usage is reserved for other owner projects.
 
 ---
 
@@ -644,7 +699,7 @@ The goal is cross-run continuity and traceability, not project-management theate
 
 ## Setup Evaluation
 
-Compare meaningful **Claude Code configurations and extensions** before finalizing. Claude Code itself is fixed; the setup experiment space is configuration, model allocation, subagents, permissions, memory/instructions, skills/plugins, MCP, hooks, Git workflow, and supporting local tooling.
+Compare meaningful **Claude Code configurations and extensions** before finalizing. Claude Code itself is fixed; the setup experiment space is configuration, model allocation, native subagents, permissions, memory/instructions, skills/plugins, MCP, hooks, Git workflow, supporting local tooling, and the bounded OpenCode-free-model auxiliary-subagent exception.
 
 Relevant measurements/evidence may include:
 
@@ -693,7 +748,8 @@ Before implementation begins, produce/finalize:
 
 - selected Claude Code version/install channel/authentication path;
 - main-agent Claude model/configuration;
-- subagent definitions if any;
+- Claude Code native subagent definitions if any;
+- OpenCode auxiliary-subagent configuration/limits/capability tests if the exception is active;
 - context-management configuration;
 - security/approval model;
 - installed/required local tooling;
