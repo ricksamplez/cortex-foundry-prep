@@ -33,12 +33,12 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 66 |
-| unique decision IDs | 66 |
+| persisted decision IDs | 71 |
+| unique decision IDs | 71 |
 | decisions still pending integration | 0 |
 | mapped decision destination references | 106 |
-| future-facing integrated decisions | 57 |
-| superseded decisions | 7 |
+| future-facing integrated decisions | 58 |
+| superseded decisions | 11 |
 | preparation-only owner notes intentionally not propagated | 2 |
 | broken decision destination references | 0 |
 
@@ -82,7 +82,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **§36 CI Permission:** strengthened to container-first execution for WebUI runs, GitHub Actions only when justified, and heavy accelerator work deferred.
 - **§46 Architecture Freedom:** strengthened with an explicit boundary that the research-program/repository name is not the system name.
 - **§47–54 Codex setup sections:** the separate implementation-harness setup phase and its tooling/subagent/evaluation intent are retained, but the owner later superseded Codex with **Claude Code** as the required implementation harness. The setup run now optimizes Claude Code rather than selecting a replacement primary harness.
-- **§53 Subagents:** strengthened with effective-cost selection and a hard prohibition on using local/external project-test models as implementation-agent subagents.
+- **§53 Subagents:** strengthened with effective-cost selection and a Claude-Code-native implementation workforce, plus one explicit bounded OpenCode auxiliary-subagent exception restricted to genuinely free/no-cost models unless the owner changes policy.
 - **§57 Review Issues:** strengthened to permit zero-to-many deduplicated/actionable issues per milestone review campaign.
 - **§58 Research Stages:** implementation-harness setup and independent architecture review were moved into separate run-specific contracts instead of universal research context.
 - **§60 Completion Criteria:** strengthened and reordered so research completes and prepares a handoff before the separate implementation-harness setup finalizes the execution environment.
@@ -91,7 +91,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
 - **Non-obvious exploration:** the Research run must deliberately challenge obvious framings and explore cross-domain transfers, alternative decompositions, second-order effects, counterexamples, and unconventional plausible combinations while preserving normal evidence, feasibility, security, and evaluation standards.
-- **Implementation harness switch:** Codex/GPT-6-Astra implementation assumptions are superseded by Claude Code. Preparation/research/setup-design/review remain in the GPT-6-Pro WebUI workflow; Claude Code's native Claude/subagent ecosystem is the only implementation reasoning workforce, while external/local inference remains project-test-only.
+- **Implementation harness switch:** Codex/GPT-6-Astra implementation assumptions are superseded by Claude Code. Preparation/research/setup-design/review remain in the GPT-6-Pro WebUI workflow. Claude Code native agents are the primary implementation workforce, with a single bounded OpenCode free-model auxiliary exception; all other external/local inference remains project-test-only.
 - **Standalone Quest VR / frontend independence:** Social Companion Tier B now requires optional standalone Quest-class VR with backend/client separation and cross-client session continuity; frontend technologies may differ freely across workloads.
 - **Avatar renderer split:** VRChat/Unity-package support is no longer a Cognitive-Core format requirement. The workload now exercises a lightweight VRM-oriented path plus a heavier game-engine/VRChat-package path, with PMX/MMD as an additional target.
 - **Persistent Personal Assistant Tier A:** now fixed as a Smartphone Personal Assistant with local/LAN/cloud/split inference options.
@@ -104,7 +104,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Manual routing/resource overrides:** added scoped force/prefer/deny/pin/exclude semantics while preserving automatic routing in remaining decision space.
 - **Heterogeneous hardware:** replaced simplistic CPU suitability assumptions with hardware/runtime execution profiles and clustered NPU/AMD-GPU/dual-GPU validation campaigns during Implementation.
 - **Provider-output reuse:** added explicit-prohibition hard blocks plus warned/audited owner opt-in for genuinely unclear reuse cases.
-- **Implementation resources:** Jev remains project-test-only. GitHub access is now phase-split: GPT-6-Pro WebUI setup/review may use the OpenAI GitHub integration, while Claude Code implementation should use local Git/GitHub tooling and/or Claude-Code-compatible MCP/plugin paths. Neither changes the hard implementation-workforce boundary or GitHub Actions compute restriction.
+- **Implementation resources:** Jev remains project-test-only. ChatGPT/Luna is removed from project-test resources. OpenAI API balance is separately usable under provider-policy controls. Anthropic's official Claude Code GitHub App/Action is recognized but remains optional because it consumes GitHub Actions compute; local Git/GitHub tooling stays default.
 
 ## Important retained owner deltas
 
@@ -118,8 +118,10 @@ The modular draft explicitly retains, among other additions:
 - dedicated Ubuntu implementation host and software baseline;
 - Claude Code as the required implementation harness, with current version/model/subagent configuration selected during the later setup run;
 - effective-cost-aware subagent selection;
-- implementation-subagent boundary;
-- Luna-only ChatGPT OAuth project-test rule;
+- implementation-subagent boundary with one bounded OpenCode free-model exception;
+- Claude Pro Fable usage-credit exclusion unless owner-approved;
+- GPT-4o reference capture as evaluation-only by default, with training reuse gated by current provider terms;
+- ChatGPT/Luna removed from project-test resources; OpenAI API use handled separately under provider-policy controls;
 - approved external/local test-provider boundaries;
 - guaranteed-capacity-only Provider Capacity Snapshots;
 - feature/modality-aware Model Suitability Knowledge Base;
