@@ -1224,3 +1224,35 @@ Only suitable reproducible artifacts should enter Git, such as:
 - deliberately curated small fixtures.
 
 Because the OpenAI API balance expires on 2026-11-21, a narrow Claude Code pre-implementation capture lane is allowed if the normal implementation phase would begin too late. This lane exists only to preserve the expiring data-acquisition opportunity and must not expand into general implementation before the normal phase gate.
+
+
+---
+
+## 56. Qwen3-TTS as first implemented TTS provider
+
+Qwen3-TTS is the first TTS provider family to implement.
+
+Reason: the owner strongly prefers its observed speech quality from listening tests, including relative to many newer TTS systems.
+
+This is a concrete implementation-order anchor, not an architectural preference that weakens provider neutrality.
+
+Current official Qwen3-TTS 12 Hz family capabilities make it especially suitable for the Social Companion speech requirements:
+
+- streaming;
+- German and other major languages;
+- natural-language instruction control on applicable variants;
+- expressive tone/style/emotion/rate control;
+- VoiceDesign;
+- CustomVoice;
+- rapid voice cloning through Base models;
+- 0.6B and 1.7B size classes.
+
+Do not prematurely choose one checkpoint for all purposes.
+
+At implementation time, map capabilities to the most appropriate official checkpoint(s), e.g. CustomVoice for instruction-controlled expressive speech, VoiceDesign for generated voice characteristics, and Base where reference-audio voice cloning is required.
+
+The generic TTS/speech-rendering contract remains provider-neutral and must not assume Qwen-specific tags, prompt syntax, checkpoint topology, or control mechanisms.
+
+Qwen3-TTS should be used as the first real contract-validation provider and may expose gaps in the generic abstraction that must be solved generically rather than patched as Qwen special cases.
+
+Exact selected model/checkpoint, runtime/backend, quantization, latency profile, and license/artifact state must be verified at implementation time.
