@@ -267,6 +267,18 @@ Current implementation-harness constraints:
 
 ---
 
+## Time-sensitive pre-launch / early-Research item
+
+The owner has approximately **$62 of OpenAI API balance expiring on 2026-11-21**.
+
+The balance may be fully consumed before expiry when doing so yields useful project knowledge.
+
+The first Research run should therefore prioritize a reproducible GPT-4o Social-Companion reference-capture plan early enough to preserve the opportunity.
+
+If direct API execution is unavailable in the Research environment, prepare the prompt suite/capture harness for local execution rather than deferring the work beyond the expiry date.
+
+GPT-4o training reuse is intentionally **not pre-decided**. Current classification is `unclear_pending_terms_review`; preserve provenance and keep captured reference artifacts separated from training pipelines.
+
 ## 11. Remaining owner/manual actions before first Research run
 
 After owner approval of the candidate wording:
