@@ -181,7 +181,7 @@ Fully local operation is a valid deployment profile when the device is capable e
 
 A constrained smartphone test target may be used to validate that a very small on-device model/runtime path can operate when technically feasible. This is a deployment-path test, not a requirement that low-end hardware provide the preferred production inference path.
 
-#### Tier B and Tier C — Open design space
+#### Persistent Personal Assistant Tier B and Tier C — Open design space
 
 Research must design the broader tiers according to the global tier semantics.
 
@@ -416,7 +416,7 @@ It should exercise real environment sensing/control, schedules, automation coexi
 
 Where Home Assistant semantics are part of the test, prefer a real Home Assistant OS instance with simulated/emulated devices rather than replacing Home Assistant itself with a fake. Home Assistant Container is a distinct installation type and should not be treated as equivalent when HAOS-specific behavior matters.
 
-#### Tier B and Tier C — Open design space
+#### Ambient/Home-Automation Tier B and Tier C — Open design space
 
 Research should expand from the greenhouse-scale environment into progressively broader ambient/home automation systems.
 
