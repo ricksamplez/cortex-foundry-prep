@@ -285,7 +285,7 @@ You may investigate/use suitable:
 - custom local extensions;
 - issue/work tracking integrations.
 
-The GPT-6-Pro/WebUI setup or review runs may use the available OpenAI GitHub integration for repo-native preparation/review work.
+The ChatGPT WebUI setup or review runs may use the available OpenAI GitHub integration for repo-native preparation/review work.
 
 Claude Code also has an official Anthropic GitHub App / `anthropics/claude-code-action` integration. The setup run should evaluate it alongside local `git`/`gh` and any useful Claude-Code-compatible GitHub MCP/plugin path.
 
@@ -554,7 +554,7 @@ Existing owner-approved resources for **project-under-test** work may include:
 - NVIDIA NIM free endpoints;
 - TypeSafe Jev — owner account currently observed with a $5 `Monthly credit` balance and no payment information configured;
 - local models/runtimes;
-- OpenAI API using the owner's existing prepaid API balance (currently approximately $62, subject to recheck before use).
+- OpenAI API where approved and where prepaid balance remains available; a preparation-time balance of approximately $62 expires on 2026-11-21 and is expected to be used/captured before implementation if useful.
 
 **ChatGPT subscription/OAuth is currently removed from project-test resources** to avoid interfering with unrelated Codex usage limits.
 
@@ -572,30 +572,29 @@ Jev is currently approved as a **project-under-test inference/evaluation resourc
 
 ### OpenAI API project-test / GPT-4o reference rule
 
-OpenAI API usage is separate from ChatGPT/Codex subscription usage and may use the owner's existing API balance when explicitly useful.
+OpenAI API usage is separate from ChatGPT/Codex subscription usage.
 
-GPT-4o is a temporary Social-Companion **evaluation/reference** candidate while it remains available in the API.
+A preparation-time API balance of approximately $62 expires on **2026-11-21**. It may be fully used before expiry for useful project capture; conserving expiring balance is not a goal.
 
-Permitted planned use includes:
+GPT-4o is a temporary Social-Companion evaluation/reference candidate while it remains available in the API.
 
-- RP/creativity comparison runs;
-- qualitative behavioral reference;
-- prompt-suite benchmarking;
-- human-reviewed examples;
-- identifying desirable interaction characteristics;
-- comparing candidate Social-Companion systems against a 4o reference profile.
+Useful capture areas include RP/creativity comparison, qualitative behavioral reference, prompt-suite benchmarking, human-reviewed examples, interaction-property analysis, and difficult multi-turn social cases.
 
-**Do not automatically place GPT-4o outputs, rankings, labels, rubrics, or other derived training signals into datasets for training a non-OpenAI Social-Companion model.**
+Do not automatically place GPT-4o outputs, rankings, labels, rubrics, or other derived signals into training datasets.
 
-OpenAI's current terms/policies restrict using outputs to develop competing/alternative models, with only narrow exceptions. Therefore mark GPT-4o-derived reference artifacts with provenance such as:
+The owner considers the target Social-Companion system non-competing with OpenAI's current offerings, but the applicability of OpenAI's model-training restrictions is not conclusively resolved here.
 
-- `training_allowed: false`;
+Therefore store GPT-4o artifacts with provenance such as:
+
+- `training_reuse_status: unclear_pending_terms_review`;
 - provider/model/snapshot;
 - generation date;
-- intended use: evaluation/reference only;
-- relevant policy/terms snapshot.
+- intended current use;
+- applicable terms/policy snapshot.
 
-Recheck OpenAI terms and GPT-4o availability before any use. GPT-4o API snapshots are currently deprecated and scheduled for shutdown on **2027-01-14**.
+Keep reference/evaluation artifacts separable from training pipelines so a later explicit policy/legal/provider determination can reclassify eligible data without contaminating datasets.
+
+GPT-4o API snapshots are currently deprecated and scheduled for shutdown on **2027-01-14**.
 
 Codex / `codex exec` and ChatGPT subscription models are intentionally excluded from this implementation workflow because their subscription usage is reserved for other owner projects.
 
