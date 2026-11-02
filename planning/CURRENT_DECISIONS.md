@@ -250,9 +250,11 @@ Claude Code subscription/OAuth is implementation-harness authentication, not a c
 
 Do not expose/reuse Claude Code's subscription OAuth as a production/test provider credential for the project runtime. A future Anthropic API/provider integration would require a separately approved supported API/cloud path and owner approval.
 
-ChatGPT subscription/OAuth and GPT-5.6 Luna are currently **removed** from project-test resources to avoid consuming quota needed by unrelated Codex projects.
+ChatGPT subscription/OAuth and GPT-5.6 Luna are currently **removed** from generic project-test resources to avoid consuming quota needed by unrelated Codex projects.
 
-Codex / `codex exec` is likewise not an implementation or project-test resource for this run.
+Codex remains excluded from the implementation workforce. However, a **disabled-by-default Codex/ChatGPT-plan OAuth provider path** for Coding-Agent reference systems is allowed as a system-under-test capability. Live use requires an explicit owner-approved usage window because it consumes the same Codex/ChatGPT-plan capacity needed elsewhere.
+
+`codex exec` is not the intended final provider integration surface; prefer the documented Codex product-integration path such as `codex app-server` where appropriate.
 
 The owner has approximately **$62 of OpenAI API balance** available separately from ChatGPT/Codex subscription usage.
 
@@ -264,7 +266,7 @@ The owner considers the intended Social-Companion system non-competing with Open
 
 Therefore GPT-4o training/teacher reuse is currently classified as **unclear pending explicit terms/policy determination**, not automatically allowed and not automatically forbidden.
 
-Capture now with full provenance and keep training reuse separable. A later explicit decision/permission review may reclassify eligible artifacts.
+Capture locally under Claude Code before expiry with full provenance and keep training reuse separable. The WebUI Research run should specify/handoff the capture plan but should not execute the API campaign or push raw datasets through GitHub. A later explicit decision/permission review may reclassify eligible artifacts.
 
 ---
 
@@ -278,9 +280,10 @@ Existing accounts/credentials may be used by the **system/project-under-test** f
 - NVIDIA NIM free endpoints;
 - TypeSafe Jev;
 - local models/runtimes;
-- OpenAI API using the owner's existing prepaid balance.
+- OpenAI API using the owner's existing prepaid balance;
+- Codex/ChatGPT-plan OAuth as an optional disabled-by-default Coding-Agent provider path with explicit owner usage gating.
 
-ChatGPT subscription/OAuth is currently excluded.
+Generic ChatGPT subscription/OAuth inference remains excluded; the Codex provider path is the narrow exception described above.
 
 OpenCode is special: its approved free-model path may act as the single external **implementation auxiliary-subagent exception** described above; OpenCode models are not otherwise automatically preferred as project runtime providers.
 
