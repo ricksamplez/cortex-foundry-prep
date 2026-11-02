@@ -194,7 +194,7 @@ All preparation/research/setup-design/architecture-review work remains in the GP
 
 ## 8. Claude Code main-agent and subagent model selection
 
-The later GPT-6-Pro Implementation Harness Setup run must research the current Claude Code model landscape and the owner's actual Claude subscription entitlements immediately before implementation.
+The later GPT-5.6 Sol Pro Implementation Harness Setup run must research the current Claude Code model landscape and the owner's actual Claude subscription entitlements immediately before implementation.
 
 Current owner constraints:
 
