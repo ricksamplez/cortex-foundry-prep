@@ -32,6 +32,8 @@ Verify that you understand:
 
 Then inspect the seed repository/state.
 
+If `state/NEXT_WORK.md` contains a time-sensitive/deadline-bound item whose value would disappear if deferred, prioritize enough work on it early to preserve the opportunity while still continuing the broader research program.
+
 ### Repository access preflight
 
 As part of this **same first Research turn**, briefly verify that the canonical repository can be read and that required write operations are available.
