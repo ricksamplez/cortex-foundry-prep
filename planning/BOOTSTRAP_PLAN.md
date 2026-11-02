@@ -84,7 +84,7 @@ The exact names may change during preparation, but the content should be separat
    - project-test provider allowlist;
    - Fable usage-credit exclusion on Claude Pro unless owner explicitly approves extra credits;
    - OpenCode free-model availability/capability/privacy smoke tests;
-   - GPT-4o temporary evaluation/reference capture policy with training reuse blocked by default;
+   - GPT-4o temporary reference-capture policy with `training_reuse_status: unclear_pending_terms_review`, provenance, and strict separation from training pipelines until explicitly resolved;
    - official Claude Code GitHub App/Action evaluated as optional repo automation but not routine Implementation compute under current GitHub Actions policy;
    - ChatGPT subscription/OAuth excluded from project-test resources; OpenAI API may be used separately under provider-policy controls;
    - reproducibility/security/approval setup.
