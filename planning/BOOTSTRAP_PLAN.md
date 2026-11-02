@@ -2,7 +2,7 @@
 
 **Purpose:** define the preparation sequence before any real research run is launched.
 
-**Current status:** Phases 1–6 have prepared candidate artifacts; the final editorial/integration/audit gate remains open before cutover.
+**Current status:** Phases 1–6 and the assistant editorial/integration/audit passes are complete for the current candidate. Owner final review/approval remains open before cutover.
 
 This plan is preparation-only. Later runs must not receive references to this workspace.
 
@@ -213,4 +213,4 @@ Before the first real run:
 
 ## Immediate next action
 
-Complete the reopened final editorial/integration pass, refresh migration/seed/prelaunch audits, and only then populate the real research repository and launch the first Research run.
+Owner reviews/approves the current launch candidate. Only after explicit approval should the real research repository be populated and the first Research run launched.
