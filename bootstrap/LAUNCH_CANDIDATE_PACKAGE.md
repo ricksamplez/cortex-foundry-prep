@@ -239,7 +239,7 @@ Uses the launch package described here.
 
 Separate chat/run.
 
-Receives completed Research output and explicit GPT-6 Astra/host/harness context.
+Receives completed Research output plus the dedicated implementation-host context and the current owner decision that **Claude Code is the required implementation harness**. The setup run determines the current Claude Code version, Claude model allocation, native subagents, permissions, skills/plugins, MCP, hooks, and context/continuity configuration.
 
 Its runbook is intentionally absent from Phase A.
 
