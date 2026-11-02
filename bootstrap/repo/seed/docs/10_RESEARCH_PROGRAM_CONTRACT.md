@@ -517,7 +517,22 @@ Study relevant real systems/projects when they expose useful lessons for:
 
 Publicly observable systems such as Neuro-sama's ecosystem, GPTars/TARS-AI, desktop/computer agents, and other relevant projects are research inputs rather than cloning targets.
 
-For the Coding-Agent reference workload, subscription-backed coding agents such as Codex may be studied, benchmarked, or integrated as external reference/provider paths when useful. They are comparison targets and optional providers, not architecture dependencies.
+For the Coding-Agent reference workload, **Codex/ChatGPT-plan OAuth is an explicit optional external agent/provider-path candidate**.
+
+Research should distinguish:
+
+- the Codex product/harness as a compound external coding-agent capability;
+- raw OpenAI model access;
+- Codex-local tools such as shell/MCP/child-agent orchestration;
+- OpenAI-hosted/managed Codex or Responses tools/services.
+
+Do not treat "Codex" as merely a raw model provider, and do not assume that OpenAI-hosted Codex tools are portable into unrelated harnesses.
+
+OpenAI's documented `codex app-server` + Sign in with ChatGPT path is a particularly relevant integration mechanism because an application can drive Codex threads/turns using a ChatGPT-plan OAuth token.
+
+This path consumes the user's Codex/ChatGPT-plan usage and therefore must support explicit activation/budget policy rather than running opportunistically during Claude Code implementation.
+
+Research may design the provider contract and integration architecture without requiring continuous live Codex benchmarking during the main implementation run.
 
 Separate public behavior and public technical material from speculation about proprietary internals.
 
