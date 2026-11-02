@@ -32,7 +32,9 @@ Verify that you understand:
 
 Then inspect the seed repository/state.
 
-If `state/NEXT_WORK.md` contains a time-sensitive/deadline-bound item whose value would disappear if deferred, prioritize enough work on it early to preserve the opportunity while still continuing the broader research program.
+If `state/NEXT_WORK.md` contains a time-sensitive/deadline-bound item whose value would disappear if deferred, prioritize enough **research/specification/handoff work** on it early to preserve the opportunity while still continuing the broader research program.
+
+Do not execute external API data-collection campaigns merely because they are deadline-sensitive when the canonical state explicitly assigns execution to a later/local workflow. In that case, produce the smallest complete local handoff needed for the authorized executor to act before the deadline.
 
 ### Repository access preflight
 
