@@ -36,24 +36,32 @@ decisions:
     status: integrated
   - id: D009
     topic: "Codex v0.153.4 leading baseline but harness replaceable with strong evidence and supported ChatGPT OAuth"
-    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#harness-baseline-and-alternatives"]
-    status: integrated
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#claude-code-baseline-and-optimization-scope"]
+    status: superseded
+    superseded_by: D062
+
   - id: D010
     topic: "Astra Xhigh/Max main-agent candidates are hypothesis, not guaranteed usage rule"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#main-agent-configuration"]
-    status: integrated
+    status: superseded
+    superseded_by: D063
+
   - id: D011
-    topic: "Subagent selection uses effective total cost, public evidence, targeted validation"
+    topic: "Implementation main/subagent model selection uses effective total cost, current evidence, task fit, and targeted validation rather than nominal model tier alone"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#subagents"]
     status: integrated
+
   - id: D012
     topic: "Implementation harness may not use local/external project providers as its own subagents"
-    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-subagent-boundary"]
-    status: integrated
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-implementation-workforce-boundary"]
+    status: superseded
+    superseded_by: D064
+
   - id: D013
-    topic: "ChatGPT OAuth project-under-test provider limited to GPT-5.6 Luna up to Max; never Astra"
-    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries"]
+    topic: "ChatGPT OAuth project-under-test provider remains limited to GPT-5.6 Luna up to Max unless owner explicitly broadens the policy"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#chatgptopenai-project-test-rule"]
     status: integrated
+
   - id: D014
     topic: "Approved project-test providers: Ollama Cloud, Groq, explicit OpenRouter free models, NVIDIA NIM, Luna OAuth"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries"]
@@ -189,17 +197,20 @@ decisions:
     destination: ["00_CORE_REQUIREMENTS_CHARTER.md#controlled-optimization-and-improvement", "30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#dataset-annotation-teacher-and-learned-component-provenance"]
     status: integrated
   - id: D046
-    topic: "TypeSafe Jev approved for project-under-test inference/evaluation with current $5 Monthly credit; not a Codex/Astra harness utility or production dependency; dynamic metadata normally refreshed at most daily"
+    topic: "TypeSafe Jev approved for project-under-test inference/evaluation with current $5 Monthly credit; not a Claude Code implementation copilot or production dependency; dynamic metadata normally refreshed at most daily"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries"]
     status: integrated
+
   - id: D047
     topic: "Research contemporary prior art for typed local decisions, learned routers, continual adaptation, eval-gated promotion, branchable state, governed execution, artifact provenance, and effective-cost evaluation"
     destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems", "10_RESEARCH_PROGRAM_CONTRACT.md#initial-research-domains"]
     status: integrated
   - id: D048
-    topic: "Official GitHub integration/plugin is a legitimate private-repository and repo-native engineering-control-plane option during Implementation Harness Setup"
+    topic: "Official OpenAI GitHub integration/plugin considered as private-repository/control-plane option for implementation-related workflows"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#issue-and-work-tracking"]
-    status: integrated
+    status: superseded
+    superseded_by: D065
+
   - id: D049
     topic: "Preparation-only publication intent: owner-controlled publication; likely core + selected reference/template modules; no bundled model weights"
     destination: ["planning/CURRENT_DECISIONS.md"]
@@ -259,9 +270,31 @@ decisions:
     destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#non-obvious-exploration-and-cross-domain-reasoning"]
     status: integrated
 
+
+  - id: D062
+    topic: "Actual implementation is switched from Codex/GPT-6-Astra to Claude Code because Codex usage capacity is reserved across other owner projects; preparation/research/setup-design/review remain in the GPT-6-Pro WebUI workflow"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#purpose-and-scope", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#claude-code-baseline-and-optimization-scope", "40_RESEARCH_COMPLETION_AND_HANDOFF.md#curated-implementation-handoff"]
+    status: integrated
+  - id: D063
+    topic: "Claude Code main-model and native-subagent model/configuration are selected during the later setup run from current Claude Code capabilities and actual owner subscription entitlements; no Claude model is frozen now"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#main-agent-configuration", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#subagents"]
+    status: integrated
+  - id: D064
+    topic: "Implementation workforce is limited to Claude Code native Claude/subagent intelligence through the approved Claude subscription path; local/external/API project-test providers cannot act as hidden implementation copilots/judges/planners"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-implementation-workforce-boundary"]
+    status: integrated
+  - id: D065
+    topic: "GitHub integration is split by phase: GPT-6-Pro WebUI setup/review may use OpenAI GitHub integration; Claude Code implementation uses local git/gh and/or Claude-Code-compatible MCP/plugin paths"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#issue-and-work-tracking"]
+    status: integrated
+  - id: D066
+    topic: "Claude Code subscription OAuth is implementation-harness authentication only and must not be repurposed as the system-under-test provider credential; Anthropic API/cloud provider usage would require separate supported credentials and explicit owner approval"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#claude-code-baseline-and-optimization-scope", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-implementation-workforce-boundary"]
+    status: integrated
+
 audit:
-  decision_count: 61
-  integrated_count: 56
-  superseded_count: 3
+  decision_count: 66
+  integrated_count: 57
+  superseded_count: 7
   preparation_only_count: 2
   pending_count: 0
