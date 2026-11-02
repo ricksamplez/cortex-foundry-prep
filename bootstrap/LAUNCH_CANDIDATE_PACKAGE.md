@@ -262,6 +262,7 @@ Current implementation-harness constraints:
 - ChatGPT subscription/OAuth and GPT-5.6 Luna are not project-test resources;
 - OpenCode is the only approved non-Claude implementation-subagent exception and must stay on genuinely free/no-cost models unless explicitly approved otherwise;
 - OpenAI API balance may be used separately for project evaluation/reference;
+- Codex/ChatGPT-plan OAuth provider path is optional, disabled by default, and live use requires an explicit owner-approved usage window because it consumes shared Codex subscription capacity;
 - GPT-4o may be captured as a temporary Social-Companion evaluation/reference source, not assumed trainable;
 - the official Claude Code GitHub App/Action is optional repo automation but not routine Implementation compute under the current GitHub Actions policy.
 
