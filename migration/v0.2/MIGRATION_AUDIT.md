@@ -47,8 +47,8 @@ This matches `planning/BASELINE.md`.
 | Check | Result |
 |---|---:|
 | preparation-workspace name/URL leaks in future-facing draft docs | 0 |
-| explicit `GPT-6 Pro` identity mentions in Research Program Contract | 0 |
-| explicit `GPT-6 Pro` identity mentions in Architecture Review Runbook | 0 |
+| explicit `GPT-5.6 Sol Pro` identity mentions in Research Program Contract | 0 |
+| explicit `GPT-5.6 Sol Pro` identity mentions in Architecture Review Runbook | 0 |
 
 Target implementation-model names remain allowed where they are technically relevant.
 
@@ -91,7 +91,8 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
 - **Non-obvious exploration:** the Research run must deliberately challenge obvious framings and explore cross-domain transfers, alternative decompositions, second-order effects, counterexamples, and unconventional plausible combinations while preserving normal evidence, feasibility, security, and evaluation standards.
-- **Implementation harness switch:** Codex/GPT-6-Astra implementation assumptions are superseded by Claude Code. Preparation/research/setup-design/review remain in the GPT-6-Pro WebUI workflow. Claude Code native agents are the primary implementation workforce, with a single bounded OpenCode free-model auxiliary exception; all other external/local inference remains project-test-only.
+- **Research/review operational model:** owner switched the WebUI Research/Architecture, Harness-Setup design, and milestone Architecture Review choice from GPT-6 Pro to GPT-5.6 Sol Pro because reported incomplete/aborted GPT-6 Pro runs are too costly under scarce message limits. The model identity remains intentionally absent from the run-facing prompts.
+- **Implementation harness switch:** Codex/GPT-6-Astra implementation assumptions are superseded by Claude Code. Preparation/research/setup-design/review remain in the GPT-5.6 Sol Pro WebUI workflow. Claude Code native agents are the primary implementation workforce, with a single bounded OpenCode free-model auxiliary exception; all other external/local inference remains project-test-only.
 - **Standalone Quest VR / frontend independence:** Social Companion Tier B now requires optional standalone Quest-class VR with backend/client separation and cross-client session continuity; frontend technologies may differ freely across workloads.
 - **Avatar renderer split:** VRChat/Unity-package support is no longer a Cognitive-Core format requirement. The workload now exercises a lightweight VRM-oriented path plus a heavier game-engine/VRChat-package path, with PMX/MMD as an additional target.
 - **Persistent Personal Assistant Tier A:** now fixed as a Smartphone Personal Assistant with local/LAN/cloud/split inference options.
