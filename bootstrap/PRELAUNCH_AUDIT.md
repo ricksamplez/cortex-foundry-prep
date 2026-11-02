@@ -26,7 +26,7 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Implementation Harness Setup is a separate runbook.
 - [x] Architecture Review is a separate milestone runbook.
 - [x] Research/Review docs do not tell the model that it is GPT-6 Pro.
-- [x] GPT-6 Astra may be named where it is technically the implementation target.
+- [x] Claude Code may be named where it is technically relevant as the implementation-harness target; the Research/Review model identity remains unprimed.
 - [x] No preparation-workspace name/URL appears in future-facing modular draft docs.
 
 ## C. Project Docs
@@ -90,6 +90,13 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Decision-map anchors revalidated with zero broken references.
 - [x] Test-chan/P30 fixture details integrated into the Implementation Harness Setup runbook.
 - [x] Home Automation / Greenhouse shopping shortlist kept preparation-only and excluded from future-facing requirements.
+
+## Implementation-harness reconciliation
+
+- [x] Claude Code implementation-harness switch reconciled across handoff/setup/launch artifacts.
+- [x] Codex/Astra implementation-agent assumptions superseded rather than silently retained.
+- [x] External/local project-test models remain prohibited as hidden Claude Code implementation workforce.
+- [x] Claude subscription OAuth is kept distinct from project runtime/provider credentials.
 
 ## Launch-package assembly
 
