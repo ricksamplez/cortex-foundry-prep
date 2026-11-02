@@ -624,11 +624,18 @@ Until the late-stage gate opens:
 1. **Official Codex SDK — preferred when sufficient**
 2. **Codex app-server — fallback/upgrade path when broader control is materially required**
 
-The current TypeScript Codex SDK is **not** a CLI-free remote SDK.
+Current official Codex SDKs to evaluate:
 
-It wraps/spawns the local Codex runtime/CLI binary and exchanges structured events with it. Therefore SDK integration still requires a local Codex runtime/binary (for example through the `@openai/codex` package/native binary or an explicitly supplied Codex executable).
+- **TypeScript:** `@openai/codex-sdk`;
+- **Python:** `openai-codex`.
 
-The SDK is preferred because it provides a native programmatic interface for common start/resume/stream/structured-output workflows without requiring the project to implement the lower-level app-server JSON-RPC client.
+Do not treat either language as preferred by default. Choose according to the provider module's eventual language/runtime boundary, deployment fit, integration ergonomics, maintenance burden, and feature parity at integration time.
+
+Recheck the official Codex repository/documentation for additional SDK languages before implementation.
+
+The current official SDKs are **not** CLI-free remote SDKs. They depend on/spawn a local Codex runtime/binary. The Python package installs a matching runtime dependency; the TypeScript SDK wraps the Codex CLI/runtime.
+
+The SDK route is preferred because it provides a maintained programmatic interface for common thread/turn/stream/structured-output workflows without requiring the project to implement the lower-level app-server JSON-RPC client.
 
 Use `codex app-server` only when the project actually needs capabilities beyond the SDK's supported surface, such as more direct lifecycle, approval, product-embedding, tool exposure, or protocol-level control.
 
