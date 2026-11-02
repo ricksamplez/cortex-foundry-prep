@@ -34,7 +34,7 @@ Prepared future-facing seed files: **11**
 ## Seed scope checks
 
 - preparation-workspace name/URL leaks: **0**
-- explicit `GPT-6 Pro` identity mentions: **0**
+- explicit owner-selected Research/Review model-identity mentions: **0**
 - Implementation Harness Setup runbook files included: **0**
 - Architecture Review runbook files included: **0**
 - Project Context drift between Project and repo copies: **0**
@@ -50,7 +50,7 @@ The actual files intended for direct use by the first Research run are clean:
 Checks:
 
 - preparation-workspace name/URL leaks: **0**
-- explicit `GPT-6 Pro` identity mentions: **0**
+- explicit owner-selected Research/Review model-identity mentions: **0**
 - setup/review runbook content injected into the first-run prompt: **0**
 - full implementation start requested prematurely: **no**
 - first run required to begin substantive research after bootstrap: **yes**
