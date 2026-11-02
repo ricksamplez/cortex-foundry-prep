@@ -33,11 +33,11 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 78 |
-| unique decision IDs | 78 |
+| persisted decision IDs | 79 |
+| unique decision IDs | 79 |
 | decisions still pending integration | 0 |
 | mapped decision destination references | 129 |
-| future-facing integrated decisions | 61 |
+| future-facing integrated decisions | 62 |
 | superseded decisions | 14 |
 | preparation-only owner notes intentionally not propagated | 3 |
 | broken decision destination references | 0 |
@@ -105,6 +105,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Test-chan / P30 fixture detail:** Test-chan is recorded as the initial CC0 VRM0 fixture with a separate VRM1 fixture still to be supplied; detailed P30 Developer Options / USB / ANR / logging posture is recorded for unattended device automation.
 - **Prep-only HA hardware shortlist:** a dated purchasing candidate list exists only in preparation state and is not treated as future-facing requirements or available implementation hardware.
 - **Task-specialized learned components:** added bounded research requirements for small learned specialists, optional Teacher Workflows, canonical capture/dataset projection, calibration/abstention, and a strict Research-vs-Implementation training boundary.
+- **Initial TTS provider:** Qwen3-TTS is the first implementation anchor for the provider-neutral expressive speech contract; exact Qwen3-TTS checkpoint selection remains capability-specific.
 - **Social Companion affect/speech:** added optional per-stream text/audio/fusion affect routes, a separate context-aware AI-character affect path, provider-neutral expressive TTS control, lip-sync/blendshape separation, and direct non-affect LLM/VLA/controller actions.
 - **Manual routing/resource overrides:** added scoped force/prefer/deny/pin/exclude semantics while preserving automatic routing in remaining decision space.
 - **Heterogeneous hardware:** replaced simplistic CPU suitability assumptions with hardware/runtime execution profiles and clustered NPU/AMD-GPU/dual-GPU validation campaigns during Implementation.
