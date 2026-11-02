@@ -1040,28 +1040,3 @@ This is disciplined exploration, not novelty for novelty's sake.
 Non-obvious ideas remain hypotheses/candidates until supported by evidence and must meet the same feasibility, compatibility, security, maintainability, and evaluation standards as conventional approaches.
 
 The owner's speculation about the internal identity/lineage of the Research model is **not** a project requirement and should not be propagated into Research instructions. The desired behavior is specified directly without model-identity priming.
-
-
----
-
-## 51. Claude Code implementation-harness switch
-
-The implementation phase has been moved from Codex/GPT-6-Astra to **Claude Code** because the owner's Codex subscription capacity is already committed across other projects and would not provide sufficient reliable implementation capacity.
-
-This change applies to the actual implementation agent/harness.
-
-Preparation remains in the GPT-6-Pro WebUI workflow, including:
-
-- Research/Architecture;
-- Implementation Harness Setup design;
-- milestone Architecture Reviews.
-
-The later setup run should optimize Claude Code using current official documentation and current owner subscription state rather than freezing today's Claude Code version/model assumptions.
-
-The implementation workforce boundary now means:
-
-- Claude Code main agent + native Claude Code subagents/models are allowed;
-- external/local inference resources remain project-under-test resources only;
-- Anthropic Console/API billing is not an implementation-agent fallback without explicit owner approval;
-- Claude Code subscription OAuth must not be repurposed as the project's own provider credential;
-- Codex/`codex exec` is excluded from this implementation workflow.
