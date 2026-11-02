@@ -335,11 +335,22 @@ decisions:
   - id: D074
     topic: "Codex remains excluded from implementation workforce but is a strong optional external reference/benchmark/provider candidate for Coding-Agent reference workloads"
     destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems"]
+    status: superseded
+    superseded_by: D075
+
+
+  - id: D075
+    topic: "Codex/ChatGPT-plan OAuth is an optional compound external agent/provider path for Coding-Agent reference systems, preferably via documented codex app-server; it is disabled by default and live use requires an explicit owner usage window because it consumes Codex subscription capacity"
+    destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
+    status: integrated
+  - id: D076
+    topic: "GPT-4o API data capture must execute locally under Claude Code with raw datasets off-repo; Research only specifies the capture/handoff, and a narrow pre-implementation Claude Code capture lane is allowed if needed to beat the 2026-11-21 balance expiry"
+    destination: ["bootstrap/repo/seed/state/NEXT_WORK.md", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
     status: integrated
 
 audit:
-  decision_count: 74
-  integrated_count: 59
-  superseded_count: 12
+  decision_count: 76
+  integrated_count: 60
+  superseded_count: 13
   preparation_only_count: 3
   pending_count: 0
