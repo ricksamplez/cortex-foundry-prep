@@ -81,7 +81,11 @@ At least one realistic implementation path should exist from core/runtime work t
 
 The implementation target should receive a **curated implementation package**, not the entire raw history of the research program.
 
-The current primary implementation target model is GPT-6 Astra. Handoff material should therefore be written so that Astra can implement efficiently, while the implementation-harness setup run remains free to select the best suitable harness/environment around that target.
+The current implementation harness target is **Claude Code**.
+
+The specific Claude model/configuration should be selected by the later Implementation Harness Setup run using current Claude Code capabilities, the owner's actual subscription entitlements, usage constraints, and task fit at that time.
+
+Handoff material should therefore be optimized for efficient long-horizon implementation in Claude Code without hardcoding transient model/version assumptions into the architecture.
 
 The handoff should contain, at minimum:
 
@@ -158,8 +162,8 @@ Conversely, the setup run must not redesign the cognitive platform merely becaus
 
 Before the main implementation run starts, the implementation-harness setup phase should produce or finalize:
 
-- selected harness and version(s);
-- target model/main-agent configuration;
+- selected Claude Code version/install/authentication path;
+- main Claude model/configuration;
 - subagent roles/configurations if justified;
 - context-management strategy;
 - approval/security behavior;
