@@ -603,20 +603,34 @@ Keep reference/evaluation artifacts separable from training pipelines so a later
 
 GPT-4o API snapshots are currently deprecated and scheduled for shutdown on **2027-01-14**.
 
+### Codex / ChatGPT-plan OAuth Coding-Agent provider path
+
 Codex is excluded from the **implementation workforce**, but the project may implement a **Codex/ChatGPT-plan OAuth external agent/provider path** for Coding-Agent reference systems.
 
 Preferred current integration candidate:
 
 - OpenAI's documented `codex app-server` driven by a ChatGPT-plan OAuth token.
 
-Treat this as a compound external coding-agent provider, not merely a raw model endpoint. The provider contract should distinguish model access, Codex-local agent/tool orchestration, and OpenAI-hosted/managed services.
+Treat this as a compound external coding-agent provider, not merely a raw model endpoint.
+
+The provider contract should distinguish:
+
+- model access;
+- Codex-local agent loop;
+- local shell/MCP/child-agent tooling;
+- OpenAI-hosted/managed tools and services;
+- thread/session lifecycle;
+- activation/usage policy.
+
+Do not assume that the full Codex product/tool surface is portable into another harness.
 
 Because live use consumes the owner's Codex/ChatGPT-plan usage, the provider must be **activation/budget gated**:
 
 - do not invoke it routinely during Claude Code implementation;
 - do not use it as a hidden implementation helper;
 - permit only explicit owner-approved smoke/compatibility tests or later dedicated evaluation windows;
-- support a disabled/offline configuration when no Codex usage budget is available.
+- support a disabled/offline configuration when no Codex usage budget is available;
+- expose usage/availability state to routing when practical.
 
 `codex exec` is not the preferred provider integration mechanism for the final system; use the documented product-integration surface when appropriate.
 
