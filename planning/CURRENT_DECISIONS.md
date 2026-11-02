@@ -29,7 +29,7 @@ It should not carry detailed Implementation Harness Setup or Architecture Review
 
 Purpose:
 
-- keep the setup/design work in the GPT-6-Pro WebUI preparation workflow;
+- keep the setup/design work in the GPT-5.6 Sol Pro WebUI preparation workflow;
 - optimize **Claude Code**, which is now the required implementation harness;
 - research the current Claude Code version/install/authentication/model options immediately before implementation;
 - design Claude Code skills/plugins, MCPs, hooks, native subagents, model allocation, context/project-memory strategy, Git workflow, permissions/security, issue workflow, and reproducible setup;
@@ -69,7 +69,7 @@ The research run should:
 - record non-blocking open questions rather than letting them disappear;
 - expand the research plan when a genuinely promising relevant direction appears.
 
-Do not tell the research/review model that it is GPT-6 Pro. Address it directly by role/instruction. Target-model names are allowed when they are technically relevant to a handoff/setup task.
+Do not tell the research/review model that it is GPT-5.6 Sol Pro. Address it directly by role/instruction. Target-model names are allowed when they are technically relevant to a handoff/setup task.
 
 ---
 
@@ -115,7 +115,7 @@ The research run should establish a measurable file-size/complexity policy early
 
 ## 5. WebUI research/architecture/review compute policy
 
-All GPT-6 Pro-style research, architecture, setup-design, and architecture-review runs occur in ChatGPT WebUI.
+All GPT-5.6 Sol Pro-style research, architecture, setup-design, and architecture-review runs occur in ChatGPT WebUI.
 
 For code execution in those WebUI runs:
 
@@ -188,7 +188,7 @@ Current implementation decision:
 
 The setup run may add supported Claude Code skills/plugins, MCPs, hooks, native subagents, project memory/instruction files, code intelligence, Git tooling, or wrappers when useful.
 
-All preparation/research/setup-design/architecture-review work remains in the GPT-6-Pro WebUI workflow; the Claude Code switch applies to the actual implementation phase.
+All preparation/research/setup-design/architecture-review work remains in the GPT-5.6 Sol Pro WebUI workflow; the Claude Code switch applies to the actual implementation phase.
 
 ---
 
@@ -254,11 +254,17 @@ ChatGPT subscription/OAuth and GPT-5.6 Luna are currently **removed** from proje
 
 Codex / `codex exec` is likewise not an implementation or project-test resource for this run.
 
-The owner has approximately **$62 of OpenAI API balance** available separately from ChatGPT/Codex subscription usage. That API balance may be used selectively for project-test/evaluation work.
+The owner has approximately **$62 of OpenAI API balance** available separately from ChatGPT/Codex subscription usage.
 
-GPT-4o may be used while available as a time-limited Social-Companion evaluation/reference model for RP/creativity comparisons and qualitative benchmarking.
+That balance expires on **2026-11-21** and may be **fully consumed before expiry** when doing so produces useful project knowledge. Conserving the balance is not an objective.
 
-However, GPT-4o outputs/signals must not be assumed trainable. Current OpenAI terms/policies restrict output reuse for developing competing/alternative models except narrow cases. Any 4o-derived artifacts intended only for evaluation/reference should carry explicit provenance and `training_allowed: false` unless a later terms review establishes a clearly permitted use.
+GPT-4o should be prioritized as a time-limited Social-Companion RP/creativity/behavioral reference while API access remains available.
+
+The owner considers the intended Social-Companion system non-competing with OpenAI's current offerings because no current OpenAI model cleanly serves the intended use case. This owner position is relevant context but does not by itself resolve the contractual/policy interpretation.
+
+Therefore GPT-4o training/teacher reuse is currently classified as **unclear pending explicit terms/policy determination**, not automatically allowed and not automatically forbidden.
+
+Capture now with full provenance and keep training reuse separable. A later explicit decision/permission review may reclassify eligible artifacts.
 
 ---
 
@@ -886,7 +892,7 @@ These are research leads/prior art only. Claims, benchmarks, and architectural c
 
 ## 39. GitHub integration split between preparation and Claude Code implementation
 
-The GPT-6-Pro WebUI preparation/setup/review runs may use the official OpenAI GitHub integration for private-repository access and repo-native workflows.
+The GPT-5.6 Sol Pro WebUI preparation/setup/review runs may use the official OpenAI GitHub integration for private-repository access and repo-native workflows.
 
 Anthropic also provides an official **Claude Code GitHub App / Claude Code GitHub Action**.
 
@@ -1109,21 +1115,52 @@ Use the included Claude model families available under the owner's plan, expecte
 
 The owner currently has approximately $62 of OpenAI API balance, separate from ChatGPT/Codex subscription usage.
 
-GPT-4o remains temporarily available through the OpenAI API but is deprecated and currently scheduled to shut down on 2027-01-14.
+The balance expires on **2026-11-21** and may be fully spent before expiry when useful. Do not conserve expiring balance merely to minimize API spend.
 
-Before shutdown, a limited portion of the API balance may be used for Social Companion RP/creativity/reference evaluation.
+GPT-4o remains available through the API only temporarily and is currently scheduled to shut down on **2027-01-14**.
 
-Do **not** assume that 4o outputs may be used as training data/teacher signals for a non-OpenAI Social Companion model.
+Priority Social-Companion capture areas include:
 
-Current OpenAI terms/policies restrict using outputs to develop competing/alternative models except narrow permitted exceptions.
+- roleplay/social naturalness;
+- creativity and spontaneity;
+- character voice/personality consistency;
+- conversational texture;
+- emotional/social reactions;
+- multi-turn relationship dynamics;
+- difficult comparison cases where GPT-4o materially differs from newer work-oriented models;
+- evaluation prompts and human-reviewed qualitative references.
 
-Therefore, unless a later policy review establishes a clearly permitted training use, GPT-4o-derived artifacts should be evaluation/reference-only and tagged with:
+The goal is not to reproduce GPT-4o as a whole. The desired future system should combine useful traits from multiple sources and exceed the limitations of any individual teacher/reference.
 
-- provider/model/snapshot;
-- generation date;
-- intended evaluation use;
-- `training_allowed: false`;
-- relevant terms/policy snapshot.
+### Training-reuse status
 
-The goal is to understand desirable qualitative behavior and benchmark future systems, not to clone GPT-4o.
+The owner considers the contemplated Social-Companion system non-competing with OpenAI's current products/services, but the exact applicability of OpenAI's current and upcoming model-training restrictions is a legal/policy interpretation that is not conclusively resolved in preparation.
 
+Therefore:
+
+- capture useful GPT-4o reference material before the balance/API window disappears;
+- preserve exact model/snapshot/date/prompt/provenance;
+- set `training_reuse_status: unclear_pending_terms_review`;
+- keep evaluation/reference use separate from training-dataset pipelines;
+- do not silently promote GPT-4o outputs/rankings/labels/rubrics into training signals;
+- revisit applicable OpenAI terms/policies before any actual training reuse;
+- record any later owner/legal/provider clarification or explicit override.
+
+The existing project rule for unclear provider-output reuse remains applicable.
+
+---
+
+## 54. Codex as a Coding-Agent reference candidate
+
+Codex is no longer part of this project's implementation workforce, but it remains a strong **external reference / benchmark / provider candidate** for Coding-Agent reference workloads.
+
+Reasons include:
+
+- it is purpose-built for software engineering;
+- it supports ChatGPT-subscription authentication;
+- it is available through CLI, IDE, web, and cloud workflows;
+- higher-tier subscriptions provide materially higher coding-agent usage.
+
+Research may compare the project's Coding-Agent reference systems against Codex or integrate a subscription-backed Codex path when that yields useful architecture/evaluation evidence.
+
+This is not a requirement that Coding-Agent workloads depend on Codex, and any future subscription/usage budget should be evaluated separately from the Claude Code implementation budget.
