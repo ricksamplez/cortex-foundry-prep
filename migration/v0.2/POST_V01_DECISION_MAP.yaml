@@ -315,15 +315,31 @@ decisions:
   - id: D070
     topic: "Existing OpenAI API balance (~$62) may be used selectively for GPT-4o Social-Companion RP/creativity evaluation/reference before API shutdown; 4o-derived artifacts are training-disallowed by default unless a later terms review clearly permits the contemplated use"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
-    status: integrated
+    status: superseded
+    superseded_by: D073
+
   - id: D071
     topic: "Anthropic official Claude Code GitHub App/Action is a valid repo-native automation option, but because it executes through GitHub Actions it is not routine Implementation compute under current policy; local git/gh remains default unless owner accepts Actions usage for a specific workflow"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#issue-and-work-tracking"]
     status: integrated
 
+
+  - id: D072
+    topic: "Owner operationally selects GPT-5.6 Sol Pro instead of GPT-6 Pro for Research/Architecture, Implementation-Harness Setup design, and milestone Architecture Review because incomplete/aborted GPT-6 Pro runs are considered too risky under scarce message limits; run prompts still omit model identity"
+    destination: ["planning/CURRENT_DECISIONS.md", "bootstrap/LAUNCH_CANDIDATE_PACKAGE.md", "bootstrap/PRELAUNCH_AUDIT.md"]
+    status: preparation_only
+  - id: D073
+    topic: "OpenAI API balance (~$62) expires 2026-11-21 and may be fully consumed for useful GPT-4o Social-Companion reference capture; training reuse is classified unclear_pending_terms_review rather than allowed/forbidden, with provenance and dataset separation required"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule", "bootstrap/repo/seed/state/NEXT_WORK.md", "bootstrap/repo/seed/state/OPEN_QUESTIONS.md"]
+    status: integrated
+  - id: D074
+    topic: "Codex remains excluded from implementation workforce but is a strong optional external reference/benchmark/provider candidate for Coding-Agent reference workloads"
+    destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems"]
+    status: integrated
+
 audit:
-  decision_count: 71
-  integrated_count: 58
-  superseded_count: 11
-  preparation_only_count: 2
+  decision_count: 74
+  integrated_count: 59
+  superseded_count: 12
+  preparation_only_count: 3
   pending_count: 0
