@@ -36,7 +36,7 @@ This matches `planning/BASELINE.md`.
 | persisted decision IDs | 79 |
 | unique decision IDs | 79 |
 | decisions still pending integration | 0 |
-| mapped decision destination references | 129 |
+| mapped decision destination references | 130 |
 | future-facing integrated decisions | 62 |
 | superseded decisions | 14 |
 | preparation-only owner notes intentionally not propagated | 3 |
