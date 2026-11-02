@@ -196,6 +196,13 @@ All preparation/research/setup-design/architecture-review work remains in the GP
 
 The later GPT-6-Pro Implementation Harness Setup run must research the current Claude Code model landscape and the owner's actual Claude subscription entitlements immediately before implementation.
 
+Current owner constraints:
+
+- Claude Pro is the expected implementation subscription;
+- Fable models are excluded because they require separate usage credits on Pro;
+- do not enable/buy Fable credits for this project unless the owner explicitly changes that decision;
+- the practical included model pool is expected to be Opus/Sonnet/Haiku families, subject to setup-time verification.
+
 Do not hardcode one Claude model now.
 
 Model/subagent selection must account for **effective total cost**, not simply nominal model tier.
@@ -212,13 +219,28 @@ Relevant cost factors include:
 
 A stronger Claude model may be more efficient end-to-end when it avoids corrective loops; a cheaper/faster model may be preferable for routine or mechanical roles.
 
-### Hard boundary: implementation workforce
+### Implementation workforce
 
-All main-agent/subagent intelligence used to implement the project must remain inside the approved **Claude Code native Claude/subagent ecosystem using the owner's Claude subscription path**.
+Primary workforce:
 
-Local models and external APIs exist **only for the project being built**, e.g. integration tests, evaluations, experiments, model-suitability work, runtime/provider tests, or project-specific training.
+- Claude Code main agent;
+- Claude Code native Claude subagents.
 
-They must not secretly augment Claude Code's implementation reasoning workforce.
+**Single external exception:**
+
+- one bounded OpenCode auxiliary-subagent path may be used to save Claude usage when a suitable genuinely free/no-cost OpenCode model is available.
+
+Current candidate is `glm-5.3-flash-free`, but free availability is explicitly temporary/dynamic and must be reverified during setup.
+
+The OpenCode exception must:
+
+- never silently use paid OpenCode models/balance;
+- be benchmarked/smoke-tested for assigned task classes;
+- test image-input support end-to-end before visual-task routing;
+- remain subordinate to Claude Code orchestration/acceptance;
+- fall inactive rather than spend money if the useful free model disappears.
+
+All other local/external inference resources remain project-under-test resources only and must not secretly augment implementation reasoning.
 
 ---
 
@@ -228,36 +250,45 @@ Claude Code subscription/OAuth is implementation-harness authentication, not a c
 
 Do not expose/reuse Claude Code's subscription OAuth as a production/test provider credential for the project runtime. A future Anthropic API/provider integration would require a separately approved supported API/cloud path and owner approval.
 
-The owner's existing ChatGPT subscription/OAuth project-test rule remains conservative:
+ChatGPT subscription/OAuth and GPT-5.6 Luna are currently **removed** from project-test resources to avoid consuming quota needed by unrelated Codex projects.
 
-- use GPT-5.6 Luna only;
-- reasoning may be configured up to Max;
-- do not broaden the allowed OpenAI subscription models without explicit owner approval.
+Codex / `codex exec` is likewise not an implementation or project-test resource for this run.
 
-Codex / `codex exec` is not an implementation or project-test resource for this run because its usage budget is reserved for other owner projects.
+The owner has approximately **$62 of OpenAI API balance** available separately from ChatGPT/Codex subscription usage. That API balance may be used selectively for project-test/evaluation work.
 
-If project evaluation needs stronger intelligence, use another already approved project-test provider or request a policy change.
+GPT-4o may be used while available as a time-limited Social-Companion evaluation/reference model for RP/creativity comparisons and qualitative benchmarking.
+
+However, GPT-4o outputs/signals must not be assumed trainable. Current OpenAI terms/policies restrict output reuse for developing competing/alternative models except narrow cases. Any 4o-derived artifacts intended only for evaluation/reference should carry explicit provenance and `training_allowed: false` unless a later terms review establishes a clearly permitted use.
 
 ---
 
 ## 10. Approved project-test inference resources
 
-Existing accounts/credentials may be used by the project for evaluations/tests/provider work:
+Existing accounts/credentials may be used by the **system/project-under-test** for evaluations/tests/provider work:
 
-- Ollama Cloud Free (already configured on the implementation laptop);
+- Ollama Cloud Free;
 - Groq Free;
 - OpenRouter Free;
 - NVIDIA NIM free endpoints;
-- ChatGPT subscription/OAuth under the Luna-only rule above.
+- TypeSafe Jev;
+- local models/runtimes;
+- OpenAI API using the owner's existing prepaid balance.
 
-The Groq/OpenRouter accounts intentionally have no payment information, preventing accidental paid usage.
+ChatGPT subscription/OAuth is currently excluded.
 
-For OpenRouter:
+OpenCode is special: its approved free-model path may act as the single external **implementation auxiliary-subagent exception** described above; OpenCode models are not otherwise automatically preferred as project runtime providers.
 
-- always use an explicit named model for reproducible evaluation;
-- assume the free limits of a fresh account that has **not** received the post-$10-credit-top-up higher limits.
+For OpenRouter and other dynamic/free services:
 
-Local small models may also be used by the project. The laptop can comfortably host lightweight embeddings, classifiers, and other models that fit within roughly 6 GB usable VRAM, while much larger quantized/offloaded models may be usable only for slow background evaluation.
+- use explicit named models for reproducibility;
+- recheck current free limits/availability before relying on them;
+- do not assume paid fallback capacity.
+
+For GPT-4o specifically:
+
+- API availability is temporary/deprecated;
+- use is primarily evaluation/reference, not training-data generation for non-OpenAI replacement models;
+- preserve provider/model/snapshot/date/policy provenance.
 
 ---
 
@@ -857,11 +888,15 @@ These are research leads/prior art only. Claims, benchmarks, and architectural c
 
 The GPT-6-Pro WebUI preparation/setup/review runs may use the official OpenAI GitHub integration for private-repository access and repo-native workflows.
 
-The Claude Code implementation must not assume that OpenAI's GitHub plugin is available inside Claude Code.
+Anthropic also provides an official **Claude Code GitHub App / Claude Code GitHub Action**.
 
-For implementation, use appropriate local Git/GitHub tooling (for example `git`/`gh`) and/or a Claude-Code-compatible GitHub MCP/plugin integration when justified.
+The Claude Code setup run should evaluate:
 
-This does not change the separate restriction on using GitHub Actions as Implementation compute.
+- local `git` / `gh` as the default implementation path;
+- the official Claude Code GitHub App/Action for repo-native issue/PR automation;
+- Claude-Code-compatible GitHub MCP/plugin options where useful.
+
+The official Claude Code GitHub Action runs through GitHub Actions. Under the current project policy it must not become routine Implementation compute. Using it for repo-native automation requires explicit owner acceptance of the corresponding GitHub Actions usage.
 
 ---
 
@@ -1040,3 +1075,55 @@ This is disciplined exploration, not novelty for novelty's sake.
 Non-obvious ideas remain hypotheses/candidates until supported by evidence and must meet the same feasibility, compatibility, security, maintainability, and evaluation standards as conventional approaches.
 
 The owner's speculation about the internal identity/lineage of the Research model is **not** a project requirement and should not be propagated into Research instructions. The desired behavior is specified directly without model-identity priming.
+
+
+---
+
+## 51. OpenCode auxiliary-subagent exception
+
+OpenCode is the only currently approved non-Claude implementation-agent exception.
+
+Purpose: save Claude Pro usage by offloading bounded work to a genuinely free OpenCode model.
+
+Current candidate: `glm-5.3-flash-free`.
+
+Because free OpenCode models are time-limited/dynamic, setup must verify model availability, cost, limits, privacy/retention, tool behavior, and task competence immediately before use.
+
+GLM-5.3-Flash itself supports image input, but the specific OpenCode free endpoint/alias must be tested end-to-end before visual tasks are routed there.
+
+No paid OpenCode fallback is authorized without explicit owner approval.
+
+---
+
+## 52. Claude Pro Fable exclusion
+
+Claude Fable models are excluded from the implementation model pool under the current Claude Pro plan because they require separate usage credits.
+
+Do not enable/purchase Fable usage credits for this project unless the owner explicitly changes the decision.
+
+Use the included Claude model families available under the owner's plan, expected currently to be Opus/Sonnet/Haiku, subject to setup-time verification.
+
+---
+
+## 53. OpenAI API balance and GPT-4o reference capture
+
+The owner currently has approximately $62 of OpenAI API balance, separate from ChatGPT/Codex subscription usage.
+
+GPT-4o remains temporarily available through the OpenAI API but is deprecated and currently scheduled to shut down on 2027-01-14.
+
+Before shutdown, a limited portion of the API balance may be used for Social Companion RP/creativity/reference evaluation.
+
+Do **not** assume that 4o outputs may be used as training data/teacher signals for a non-OpenAI Social Companion model.
+
+Current OpenAI terms/policies restrict using outputs to develop competing/alternative models except narrow permitted exceptions.
+
+Therefore, unless a later policy review establishes a clearly permitted training use, GPT-4o-derived artifacts should be evaluation/reference-only and tagged with:
+
+- provider/model/snapshot;
+- generation date;
+- intended evaluation use;
+- `training_allowed: false`;
+- relevant terms/policy snapshot.
+
+The goal is to understand desirable qualitative behavior and benchmark future systems, not to clone GPT-4o.
+
