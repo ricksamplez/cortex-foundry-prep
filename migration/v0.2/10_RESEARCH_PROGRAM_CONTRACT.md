@@ -517,7 +517,7 @@ Study relevant real systems/projects when they expose useful lessons for:
 
 Publicly observable systems such as Neuro-sama's ecosystem, GPTars/TARS-AI, desktop/computer agents, and other relevant projects are research inputs rather than cloning targets.
 
-For the Coding-Agent reference workload, **Codex/ChatGPT-plan OAuth is an explicit optional external agent/provider-path candidate**.
+For the Coding-Agent reference workload, **Codex/ChatGPT-plan OAuth is an explicit optional external agent/provider-path candidate**, but its concrete integration is intentionally **deferred until late implementation / near overall project completion**, when the owner's Codex usage capacity is expected to be less contested.
 
 Research should distinguish:
 
@@ -528,11 +528,13 @@ Research should distinguish:
 
 Do not treat "Codex" as merely a raw model provider, and do not assume that OpenAI-hosted Codex tools are portable into unrelated harnesses.
 
-OpenAI's documented `codex app-server` + Sign in with ChatGPT path is a particularly relevant integration mechanism because an application can drive Codex threads/turns using a ChatGPT-plan OAuth token.
+Research should define only the generic provider/capability boundary needed to accommodate such a path later.
 
-This path consumes the user's Codex/ChatGPT-plan usage and therefore must support explicit activation/budget policy rather than running opportunistically during Claude Code implementation.
+For the eventual concrete integration, prefer the **official Codex SDK** when its current supported surface is sufficient. The SDK is a programmatic interface over a local Codex runtime/CLI process rather than a CLI-free remote API, so it still carries a local Codex runtime dependency. Prefer it because it avoids implementing the lower-level app-server protocol directly.
 
-Research may design the provider contract and integration architecture without requiring continuous live Codex benchmarking during the main implementation run.
+Use `codex app-server` instead only when its broader lifecycle, approval, tool-exposure, streaming/control, or product-integration surface is materially required.
+
+Because live Codex use consumes the user's Codex/ChatGPT-plan usage, detailed integration work, smoke testing, and evaluation should remain disabled/deferred until an explicit late-stage owner-approved usage window exists.
 
 Separate public behavior and public technical material from speculation about proprietary internals.
 
