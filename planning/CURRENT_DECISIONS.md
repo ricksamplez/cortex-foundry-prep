@@ -4,6 +4,8 @@
 
 This file records decisions made after the original v0.1 charter. It is preparation-only and is intended to prevent information loss while the final run-specific documents are designed.
 
+Where a later-numbered section explicitly refines or supersedes overlapping detail in an earlier summary section, the later section controls. Machine-readable supersession is tracked in `migration/v0.2/POST_V01_DECISION_MAP.yaml`.
+
 ---
 
 ## 1. Scope isolation and run structure
@@ -292,7 +294,7 @@ Existing accounts/credentials may be used by the **system/project-under-test** f
 - TypeSafe Jev;
 - local models/runtimes;
 - OpenAI API using the owner's existing prepaid balance;
-- Codex/ChatGPT-plan OAuth as an optional disabled-by-default Coding-Agent provider path with explicit owner usage gating.
+- Codex/ChatGPT-plan OAuth as an optional **late-stage/deferred** Coding-Agent provider path with explicit owner usage gating.
 
 Generic ChatGPT subscription/OAuth inference remains excluded; the Codex provider path is the narrow exception described above.
 
