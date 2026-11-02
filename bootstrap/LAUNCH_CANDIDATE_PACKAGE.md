@@ -273,9 +273,11 @@ The owner has approximately **$62 of OpenAI API balance expiring on 2026-11-21**
 
 The balance may be fully consumed before expiry when doing so yields useful project knowledge.
 
-The first Research run should therefore prioritize a reproducible GPT-4o Social-Companion reference-capture plan early enough to preserve the opportunity.
+The first Research run should therefore prioritize the **specification/handoff** for a reproducible GPT-4o Social-Companion capture early enough to preserve the opportunity.
 
-If direct API execution is unavailable in the Research environment, prepare the prompt suite/capture harness for local execution rather than deferring the work beyond the expiry date.
+**Do not execute the GPT-4o API campaign in the Research run and do not push the raw dataset through GitHub.**
+
+Actual API calls/data capture run locally under Claude Code on the implementation laptop. If the normal implementation phase would begin too late, use the narrowly scoped pre-implementation Claude Code capture lane defined in preparation, without starting the broader implementation early.
 
 GPT-4o training reuse is intentionally **not pre-decided**. Current classification is `unclear_pending_terms_review`; preserve provenance and keep captured reference artifacts separated from training pipelines.
 
