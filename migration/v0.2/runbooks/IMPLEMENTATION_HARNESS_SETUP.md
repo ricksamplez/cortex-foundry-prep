@@ -555,7 +555,7 @@ Existing owner-approved resources for **project-under-test** work may include:
 - TypeSafe Jev — owner account currently observed with a $5 `Monthly credit` balance and no payment information configured;
 - local models/runtimes;
 - OpenAI API where approved and where prepaid balance remains available; a preparation-time balance of approximately $62 expires on 2026-11-21 and is expected to be used/captured locally if useful;
-- Codex/ChatGPT-plan OAuth as an **optional disabled-by-default Coding-Agent provider path**, with live usage only under an explicit owner usage window because it consumes the same Codex subscription capacity needed elsewhere.
+- Codex/ChatGPT-plan OAuth as an **optional late-stage Coding-Agent provider path**, disabled/deferred by default until near project completion and an explicit owner usage window because it consumes the same Codex subscription capacity needed elsewhere.
 
 **ChatGPT subscription/OAuth is currently removed from project-test resources** to avoid interfering with unrelated Codex usage limits.
 
@@ -605,13 +605,34 @@ GPT-4o API snapshots are currently deprecated and scheduled for shutdown on **20
 
 ### Codex / ChatGPT-plan OAuth Coding-Agent provider path
 
-Codex is excluded from the **implementation workforce**, but the project may implement a **Codex/ChatGPT-plan OAuth external agent/provider path** for Coding-Agent reference systems.
+Codex is excluded from the **implementation workforce**, but the project may eventually add a **Codex/ChatGPT-plan OAuth external agent/provider path** for Coding-Agent reference systems.
 
-Preferred current integration candidate:
+### Timing
 
-- OpenAI's documented `codex app-server` driven by a ChatGPT-plan OAuth token.
+This provider is deliberately **deferred until late implementation / near overall project completion**.
 
-Treat this as a compound external coding-agent provider, not merely a raw model endpoint.
+Do not spend Codex quota implementing or validating it while the owner's Codex usage is still heavily needed by unrelated projects.
+
+Until the late-stage gate opens:
+
+- keep the generic provider/capability interfaces ready;
+- keep the Codex-specific provider disabled/unimplemented or stubbed behind the generic boundary;
+- do not run live Codex smoke tests merely for completeness.
+
+### Preferred integration order
+
+1. **Official Codex SDK — preferred when sufficient**
+2. **Codex app-server — fallback/upgrade path when broader control is materially required**
+
+The current TypeScript Codex SDK is **not** a CLI-free remote SDK.
+
+It wraps/spawns the local Codex runtime/CLI binary and exchanges structured events with it. Therefore SDK integration still requires a local Codex runtime/binary (for example through the `@openai/codex` package/native binary or an explicitly supplied Codex executable).
+
+The SDK is preferred because it provides a native programmatic interface for common start/resume/stream/structured-output workflows without requiring the project to implement the lower-level app-server JSON-RPC client.
+
+Use `codex app-server` only when the project actually needs capabilities beyond the SDK's supported surface, such as more direct lifecycle, approval, product-embedding, tool exposure, or protocol-level control.
+
+Treat either route as a **compound external coding-agent provider**, not merely a raw model endpoint.
 
 The provider contract should distinguish:
 
@@ -624,15 +645,17 @@ The provider contract should distinguish:
 
 Do not assume that the full Codex product/tool surface is portable into another harness.
 
-Because live use consumes the owner's Codex/ChatGPT-plan usage, the provider must be **activation/budget gated**:
+### Usage gate
+
+Because live use consumes the owner's Codex/ChatGPT-plan usage, the provider must be activation/budget gated:
 
 - do not invoke it routinely during Claude Code implementation;
 - do not use it as a hidden implementation helper;
-- permit only explicit owner-approved smoke/compatibility tests or later dedicated evaluation windows;
+- enable implementation/smoke testing only during a late-stage explicit owner-approved usage window;
 - support a disabled/offline configuration when no Codex usage budget is available;
 - expose usage/availability state to routing when practical.
 
-`codex exec` is not the preferred provider integration mechanism for the final system; use the documented product-integration surface when appropriate.
+`codex exec` is not the preferred final provider integration surface; prefer the SDK first and app-server only when justified.
 
 ---
 
