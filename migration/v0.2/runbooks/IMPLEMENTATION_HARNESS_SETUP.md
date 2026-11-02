@@ -666,6 +666,53 @@ Because live use consumes the owner's Codex/ChatGPT-plan usage, the provider mus
 
 ---
 
+## Initial TTS Provider Implementation Anchor
+
+The **first concrete TTS provider to implement is Qwen3-TTS**.
+
+This is an implementation-order decision, not permission to make the generic speech-rendering contract Qwen-specific.
+
+The provider adapter should validate that the provider-neutral speech architecture can map cleanly onto a modern expressive local/open-weight TTS family with features such as:
+
+- streaming speech generation;
+- multilingual output including German;
+- natural-language instruction control where supported;
+- expressive control of tone/style/rate/emotion;
+- voice cloning;
+- voice design;
+- multiple model sizes/checkpoints;
+- local inference.
+
+Current official Qwen3-TTS 12 Hz checkpoints include capability-specialized variants such as:
+
+- `Qwen3-TTS-12Hz-1.7B-CustomVoice` — instruction-controlled target voices;
+- `Qwen3-TTS-12Hz-1.7B-VoiceDesign` — voice design from descriptions/instructions;
+- `Qwen3-TTS-12Hz-1.7B-Base` — rapid voice cloning and fine-tuning-capable base;
+- 0.6B variants where available/useful for constrained deployment experiments.
+
+Do not assume one checkpoint must satisfy every TTS capability.
+
+Model/checkpoint selection should be capability-specific and benchmarked against the actual Social Companion requirements.
+
+The implementation should preserve enough provider metadata/capability discovery to distinguish, for example:
+
+- instruction control;
+- clone/reference-audio support;
+- voice design;
+- streaming behavior;
+- language support;
+- latency;
+- resource requirements;
+- output timing/phoneme/viseme metadata if available;
+- nonverbal vocalization support or absence;
+- controllability limitations.
+
+The current official Qwen3-TTS code/package and released 12 Hz checkpoints are Apache-2.0, but implementation must still verify the exact selected artifact/license/version at integration time.
+
+Qwen3-TTS is the **first implementation anchor**, not a permanently preferred provider. Later providers must remain replaceable through the same generic speech contract.
+
+---
+
 ## Local Model/Test Capability
 
 The laptop can comfortably host lightweight models fitting within roughly 6 GB usable VRAM, including many embeddings/classifiers/small specialized models.
