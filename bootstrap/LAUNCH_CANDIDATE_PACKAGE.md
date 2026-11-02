@@ -264,7 +264,8 @@ Current implementation-harness constraints:
 - OpenAI API balance may be used separately for project evaluation/reference;
 - Codex/ChatGPT-plan OAuth provider path is optional and deliberately deferred until late implementation/near project completion; prefer the official Codex SDK when sufficient, with app-server only as a broader-control fallback. The SDK still requires a local Codex runtime/binary. Live use remains owner-budget-gated because it consumes shared Codex subscription capacity;
 - GPT-4o may be captured as a temporary Social-Companion evaluation/reference source, not assumed trainable;
-- the official Claude Code GitHub App/Action is optional repo automation but not routine Implementation compute under the current GitHub Actions policy.
+- the official Claude Code GitHub App/Action is optional repo automation but not routine Implementation compute under the current GitHub Actions policy;
+- Qwen3-TTS is the first concrete TTS provider family to implement as a contract-validation anchor; the generic expressive speech/TTS contract remains provider-neutral and exact checkpoint selection remains capability-specific.
 
 ---
 
