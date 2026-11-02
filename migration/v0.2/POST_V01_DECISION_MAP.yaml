@@ -59,13 +59,16 @@ decisions:
 
   - id: D013
     topic: "ChatGPT OAuth project-under-test provider remains limited to GPT-5.6 Luna up to Max unless owner explicitly broadens the policy"
-    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#chatgptopenai-project-test-rule"]
-    status: integrated
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
+    status: superseded
+    superseded_by: D068
 
   - id: D014
     topic: "Approved project-test providers: Ollama Cloud, Groq, explicit OpenRouter free models, NVIDIA NIM, Luna OAuth"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries"]
-    status: integrated
+    status: superseded
+    superseded_by: D068
+
   - id: D015
     topic: "Provider Capacity Snapshot captures guaranteed plan/resource limits only; excludes saved/banked/bonus resets"
     destination: ["30_KNOWLEDGE_AND_WORKSPACE_GOVERNANCE.md#provider-capacity-snapshots"]
@@ -281,20 +284,46 @@ decisions:
     status: integrated
   - id: D064
     topic: "Implementation workforce is limited to Claude Code native Claude/subagent intelligence through the approved Claude subscription path; local/external/API project-test providers cannot act as hidden implementation copilots/judges/planners"
-    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-implementation-workforce-boundary"]
-    status: integrated
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-workforce-boundary"]
+    status: superseded
+    superseded_by: D067
+
   - id: D065
     topic: "GitHub integration is split by phase: GPT-6-Pro WebUI setup/review may use OpenAI GitHub integration; Claude Code implementation uses local git/gh and/or Claude-Code-compatible MCP/plugin paths"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#issue-and-work-tracking"]
-    status: integrated
+    status: superseded
+    superseded_by: D071
+
   - id: D066
     topic: "Claude Code subscription OAuth is implementation-harness authentication only and must not be repurposed as the system-under-test provider credential; Anthropic API/cloud provider usage would require separate supported credentials and explicit owner approval"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#claude-code-baseline-and-optimization-scope", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-implementation-workforce-boundary"]
     status: integrated
 
+
+  - id: D067
+    topic: "OpenCode is the single approved non-Claude implementation-workforce exception; it may act as a bounded auxiliary subagent using genuinely free/no-cost models only, currently GLM-5.3-Flash Free candidate, with no silent paid fallback and setup-time capability/privacy/limit verification"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-workforce-boundary"]
+    status: integrated
+  - id: D068
+    topic: "GPT-5.6 Luna and ChatGPT subscription/OAuth are removed from project-test resources to avoid interfering with unrelated Codex usage; OpenAI API using existing prepaid balance may be used separately for approved project-test/evaluation work"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
+    status: integrated
+  - id: D069
+    topic: "Claude Fable models are excluded from the implementation pool on Claude Pro because they require separate usage credits; no Fable credits without explicit owner approval; included Opus/Sonnet/Haiku-family availability reverified at setup"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#claude-code-baseline-and-optimization-scope"]
+    status: integrated
+  - id: D070
+    topic: "Existing OpenAI API balance (~$62) may be used selectively for GPT-4o Social-Companion RP/creativity evaluation/reference before API shutdown; 4o-derived artifacts are training-disallowed by default unless a later terms review clearly permits the contemplated use"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
+    status: integrated
+  - id: D071
+    topic: "Anthropic official Claude Code GitHub App/Action is a valid repo-native automation option, but because it executes through GitHub Actions it is not routine Implementation compute under current policy; local git/gh remains default unless owner accepts Actions usage for a specific workflow"
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#issue-and-work-tracking"]
+    status: integrated
+
 audit:
-  decision_count: 66
-  integrated_count: 57
-  superseded_count: 7
+  decision_count: 71
+  integrated_count: 58
+  superseded_count: 11
   preparation_only_count: 2
   pending_count: 0
