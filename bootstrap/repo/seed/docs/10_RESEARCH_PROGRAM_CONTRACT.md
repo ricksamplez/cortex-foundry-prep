@@ -530,7 +530,18 @@ Do not treat "Codex" as merely a raw model provider, and do not assume that Open
 
 Research should define only the generic provider/capability boundary needed to accommodate such a path later.
 
-For the eventual concrete integration, prefer the **official Codex SDK** when its current supported surface is sufficient. The SDK is a programmatic interface over a local Codex runtime/CLI process rather than a CLI-free remote API, so it still carries a local Codex runtime dependency. Prefer it because it avoids implementing the lower-level app-server protocol directly.
+For the eventual concrete integration, prefer an **official Codex SDK** when its current supported surface is sufficient.
+
+Current official SDK language options include:
+
+- TypeScript (`@openai/codex-sdk`);
+- Python (`openai-codex`).
+
+Do not preselect TypeScript or Python merely because one was discovered first. The provider implementation language should follow the project's polyglot architecture, surrounding module boundaries, deployment/runtime fit, maintainability, and the SDK surface available at integration time.
+
+Recheck for additional official Codex SDK languages before implementation and consider any newly official option on equal architectural terms.
+
+Both current official SDKs use a local Codex runtime/binary rather than acting as CLI-free remote API clients, so SDK integration still carries a Codex runtime dependency.
 
 Use `codex app-server` instead only when its broader lifecycle, approval, tool-exposure, streaming/control, or product-integration surface is materially required.
 
