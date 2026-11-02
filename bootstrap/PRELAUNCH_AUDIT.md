@@ -8,7 +8,7 @@
 - [x] All 62 v0.1 numbered sections mapped.
 - [x] Zero v0.1 sections marked dropped.
 - [x] All migration destination file/anchor references resolve.
-- [x] 66 persisted post-v0.1 owner decisions/notes accounted for: 57 current future-facing decisions integrated, 7 earlier decisions explicitly superseded, and 2 intentionally retained as preparation-only.
+- [x] 71 persisted post-v0.1 owner decisions/notes accounted for: 58 current future-facing decisions integrated, 11 earlier decisions explicitly superseded, and 2 intentionally retained as preparation-only.
 - [x] Zero mapped post-v0.1 decisions remain pending.
 - [x] Non-trivial semantic changes documented.
 - [x] Specialized learned-component / Teacher / canonical-data requirements integrated without making them the program's primary focus.
@@ -95,8 +95,13 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 
 - [x] Claude Code implementation-harness switch reconciled across handoff/setup/launch artifacts.
 - [x] Codex/Astra implementation-agent assumptions superseded rather than silently retained.
-- [x] External/local project-test models remain prohibited as hidden Claude Code implementation workforce.
+- [x] External/local project-test models remain prohibited as hidden Claude Code implementation workforce except for the single explicitly bounded OpenCode free-model auxiliary-subagent exception.
 - [x] Claude subscription OAuth is kept distinct from project runtime/provider credentials.
+- [x] GPT-5.6 Luna / ChatGPT OAuth removed from project-test resources.
+- [x] Claude Pro Fable models excluded unless owner explicitly approves usage-credit spending.
+- [x] OpenCode free-model auxiliary-subagent exception integrated with no silent paid fallback.
+- [x] GPT-4o temporary evaluation/reference policy integrated with training reuse blocked by default.
+- [x] Official Claude Code GitHub App/Action recognized as optional repo automation but not routine Implementation compute under current policy.
 
 ## Launch-package assembly
 
