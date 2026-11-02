@@ -46,4 +46,4 @@ The exact file layout remains a bootstrap-design decision, but run-specific mate
 
 Research and architecture-review instructions should address the model directly (`you`) or by role/function, not tell it that it is a specific elite model. The goal is to avoid status/identity priming and keep conclusions grounded in evidence and requirements.
 
-The implementation-target model may be explicitly named where technically relevant. GPT-6 Astra is the current primary target for the implementation harness.
+The implementation harness may be explicitly named where technically relevant. The current owner decision is **Claude Code** for the actual implementation phase; the specific Claude model/configuration is selected during the later setup run. Research/architecture/review model identity should still not be used as status priming.
