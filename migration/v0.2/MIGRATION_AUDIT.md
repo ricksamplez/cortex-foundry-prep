@@ -104,7 +104,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Manual routing/resource overrides:** added scoped force/prefer/deny/pin/exclude semantics while preserving automatic routing in remaining decision space.
 - **Heterogeneous hardware:** replaced simplistic CPU suitability assumptions with hardware/runtime execution profiles and clustered NPU/AMD-GPU/dual-GPU validation campaigns during Implementation.
 - **Provider-output reuse:** added explicit-prohibition hard blocks plus warned/audited owner opt-in for genuinely unclear reuse cases.
-- **Implementation resources:** added Jev as a project-test-only current-credit resource and the official GitHub integration as a valid private-repository/control-plane option; neither changes the hard implementation-subagent boundary or GitHub Actions compute restriction.
+- **Implementation resources:** Jev remains project-test-only. GitHub access is now phase-split: GPT-6-Pro WebUI setup/review may use the OpenAI GitHub integration, while Claude Code implementation should use local Git/GitHub tooling and/or Claude-Code-compatible MCP/plugin paths. Neither changes the hard implementation-workforce boundary or GitHub Actions compute restriction.
 
 ## Important retained owner deltas
 
