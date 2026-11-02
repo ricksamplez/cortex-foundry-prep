@@ -1150,17 +1150,51 @@ The existing project rule for unclear provider-output reuse remains applicable.
 
 ---
 
-## 54. Codex as a Coding-Agent reference candidate
+## 54. Codex/ChatGPT OAuth as a Coding-Agent provider path
 
-Codex is no longer part of this project's implementation workforce, but it remains a strong **external reference / benchmark / provider candidate** for Coding-Agent reference workloads.
+Codex is excluded from the implementation workforce but remains a strong **compound external agent/provider** candidate for Coding-Agent reference systems.
 
-Reasons include:
+The intended direction is not to benchmark the full Codex product as if it were a raw model.
 
-- it is purpose-built for software engineering;
-- it supports ChatGPT-subscription authentication;
-- it is available through CLI, IDE, web, and cloud workflows;
-- higher-tier subscriptions provide materially higher coding-agent usage.
+Relevant distinctions:
 
-Research may compare the project's Coding-Agent reference systems against Codex or integrate a subscription-backed Codex path when that yields useful architecture/evaluation evidence.
+- Codex model access;
+- Codex harness/agent loop;
+- Codex-local shell/MCP/child-agent tooling;
+- OpenAI-hosted/managed tools and cloud services.
 
-This is not a requirement that Coding-Agent workloads depend on Codex, and any future subscription/usage budget should be evaluated separately from the Claude Code implementation budget.
+OpenAI now documents `codex app-server` as an application integration surface that can run with a ChatGPT-plan OAuth access token.
+
+That makes it a particularly relevant provider-path candidate for the future system.
+
+Usage constraints:
+
+- live Codex provider calls consume the owner's Codex/ChatGPT-plan usage;
+- this implementation must not opportunistically consume that quota;
+- build/design the provider path so it can remain disabled;
+- live smoke tests/evaluation require an explicit owner-approved usage window;
+- Codex must not become a hidden Claude Code subagent or implementation helper.
+
+The value is an optional subscription-backed Coding-Agent capability path, not a dependency on Codex for the core architecture.
+
+---
+
+## 55. Local GPT-4o capture execution lane
+
+The Research run may define the Social-Companion GPT-4o capture specification, but it must **not execute the OpenAI API campaign or store the resulting raw dataset in GitHub**.
+
+Actual GPT-4o API capture should execute locally under Claude Code on the implementation laptop.
+
+Raw outputs, annotations, intermediate datasets, and local databases remain off-repo by default.
+
+Only suitable reproducible artifacts should enter Git, such as:
+
+- schemas;
+- prompt/evaluation-suite definitions;
+- capture tooling/configuration;
+- manifests;
+- aggregate statistics;
+- provenance summaries;
+- deliberately curated small fixtures.
+
+Because the OpenAI API balance expires on 2026-11-21, a narrow Claude Code pre-implementation capture lane is allowed if the normal implementation phase would begin too late. This lane exists only to preserve the expiring data-acquisition opportunity and must not expand into general implementation before the normal phase gate.
