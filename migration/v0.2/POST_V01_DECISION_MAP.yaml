@@ -356,9 +356,15 @@ decisions:
     destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#codex-chatgpt-plan-oauth-coding-agent-provider-path"]
     status: integrated
 
+
+  - id: D078
+    topic: "Codex provider integration must remain language-neutral: currently official Codex SDKs exist for TypeScript (@openai/codex-sdk) and Python (openai-codex); neither is preferred by default, and additional official SDK languages must be rechecked at late integration time"
+    destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#codex-chatgpt-plan-oauth-coding-agent-provider-path"]
+    status: integrated
+
 audit:
-  decision_count: 77
-  integrated_count: 60
+  decision_count: 78
+  integrated_count: 61
   superseded_count: 14
   preparation_only_count: 3
   pending_count: 0
