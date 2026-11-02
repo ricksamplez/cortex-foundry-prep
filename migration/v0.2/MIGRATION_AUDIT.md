@@ -33,12 +33,12 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 61 |
-| unique decision IDs | 61 |
+| persisted decision IDs | 66 |
+| unique decision IDs | 66 |
 | decisions still pending integration | 0 |
 | mapped decision destination references | 91 |
-| future-facing integrated decisions | 56 |
-| superseded decisions | 3 |
+| future-facing integrated decisions | 57 |
+| superseded decisions | 7 |
 | preparation-only owner notes intentionally not propagated | 2 |
 | broken decision destination references | 0 |
 
@@ -81,7 +81,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **§31 Research Autonomy:** strengthened with durable non-blocking open-question handling.
 - **§36 CI Permission:** strengthened to container-first execution for WebUI runs, GitHub Actions only when justified, and heavy accelerator work deferred.
 - **§46 Architecture Freedom:** strengthened with an explicit boundary that the research-program/repository name is not the system name.
-- **§48 Codex Baseline:** owner later replaced the former CachyOS/Arch host assumption with a dedicated Ubuntu 26.04.1 LTS implementation laptop; Codex v0.153.4 remains a leading harness baseline, while the harness itself may be replaced with strong evidence.
+- **§47–54 Codex setup sections:** the separate implementation-harness setup phase and its tooling/subagent/evaluation intent are retained, but the owner later superseded Codex with **Claude Code** as the required implementation harness. The setup run now optimizes Claude Code rather than selecting a replacement primary harness.
 - **§53 Subagents:** strengthened with effective-cost selection and a hard prohibition on using local/external project-test models as implementation-agent subagents.
 - **§57 Review Issues:** strengthened to permit zero-to-many deduplicated/actionable issues per milestone review campaign.
 - **§58 Research Stages:** implementation-harness setup and independent architecture review were moved into separate run-specific contracts instead of universal research context.
@@ -91,6 +91,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
 - **Non-obvious exploration:** the Research run must deliberately challenge obvious framings and explore cross-domain transfers, alternative decompositions, second-order effects, counterexamples, and unconventional plausible combinations while preserving normal evidence, feasibility, security, and evaluation standards.
+- **Implementation harness switch:** Codex/GPT-6-Astra implementation assumptions are superseded by Claude Code. Preparation/research/setup-design/review remain in the GPT-6-Pro WebUI workflow; Claude Code's native Claude/subagent ecosystem is the only implementation reasoning workforce, while external/local inference remains project-test-only.
 - **Standalone Quest VR / frontend independence:** Social Companion Tier B now requires optional standalone Quest-class VR with backend/client separation and cross-client session continuity; frontend technologies may differ freely across workloads.
 - **Avatar renderer split:** VRChat/Unity-package support is no longer a Cognitive-Core format requirement. The workload now exercises a lightweight VRM-oriented path plus a heavier game-engine/VRChat-package path, with PMX/MMD as an additional target.
 - **Persistent Personal Assistant Tier A:** now fixed as a Smartphone Personal Assistant with local/LAN/cloud/split inference options.
@@ -115,7 +116,7 @@ The modular draft explicitly retains, among other additions:
 - sparse/curated first-party skill policy;
 - bounded knowledge files and deterministic sharding/rotation;
 - dedicated Ubuntu implementation host and software baseline;
-- Codex as leading but replaceable harness candidate;
+- Claude Code as the required implementation harness, with current version/model/subagent configuration selected during the later setup run;
 - effective-cost-aware subagent selection;
 - implementation-subagent boundary;
 - Luna-only ChatGPT OAuth project-test rule;
