@@ -33,12 +33,12 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 74 |
-| unique decision IDs | 74 |
+| persisted decision IDs | 76 |
+| unique decision IDs | 76 |
 | decisions still pending integration | 0 |
 | mapped decision destination references | 120 |
-| future-facing integrated decisions | 59 |
-| superseded decisions | 12 |
+| future-facing integrated decisions | 60 |
+| superseded decisions | 13 |
 | preparation-only owner notes intentionally not propagated | 3 |
 | broken decision destination references | 0 |
 
@@ -91,6 +91,8 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
 - **Non-obvious exploration:** the Research run must deliberately challenge obvious framings and explore cross-domain transfers, alternative decompositions, second-order effects, counterexamples, and unconventional plausible combinations while preserving normal evidence, feasibility, security, and evaluation standards.
+- **Codex provider-path clarification:** Codex remains excluded from implementation workforce but is an optional disabled-by-default compound Coding-Agent provider via ChatGPT-plan OAuth / documented Codex integration surfaces; live use is owner-budget-gated because it consumes Codex subscription capacity.
+- **GPT-4o local-capture boundary:** Research specifies the capture; Claude Code executes API calls locally and keeps raw datasets off-repo. A narrow pre-implementation local capture lane is allowed solely to beat the expiring balance deadline.
 - **GPT-4o deadline capture:** the owner's approximately $62 OpenAI API balance expires on 2026-11-21 and may be fully consumed for useful Social-Companion reference capture; training reuse remains explicitly unresolved pending applicable terms/policy determination.
 - **Research/review operational model:** owner switched the WebUI Research/Architecture, Harness-Setup design, and milestone Architecture Review choice from GPT-6 Pro to GPT-5.6 Sol Pro because reported incomplete/aborted GPT-6 Pro runs are too costly under scarce message limits. The model identity remains intentionally absent from the run-facing prompts.
 - **Implementation harness switch:** Codex/GPT-6-Astra implementation assumptions are superseded by Claude Code. Preparation/research/setup-design/review remain in the GPT-5.6 Sol Pro WebUI workflow. Claude Code native agents are the primary implementation workforce, with a single bounded OpenCode free-model auxiliary exception; all other external/local inference remains project-test-only.
