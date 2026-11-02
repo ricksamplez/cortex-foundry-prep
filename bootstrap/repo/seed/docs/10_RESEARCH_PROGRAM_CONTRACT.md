@@ -517,6 +517,8 @@ Study relevant real systems/projects when they expose useful lessons for:
 
 Publicly observable systems such as Neuro-sama's ecosystem, GPTars/TARS-AI, desktop/computer agents, and other relevant projects are research inputs rather than cloning targets.
 
+For the Coding-Agent reference workload, subscription-backed coding agents such as Codex may be studied, benchmarked, or integrated as external reference/provider paths when useful. They are comparison targets and optional providers, not architecture dependencies.
+
 Separate public behavior and public technical material from speculation about proprietary internals.
 
 ---
