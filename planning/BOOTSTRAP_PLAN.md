@@ -68,21 +68,21 @@ The exact names may change during preparation, but the content should be separat
 5. **Research Completion & Implementation Handoff Requirements**
    - research completion criteria;
    - curated implementation package requirements;
-   - explicit Astra target where technically relevant;
+   - explicit Claude Code implementation-harness target where technically relevant;
    - handoff should not dump the entire research history into implementation context.
 
 6. **Implementation Harness Setup Runbook** — separate run/chat only
-   - GPT-6 Astra target;
-   - Codex v0.153.4 leading baseline but replaceable with strong evidence;
-   - supported ChatGPT OAuth constraint;
+   - Claude Code as the required implementation harness;
+   - current Claude Code version/install/authentication/model configuration researched immediately before implementation;
+   - Claude subscription/OAuth implementation-workforce constraint;
    - Ubuntu 26.04.1 dedicated host profile;
    - existing toolchain/software baseline;
    - plugins/skills/MCP/tool freedom;
    - issue tracking evaluation;
-   - subagent roles/model/reasoning/cost selection;
+   - native Claude Code subagent roles/model/configuration/effective-cost selection;
    - no external/local implementation subagents;
    - project-test provider allowlist;
-   - Luna-only ChatGPT OAuth project-evaluation rule;
+   - Luna-only ChatGPT OAuth project-evaluation rule remains a separate project-test constraint;
    - reproducibility/security/approval setup.
 
 7. **Architecture Review Runbook** — separate milestone review chats only
