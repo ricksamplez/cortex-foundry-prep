@@ -8,7 +8,7 @@
 - [x] All 62 v0.1 numbered sections mapped.
 - [x] Zero v0.1 sections marked dropped.
 - [x] All migration destination file/anchor references resolve.
-- [x] 71 persisted post-v0.1 owner decisions/notes accounted for: 58 current future-facing decisions integrated, 11 earlier decisions explicitly superseded, and 2 intentionally retained as preparation-only.
+- [x] 74 persisted post-v0.1 owner decisions/notes accounted for: 59 current future-facing decisions integrated, 12 earlier decisions explicitly superseded, and 3 intentionally retained as preparation-only.
 - [x] Zero mapped post-v0.1 decisions remain pending.
 - [x] Non-trivial semantic changes documented.
 - [x] Specialized learned-component / Teacher / canonical-data requirements integrated without making them the program's primary focus.
@@ -104,6 +104,12 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] OpenCode free-model auxiliary-subagent exception integrated with no silent paid fallback.
 - [x] GPT-4o temporary evaluation/reference policy integrated with training reuse blocked by default.
 - [x] Official Claude Code GitHub App/Action recognized as optional repo automation but not routine Implementation compute under current policy.
+
+## Time-sensitive external resource
+
+- [x] Expiring OpenAI API balance (approximately $62; expires 2026-11-21) surfaced in seed `state/NEXT_WORK.md`.
+- [x] Full useful consumption before expiry is authorized.
+- [x] GPT-4o training-reuse status remains `unclear_pending_terms_review`; capture/evaluation may proceed with provenance and separation.
 
 ## Launch-package assembly
 
