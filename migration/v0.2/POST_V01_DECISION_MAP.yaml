@@ -53,7 +53,7 @@ decisions:
 
   - id: D012
     topic: "Implementation harness may not use local/external project providers as its own subagents"
-    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-implementation-workforce-boundary"]
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-workforce-boundary"]
     status: superseded
     superseded_by: D064
 
@@ -296,7 +296,7 @@ decisions:
 
   - id: D066
     topic: "Claude Code subscription OAuth is implementation-harness authentication only and must not be repurposed as the system-under-test provider credential; Anthropic API/cloud provider usage would require separate supported credentials and explicit owner approval"
-    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#claude-code-baseline-and-optimization-scope", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#hard-implementation-workforce-boundary"]
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#claude-code-baseline-and-optimization-scope", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#implementation-workforce-boundary"]
     status: integrated
 
 
