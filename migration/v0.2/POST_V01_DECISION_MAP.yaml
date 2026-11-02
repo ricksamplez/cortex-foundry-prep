@@ -59,7 +59,7 @@ decisions:
 
   - id: D013
     topic: "ChatGPT OAuth project-under-test provider remains limited to GPT-5.6 Luna up to Max unless owner explicitly broadens the policy"
-    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
+    destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#codex-chatgpt-plan-oauth-coding-agent-provider-path"]
     status: superseded
     superseded_by: D068
 
