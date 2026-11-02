@@ -33,11 +33,11 @@ This matches `planning/BASELINE.md`.
 
 | Check | Result |
 |---|---:|
-| persisted decision IDs | 77 |
-| unique decision IDs | 77 |
+| persisted decision IDs | 78 |
+| unique decision IDs | 78 |
 | decisions still pending integration | 0 |
 | mapped decision destination references | 127 |
-| future-facing integrated decisions | 60 |
+| future-facing integrated decisions | 61 |
 | superseded decisions | 14 |
 | preparation-only owner notes intentionally not propagated | 3 |
 | broken decision destination references | 0 |
@@ -91,6 +91,7 @@ The following areas were intentionally **strengthened, split, or superseded** ra
 - **Public system-skill candidates:** Research-selected candidates must be reevaluated during implementation rather than becoming automatic dependencies.
 - **Project Docs authority:** clarified that Project Docs are stable mirrors/snapshots while repository copies are canonical evolving state.
 - **Non-obvious exploration:** the Research run must deliberately challenge obvious framings and explore cross-domain transfers, alternative decompositions, second-order effects, counterexamples, and unconventional plausible combinations while preserving normal evidence, feasibility, security, and evaluation standards.
+- **Codex SDK language neutrality:** current official TypeScript and Python SDKs are both valid late-integration choices; no language is preselected, and future official SDK languages must be rechecked before implementation.
 - **Codex provider-path clarification:** Codex remains excluded from implementation workforce. The provider is deliberately deferred until late implementation/near overall completion; the official SDK is preferred when sufficient, while app-server is a fallback for broader lifecycle/product control. The SDK still requires a local Codex runtime/binary. Live use remains owner-budget-gated because it consumes Codex subscription capacity.
 - **GPT-4o local-capture boundary:** Research specifies the capture; Claude Code executes API calls locally and keeps raw datasets off-repo. A narrow pre-implementation local capture lane is allowed solely to beat the expiring balance deadline.
 - **GPT-4o deadline capture:** the owner's approximately $62 OpenAI API balance expires on 2026-11-21 and may be fully consumed for useful Social-Companion reference capture; training reuse remains explicitly unresolved pending applicable terms/policy determination.
