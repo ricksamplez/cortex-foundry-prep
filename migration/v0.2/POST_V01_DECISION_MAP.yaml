@@ -341,16 +341,24 @@ decisions:
 
   - id: D075
     topic: "Codex/ChatGPT-plan OAuth is an optional compound external agent/provider path for Coding-Agent reference systems, preferably via documented codex app-server; it is disabled by default and live use requires an explicit owner usage window because it consumes Codex subscription capacity"
-    destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
-    status: integrated
+    destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#project-test-provider-boundaries", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#codex-chatgpt-plan-oauth-coding-agent-provider-path"]
+    status: superseded
+    superseded_by: D077
+
   - id: D076
     topic: "GPT-4o API data capture must execute locally under Claude Code with raw datasets off-repo; Research only specifies the capture/handoff, and a narrow pre-implementation Claude Code capture lane is allowed if needed to beat the 2026-11-21 balance expiry"
     destination: ["bootstrap/repo/seed/state/NEXT_WORK.md", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#openai-api-project-test-gpt-4o-reference-rule"]
     status: integrated
 
+
+  - id: D077
+    topic: "Codex/ChatGPT-plan OAuth provider is deferred until late implementation/near project completion; prefer the official Codex SDK when sufficient, while recognizing it still requires a local Codex runtime/binary, and use app-server only when broader lifecycle/product-control capabilities are materially needed"
+    destination: ["10_RESEARCH_PROGRAM_CONTRACT.md#external-reference-systems", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#codex-chatgpt-plan-oauth-coding-agent-provider-path"]
+    status: integrated
+
 audit:
-  decision_count: 76
+  decision_count: 77
   integrated_count: 60
-  superseded_count: 13
+  superseded_count: 14
   preparation_only_count: 3
   pending_count: 0
