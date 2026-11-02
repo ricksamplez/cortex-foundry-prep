@@ -554,7 +554,8 @@ Existing owner-approved resources for **project-under-test** work may include:
 - NVIDIA NIM free endpoints;
 - TypeSafe Jev — owner account currently observed with a $5 `Monthly credit` balance and no payment information configured;
 - local models/runtimes;
-- OpenAI API where approved and where prepaid balance remains available; a preparation-time balance of approximately $62 expires on 2026-11-21 and is expected to be used/captured before implementation if useful.
+- OpenAI API where approved and where prepaid balance remains available; a preparation-time balance of approximately $62 expires on 2026-11-21 and is expected to be used/captured locally if useful;
+- Codex/ChatGPT-plan OAuth as an **optional disabled-by-default Coding-Agent provider path**, with live usage only under an explicit owner usage window because it consumes the same Codex subscription capacity needed elsewhere.
 
 **ChatGPT subscription/OAuth is currently removed from project-test resources** to avoid interfering with unrelated Codex usage limits.
 
@@ -602,7 +603,22 @@ Keep reference/evaluation artifacts separable from training pipelines so a later
 
 GPT-4o API snapshots are currently deprecated and scheduled for shutdown on **2027-01-14**.
 
-Codex / `codex exec` and ChatGPT subscription models are intentionally excluded from this implementation workflow because their subscription usage is reserved for other owner projects.
+Codex is excluded from the **implementation workforce**, but the project may implement a **Codex/ChatGPT-plan OAuth external agent/provider path** for Coding-Agent reference systems.
+
+Preferred current integration candidate:
+
+- OpenAI's documented `codex app-server` driven by a ChatGPT-plan OAuth token.
+
+Treat this as a compound external coding-agent provider, not merely a raw model endpoint. The provider contract should distinguish model access, Codex-local agent/tool orchestration, and OpenAI-hosted/managed services.
+
+Because live use consumes the owner's Codex/ChatGPT-plan usage, the provider must be **activation/budget gated**:
+
+- do not invoke it routinely during Claude Code implementation;
+- do not use it as a hidden implementation helper;
+- permit only explicit owner-approved smoke/compatibility tests or later dedicated evaluation windows;
+- support a disabled/offline configuration when no Codex usage budget is available.
+
+`codex exec` is not the preferred provider integration mechanism for the final system; use the documented product-integration surface when appropriate.
 
 ---
 
