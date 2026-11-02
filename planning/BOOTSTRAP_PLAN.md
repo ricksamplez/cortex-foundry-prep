@@ -80,9 +80,13 @@ The exact names may change during preparation, but the content should be separat
    - plugins/skills/MCP/tool freedom;
    - issue tracking evaluation;
    - native Claude Code subagent roles/model/configuration/effective-cost selection;
-   - no external/local implementation subagents;
+   - Claude Code native implementation workforce plus exactly one bounded OpenCode auxiliary-subagent exception using genuinely free/no-cost models only;
    - project-test provider allowlist;
-   - Luna-only ChatGPT OAuth project-evaluation rule remains a separate project-test constraint;
+   - Fable usage-credit exclusion on Claude Pro unless owner explicitly approves extra credits;
+   - OpenCode free-model availability/capability/privacy smoke tests;
+   - GPT-4o temporary evaluation/reference capture policy with training reuse blocked by default;
+   - official Claude Code GitHub App/Action evaluated as optional repo automation but not routine Implementation compute under current GitHub Actions policy;
+   - ChatGPT subscription/OAuth excluded from project-test resources; OpenAI API may be used separately under provider-policy controls;
    - reproducibility/security/approval setup.
 
 7. **Architecture Review Runbook** — separate milestone review chats only
