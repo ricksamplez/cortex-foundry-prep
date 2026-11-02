@@ -56,14 +56,16 @@ Target implementation-model names remain allowed where they are technically rele
 
 Approximate character counts:
 
+Character counts refreshed on 2026-11-02 after the full prep-repository audit.
+
 | Draft | Characters |
 |---|---:|
-| Core Requirements Charter | 27,308 |
-| Research Program Contract | 20,814 |
-| Reference Workloads | 20,097 |
+| Core Requirements Charter | 28,463 |
+| Research Program Contract | 25,551 |
+| Reference Workloads | 23,329 |
 | Knowledge & Workspace Governance | 14,865 |
-| Research Completion & Handoff | 10,972 |
-| Implementation Harness Setup Runbook | 22,561 |
+| Research Completion & Handoff | 11,200 |
+| Implementation Harness Setup Runbook | 37,437 |
 | Architecture Review Runbook | 7,788 |
 
 No draft currently exhibits pathological giant-file growth.
@@ -126,7 +128,7 @@ The modular draft explicitly retains, among other additions:
 - effective-cost-aware subagent selection;
 - implementation-subagent boundary with one bounded OpenCode free-model exception;
 - Claude Pro Fable usage-credit exclusion unless owner-approved;
-- GPT-4o reference capture as evaluation-only by default, with training reuse gated by current provider terms;
+- GPT-4o reference capture with `training_reuse_status: unclear_pending_terms_review`, provenance, and separation from training pipelines until explicitly resolved;
 - ChatGPT/Luna removed from project-test resources; OpenAI API use handled separately under provider-policy controls;
 - approved external/local test-provider boundaries;
 - guaranteed-capacity-only Provider Capacity Snapshots;
