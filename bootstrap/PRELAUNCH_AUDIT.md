@@ -8,12 +8,13 @@
 - [x] All 62 v0.1 numbered sections mapped.
 - [x] Zero v0.1 sections marked dropped.
 - [x] All migration destination file/anchor references resolve.
-- [x] 78 persisted post-v0.1 owner decisions/notes accounted for: 61 current future-facing decisions integrated, 14 earlier decisions explicitly superseded, and 3 intentionally retained as preparation-only.
+- [x] 79 persisted post-v0.1 owner decisions/notes accounted for: 62 current future-facing decisions integrated, 14 earlier decisions explicitly superseded, and 3 intentionally retained as preparation-only.
 - [x] Zero mapped post-v0.1 decisions remain pending.
 - [x] Non-trivial semantic changes documented.
 - [x] Specialized learned-component / Teacher / canonical-data requirements integrated without making them the program's primary focus.
 - [x] Scoped manual routing/resource overrides integrated.
 - [x] Social Companion affect/speech/embodiment refinements integrated.
+- [x] Qwen3-TTS fixed as the first concrete TTS provider implementation anchor while preserving provider-neutral speech contracts.
 - [x] Non-obvious / outside-the-box exploration behavior integrated without weakening evidence discipline.
 - [x] Implementation-only Jev/current-hardware/GitHub-integration details remain isolated from Research Project Docs where appropriate.
 - [x] Research-program/repository naming boundary preserved.
