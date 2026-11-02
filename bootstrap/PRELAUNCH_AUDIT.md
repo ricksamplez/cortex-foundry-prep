@@ -22,10 +22,12 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 
 ## B. Run isolation
 
+- [x] GPT-5.6 Sol Pro selected operationally for Research/Architecture, Harness-Setup design, and milestone Architecture Review due owner reliability/usage-risk preference; model identity remains absent from run prompts.
+
 - [x] Research Program Contract excludes implementation-host setup details.
 - [x] Implementation Harness Setup is a separate runbook.
 - [x] Architecture Review is a separate milestone runbook.
-- [x] Research/Review docs do not tell the model that it is GPT-6 Pro.
+- [x] Research/Review docs do not tell the model that it is GPT-5.6 Sol Pro.
 - [x] Claude Code may be named where it is technically relevant as the implementation-harness target; the Research/Review model identity remains unprimed.
 - [x] No preparation-workspace name/URL appears in future-facing modular draft docs.
 
