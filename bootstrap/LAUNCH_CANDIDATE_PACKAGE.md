@@ -239,7 +239,7 @@ Uses the launch package described here.
 
 Separate chat/run.
 
-Receives completed Research output plus the dedicated implementation-host context and the current owner decision that **Claude Code is the required implementation harness**. The setup run determines the current Claude Code version, Claude model allocation, native subagents, permissions, skills/plugins, MCP, hooks, and context/continuity configuration.
+Receives completed Research output plus the dedicated implementation-host context and the current owner decision that **Claude Code is the required implementation harness**. The setup run determines the current Claude Code version, included Claude model allocation, native subagents, permissions, skills/plugins, MCP, hooks, context/continuity configuration, and the single bounded OpenCode-free-model auxiliary-subagent exception.
 
 Its runbook is intentionally absent from Phase A.
 
@@ -252,6 +252,16 @@ Begins only after Research completion + handoff + harness setup.
 Separate review chats at meaningful implementation milestones only.
 
 Implementation is paused while a milestone review runs.
+
+Current implementation-harness constraints:
+
+- Claude Pro is the expected implementation subscription;
+- Fable models remain excluded unless the owner explicitly approves usage-credit spending;
+- ChatGPT subscription/OAuth and GPT-5.6 Luna are not project-test resources;
+- OpenCode is the only approved non-Claude implementation-subagent exception and must stay on genuinely free/no-cost models unless explicitly approved otherwise;
+- OpenAI API balance may be used separately for project evaluation/reference;
+- GPT-4o may be captured as a temporary Social-Companion evaluation/reference source, not assumed trainable;
+- the official Claude Code GitHub App/Action is optional repo automation but not routine Implementation compute under the current GitHub Actions policy.
 
 ---
 
