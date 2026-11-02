@@ -275,7 +275,7 @@ decisions:
 
 
   - id: D062
-    topic: "Actual implementation is switched from Codex/GPT-6-Astra to Claude Code because Codex usage capacity is reserved across other owner projects; preparation/research/setup-design/review remain in the GPT-6-Pro WebUI workflow"
+    topic: "Actual implementation is switched from Codex/GPT-6-Astra to Claude Code because Codex usage capacity is reserved across other owner projects; preparation/research/setup-design/review remain in the GPT-5.6 Sol Pro WebUI workflow"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#purpose-and-scope", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#claude-code-baseline-and-optimization-scope", "40_RESEARCH_COMPLETION_AND_HANDOFF.md#curated-implementation-handoff"]
     status: integrated
   - id: D063
@@ -289,7 +289,7 @@ decisions:
     superseded_by: D067
 
   - id: D065
-    topic: "GitHub integration is split by phase: GPT-6-Pro WebUI setup/review may use OpenAI GitHub integration; Claude Code implementation uses local git/gh and/or Claude-Code-compatible MCP/plugin paths"
+    topic: "GitHub integration is split by phase: GPT-5.6 Sol Pro WebUI setup/review may use OpenAI GitHub integration; Claude Code implementation uses local git/gh and/or Claude-Code-compatible MCP/plugin paths"
     destination: ["runbooks/IMPLEMENTATION_HARNESS_SETUP.md#tooling-freedom", "runbooks/IMPLEMENTATION_HARNESS_SETUP.md#issue-and-work-tracking"]
     status: superseded
     superseded_by: D071
