@@ -8,7 +8,7 @@
 - [x] All 62 v0.1 numbered sections mapped.
 - [x] Zero v0.1 sections marked dropped.
 - [x] All migration destination file/anchor references resolve.
-- [x] 77 persisted post-v0.1 owner decisions/notes accounted for: 60 current future-facing decisions integrated, 14 earlier decisions explicitly superseded, and 3 intentionally retained as preparation-only.
+- [x] 78 persisted post-v0.1 owner decisions/notes accounted for: 61 current future-facing decisions integrated, 14 earlier decisions explicitly superseded, and 3 intentionally retained as preparation-only.
 - [x] Zero mapped post-v0.1 decisions remain pending.
 - [x] Non-trivial semantic changes documented.
 - [x] Specialized learned-component / Teacher / canonical-data requirements integrated without making them the program's primary focus.
@@ -112,6 +112,7 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] GPT-4o training-reuse status remains `unclear_pending_terms_review`; capture/evaluation may proceed with provenance and separation.
 - [x] GPT-4o raw capture is local-only under Claude Code; Research specifies/hands off the capture but does not execute the API campaign or push raw datasets through GitHub.
 - [x] Codex is modeled as an optional late-stage ChatGPT-plan OAuth Coding-Agent provider path; official SDK is preferred when sufficient, app-server is fallback for broader control, and live usage remains owner-budget-gated.
+- [x] Current official Codex TypeScript and Python SDKs treated equally; provider implementation language remains a late polyglot architecture choice.
 
 ## Launch-package assembly
 
