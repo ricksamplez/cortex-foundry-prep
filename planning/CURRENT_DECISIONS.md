@@ -252,9 +252,20 @@ Do not expose/reuse Claude Code's subscription OAuth as a production/test provid
 
 ChatGPT subscription/OAuth and GPT-5.6 Luna are currently **removed** from generic project-test resources to avoid consuming quota needed by unrelated Codex projects.
 
-Codex remains excluded from the implementation workforce. However, a **disabled-by-default Codex/ChatGPT-plan OAuth provider path** for Coding-Agent reference systems is allowed as a system-under-test capability. Live use requires an explicit owner-approved usage window because it consumes the same Codex/ChatGPT-plan capacity needed elsewhere.
+Codex remains excluded from the implementation workforce. However, a **late-stage, disabled-by-default Codex/ChatGPT-plan OAuth provider path** for Coding-Agent reference systems is allowed as a system-under-test capability.
 
-`codex exec` is not the intended final provider integration surface; prefer the documented Codex product-integration path such as `codex app-server` where appropriate.
+Concrete Codex integration is deferred until the project is close to overall completion and the owner's Codex usage is again available.
+
+Preferred integration order:
+
+1. official Codex SDK when sufficient;
+2. `codex app-server` only when its broader product/lifecycle/control surface is actually needed.
+
+The Codex SDK still spawns/depends on a local Codex runtime/binary; it is preferred because it avoids implementing the lower-level app-server protocol directly, not because it eliminates Codex installation/runtime requirements.
+
+Live use requires an explicit owner-approved usage window because it consumes the same Codex/ChatGPT-plan capacity needed elsewhere.
+
+`codex exec` is not the intended final provider integration surface.
 
 The owner has approximately **$62 of OpenAI API balance** available separately from ChatGPT/Codex subscription usage.
 
@@ -1153,30 +1164,35 @@ The existing project rule for unclear provider-output reuse remains applicable.
 
 ---
 
-## 54. Codex/ChatGPT OAuth as a Coding-Agent provider path
+## 54. Codex/ChatGPT OAuth as a deferred Coding-Agent provider path
 
 Codex is excluded from the implementation workforce but remains a strong **compound external agent/provider** candidate for Coding-Agent reference systems.
 
-The intended direction is not to benchmark the full Codex product as if it were a raw model.
+The concrete provider should be integrated **late, near overall project completion**, when the owner's Codex subscription usage is no longer heavily contested by other projects.
 
-Relevant distinctions:
+Before that point, Research/Implementation only needs to preserve a generic provider boundary capable of accommodating it.
+
+### Preferred integration
+
+Prefer the **official Codex SDK** first when its supported feature surface is sufficient.
+
+The current SDK still wraps/spawns a local Codex runtime/CLI binary, so this is not a way to avoid Codex as a local runtime dependency. It is a cleaner application-facing integration layer.
+
+Use `codex app-server` only if the future integration genuinely needs the broader lifecycle/product-control surface that the SDK does not expose.
+
+Relevant distinctions remain:
 
 - Codex model access;
 - Codex harness/agent loop;
 - Codex-local shell/MCP/child-agent tooling;
 - OpenAI-hosted/managed tools and cloud services.
 
-OpenAI now documents `codex app-server` as an application integration surface that can run with a ChatGPT-plan OAuth access token.
-
-That makes it a particularly relevant provider-path candidate for the future system.
-
 Usage constraints:
 
-- live Codex provider calls consume the owner's Codex/ChatGPT-plan usage;
-- this implementation must not opportunistically consume that quota;
-- build/design the provider path so it can remain disabled;
-- live smoke tests/evaluation require an explicit owner-approved usage window;
-- Codex must not become a hidden Claude Code subagent or implementation helper.
+- no live Codex provider implementation/testing until a late-stage owner-approved usage window;
+- live provider calls consume the owner's Codex/ChatGPT-plan usage;
+- provider remains disabled when no Codex budget is available;
+- Codex must never become a hidden Claude Code subagent or implementation helper.
 
 The value is an optional subscription-backed Coding-Agent capability path, not a dependency on Codex for the core architecture.
 
