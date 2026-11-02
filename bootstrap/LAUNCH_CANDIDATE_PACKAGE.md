@@ -11,6 +11,8 @@ Nothing in this document authorizes writing to the real Research repository befo
 
 The first Research run should start inside a **dedicated ChatGPT Project with project-only memory**.
 
+Owner-side model selection for Research/Architecture, Implementation-Harness Setup design, and milestone Architecture Review is **GPT-5.6 Sol Pro**. This model identity is an operational preparation choice and should not be injected into the Research/Review prompts as status priming.
+
 The Research run receives:
 
 - stable Project Docs;
