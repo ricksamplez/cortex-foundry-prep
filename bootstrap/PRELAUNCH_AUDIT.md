@@ -126,14 +126,19 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 
 - [x] Full prep-repository audit completed on 2026-11-02: structural maps, all destination anchors, seed synchronization, path references, secret-like patterns, duplicate anchors, scope leaks, current implementation/provider policies, and real-repo untouched state checked.
 
+## Owner review / Project setup
+
+- [x] Owner reports no further issues after reviewing the current candidate.
+- [x] Dedicated Research Project created and populated with the prepared Project Docs and Custom Instructions.
+
 ## G. Still required before launch
 
 - [x] Final assistant editorial/consistency pass completed over the five modular docs, Project Context, Custom Instructions, and Research Start Contract.
-- [ ] Owner final review/approval of the v0.2 candidate wording and launch package.
+- [x] Owner final review/approval of the v0.2 candidate wording and launch package.
 - [x] Copy modular v0.2 candidate docs into the real-repo seed tree.
 - [ ] Create the coherent initial bootstrap commit in `ricksamplez/cortex-foundry`.
-- [ ] Add/upload the selected Project Docs to the dedicated project-only-memory ChatGPT Project.
-- [ ] Set the prepared Project Custom Instructions.
+- [x] Selected Project Docs added/uploaded to the dedicated project-only-memory ChatGPT Project.
+- [x] Prepared Project Custom Instructions set in the dedicated Research Project.
 - [x] GitHub/repository access verification folded into the beginning of the first Research turn; no separate expensive message required.
 - [x] Run one final leak scan on the exact files/prompts being handed to the Research run.
 - [ ] Send the Research Start Contract as the first user message.
