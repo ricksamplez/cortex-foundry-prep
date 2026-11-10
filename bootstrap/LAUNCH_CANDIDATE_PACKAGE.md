@@ -1,6 +1,6 @@
 # Research Launch Candidate Package
 
-**Status:** preparation-only owner review package  
+**Status:** owner-reviewed launch package; real-repo cutover still pending  
 **Purpose:** one compact checklist describing the exact candidate launch state for the first Research/Architecture run.
 
 Nothing in this document authorizes writing to the real Research repository before the owner explicitly approves the launch/cutover.
@@ -285,14 +285,13 @@ GPT-4o training reuse is intentionally **not pre-decided**. Current classificati
 
 ## 11. Remaining owner/manual actions before first Research run
 
-After owner approval of the candidate wording:
+Owner review and ChatGPT Project setup are complete.
 
-1. create/configure the dedicated ChatGPT Project with project-only memory;
-2. add the six Project Docs;
-3. paste/set the prepared Project Custom Instructions;
-4. populate the real Research repository with the approved 11-file seed as coherently as practical;
-5. open the first Research chat inside the dedicated Project;
-6. send the Research Start Contract as the first message.
+Remaining launch sequence:
+
+1. populate the real Research repository with the approved 11-file seed as coherently as practical;
+2. open the first Research chat inside the already-configured dedicated Project;
+3. send the Research Start Contract as the first message.
 
 Repository-access verification then happens **inside that first Research turn**, not as a separate message.
 
@@ -318,9 +317,7 @@ Repository-access verification then happens **inside that first Research turn**,
 
 ### Still intentionally open
 
-- owner final review/approval;
 - actual real-repo bootstrap/cutover;
-- actual ChatGPT Project creation/configuration;
 - first Research run.
 
 ---
