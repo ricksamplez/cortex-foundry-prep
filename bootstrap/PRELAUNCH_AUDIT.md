@@ -131,12 +131,28 @@ Detailed proof: `migration/v0.2/MIGRATION_AUDIT.md`.
 - [x] Owner reports no further issues after reviewing the current candidate.
 - [x] Dedicated Research Project created and populated with the prepared Project Docs and Custom Instructions.
 
+## Real-repo bootstrap audit
+
+- [x] Real repository bootstrapped on 2026-11-10.
+- [x] Final `main` head: `14528e0abf463ddcfbb92d1103f5d965e1e9ad30`.
+- [x] Exactly 11 seed files present; 0 missing, 0 extra.
+- [x] All 11 target blobs match the approved prep seed exactly.
+- [x] 0 preparation-repository leaks.
+- [x] 0 Research/Review model-identity leaks.
+- [x] 0 secret-like credential patterns found.
+- [x] 0 stale policy markers found.
+- [x] 0 duplicate relevant Markdown anchors found.
+- [x] 15 internal Markdown file references checked; 0 broken.
+- [x] Naming boundary preserved: Cortex Foundry is the research identity, not the future system name.
+- [x] Setup/Review runbooks and preparation-only history are absent from the real Research repository.
+- [x] Git history contains two valid bootstrap commits only: one parentless final README initialization plus one complete seed-tree commit. This two-commit form is the minimum clean history possible through the available GitHub connector on an initially empty repository.
+
 ## G. Still required before launch
 
 - [x] Final assistant editorial/consistency pass completed over the five modular docs, Project Context, Custom Instructions, and Research Start Contract.
 - [x] Owner final review/approval of the v0.2 candidate wording and launch package.
 - [x] Copy modular v0.2 candidate docs into the real-repo seed tree.
-- [ ] Create the coherent initial bootstrap commit in `ricksamplez/cortex-foundry`.
+- [x] Real Research repository bootstrapped and audited at `ricksamplez/cortex-foundry`.
 - [x] Selected Project Docs added/uploaded to the dedicated project-only-memory ChatGPT Project.
 - [x] Prepared Project Custom Instructions set in the dedicated Research Project.
 - [x] GitHub/repository access verification folded into the beginning of the first Research turn; no separate expensive message required.
