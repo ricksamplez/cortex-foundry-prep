@@ -106,3 +106,25 @@ The real repository should begin with a coherent bootstrap commit rather than a 
 Preparation/migration history belongs outside the real Research repo.
 
 After bootstrap, Research commits should represent meaningful durable research/workspace progress.
+
+
+## Executed bootstrap result
+
+Bootstrap was executed on **2026-11-10** after explicit owner cutover approval.
+
+Final real-repository state:
+
+- repository: `ricksamplez/cortex-foundry`;
+- branch: `main`;
+- final bootstrap head: `14528e0abf463ddcfbb92d1103f5d965e1e9ad30`;
+- files: exactly the approved 11-file seed;
+- blob mismatches against approved seed: 0;
+- extra files: 0;
+- missing files: 0.
+
+Because the available GitHub connector cannot create a parentless multi-file Git commit in a completely empty repository, bootstrap uses the minimum clean two-commit sequence:
+
+1. `c1b28996f00ed66bb8e127636832a9457bca2d73` — initialize `main` with the final canonical `README.md`;
+2. `14528e0abf463ddcfbb92d1103f5d965e1e9ad30` — add the remaining ten approved seed files as one Git tree commit.
+
+Both commits contain only canonical future-facing Research content. No preparation-only history or placeholder/junk file was introduced.
